@@ -1,0 +1,31 @@
+# Ignore virtual environments
+venv/
+.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore WebDriver binaries (if stored locally)
+chromedriver
+geckodriver
+msedgedriver
+chromedriver.exe
+geckodriver.exe
+msedgedriver.exe
+
+# Ignore logs & output files
+*.log
+*.txt
+*.csv
+*.json
+
+# Ignore Jupyter Notebook checkpoints (if using notebooks)
+.ipynb_checkpoints/
+
+# Ignore data files (if applicable)
+data/
+scraped_data/
+*.zip
