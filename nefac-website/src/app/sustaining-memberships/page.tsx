@@ -23,7 +23,8 @@ const styles = {
   priceNumber: `text-[rgba(47,92,159,1)] text-6xl font-bold leading-none translate-y-1`,
   priceYear: `text-[rgba(174,174,174,1)] text-2xl self-end leading-none font-semibold`,
   planButton: `bg-[rgba(47,92,159,1)] text-white px-5 py-2 mb-2 rounded-full hover:bg-[rgba(37,73,127,1)] transition-colors text-center text-m font-medium no-underline`,
-  gradientText: `text-2xl font-bold mb-4 bg-gradient-to-r from-[rgba(70,71,88,1)] to-[rgba(13,22,126,1)] text-transparent bg-clip-text`
+  gradientText: `text-2xl font-bold mb-4 bg-gradient-to-r from-[rgba(70,71,88,1)] to-[rgba(13,22,126,1)] text-transparent bg-clip-text`,
+  blueLink: `text-[rgba(47,92,159,1)] underline`
 } as const;
 
 const SustainingMembershipsPage: React.FC = () => {
@@ -94,6 +95,40 @@ const SustainingMembershipsPage: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-16 grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 className={styles.gradientText}>Previous Perks</h2>
+          <ul className="space-y-3 text-lg list-disc pl-4">
+            <li>Free Hardcopy of "#FreePress: A Collection of Essays"</li>
+            <li>Complimentary Tickets to New England First Amendment Awards</li>
+            <li><a href="#" className={styles.blueLink}>First Amendment & Free Press</a></li>
+            <li><a href="#" className={styles.blueLink}>FOI Guides</a></li>
+            <li><a href="#" className={styles.blueLink}>Legal Briefs, Letters & Statements</a></li>
+            <li><a href="#" className={styles.blueLink}>NEFAC Mentors</a></li>
+            <li><a href="#" className={styles.blueLink}>Negri Institute</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className={styles.gradientText}>Want to gift a membership?</h2>
+          <p className="text-lg">
+            Just purchase one of the plans above and send the recipient's name and email address to{' '}
+            <a href="mailto:justin@nefac.org" className={styles.blueLink}>
+              justin@nefac.org
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-12 text-lg">
+        <p>
+          Thank you for joining NEFAC and being a part of this important fight to protect our most cherished freedoms. 
+          Your annual contribution will provide vital support for NEFAC's programs. By becoming a sustaining member, 
+          you will be able to engage with NEFAC in new ways and to network with our members, supporters and Board of Directors.
+        </p>
       </div>
     </main>
   );
