@@ -13,6 +13,9 @@ export default {
         foreground: "var(--foreground)",
         nefacblue: "#2F5C9F",
       },
+      listStyleType: {
+        square: 'square'
+      }
     },
   },
   plugins: [],

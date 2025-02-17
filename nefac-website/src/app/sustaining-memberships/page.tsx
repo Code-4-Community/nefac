@@ -100,7 +100,7 @@ const SustainingMembershipsPage: React.FC = () => {
       <div className="mt-16 grid md:grid-cols-2 gap-12">
         <div>
           <h2 className={styles.gradientText}>Previous Perks</h2>
-          <ul className="space-y-3 text-lg list-disc pl-4">
+          <ul className="space-y-3 text-lg list-square pl-4">
             <li>Free Hardcopy of "#FreePress: A Collection of Essays"</li>
             <li>Complimentary Tickets to New England First Amendment Awards</li>
             <li><a href="#" className={styles.linkText}>First Amendment & Free Press</a></li>
