@@ -1,16 +1,4 @@
-'use client';
-
-import { Inter, Poppins } from 'next/font/google';
 import React from 'react';
-
-const inter = Inter({ 
-    weight: [ '400', '500', '600', '700'],
-    subsets: ['latin'] 
-});
-const poppins = Poppins({ 
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin']
-});
 
 const styles = {
   mainBlue: 'rgba(47,92,159,1)',
@@ -29,13 +17,13 @@ const styles = {
 
 const SustainingMembershipsPage: React.FC = () => {
   return (
-    <main className={`${inter.className} max-w-6xl mx-auto px-4 py-12`}>
-      <h1 className={`${poppins.className} text-5xl font-bold text-[${styles.mainBlue}] mb-12`}>
+    <main className={`Inter max-w-6xl mx-auto px-4 py-12`}>
+      <h1 className={`Inter text-5xl font-bold text-[${styles.mainBlue}] mb-12`}>
         Sustaining Memberships
       </h1>
       
       <div className="grid md:grid-cols-2 gap-12">
-        <div className={`${poppins.className} ${styles.textBox}`}>
+        <div className={`Inter ${styles.textBox}`}>
           <p className="mb-6">
           At the highest levels of government, the press is denounced as "the enemy of the people." Media outlets are derided as purveyors of "fake news." Reporters covering events are being threatened with violence and even assaulted.
           </p>
@@ -134,4 +122,4 @@ const SustainingMembershipsPage: React.FC = () => {
   );
 };
 
-export default SustainingMembershipsPage; 
+export default SustainingMembershipsPage;

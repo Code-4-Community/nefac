@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface BubbleProps {
     image?: string;
     title?: string;
@@ -8,7 +10,7 @@ export interface BubbleProps {
     imageStyle?: string;
 }
 
-const Bubble = ({ image, title, text, link, linkText, style, imageStyle }: BubbleProps) => {
+export const Bubble = ({ image, title, text, link, linkText, style, imageStyle }: BubbleProps) => {
     return (
         <div className={`${style} ${image ? "relative" : ""} rounded-xl`}>
             {image && (
