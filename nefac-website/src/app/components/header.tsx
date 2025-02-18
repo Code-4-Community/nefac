@@ -21,7 +21,8 @@ const Header = ({ nefacLogo }: HeaderProps) => {
         <nav className="pl-10 flex justify-start gap-4 items-center">
           <div className="relative">
             <button
-              onClick={() => setDropdownOpenAbout(!isDropdownOpenAbout)}
+              onMouseEnter={() => setDropdownOpenAbout(!isDropdownOpenAbout)}
+              onMouseLeave={() => setDropdownOpenAbout(!isDropdownOpenAbout)}
               className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200"
             >
               About
@@ -61,7 +62,8 @@ const Header = ({ nefacLogo }: HeaderProps) => {
           <a href="/NEFAC-news/">NEFAC News</a>
           <div className="relative">
             <button
-              onClick={() => setDropdownOpenJoin(!isDropdownOpenJoin)}
+              onMouseEnter={() => setDropdownOpenJoin(!isDropdownOpenJoin)}
+              onMouseLeave={() => setDropdownOpenJoin(!isDropdownOpenJoin)}
               className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200"
             >
               Join
