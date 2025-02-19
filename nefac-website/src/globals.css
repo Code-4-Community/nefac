@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD:nefac-website/src/app/globals.css
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -60,9 +61,14 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-=======
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap');
-
+  }
+  * {
+    border-color: var(--border);
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
 
 :root {
   --background: #ffffff;
@@ -73,15 +79,5 @@ body {
   :root {
     --background: #ededed;
     --foreground: #0a0a0a;
->>>>>>> main:nefac-website/src/globals.css
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
