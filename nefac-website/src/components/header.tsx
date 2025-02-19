@@ -11,7 +11,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
   const [isDropdownOpenJoin, setDropdownOpenJoin] = useState(false);
 
   return (
-    <header className="flex flex-row justify-start items-center pb-4 w-[1920px]">
+    <header className="flex flex-row justify-center items-center pb-4 w-full">
       <img
         src={nefacLogo ?? "/icons/nefac-logo.svg"}
         alt="NEFAC LOGO"
@@ -19,12 +19,13 @@ const Header = ({ nefacLogo }: HeaderProps) => {
       />
       <div className="text-[16px]">
         <nav className="pl-10 flex justify-start gap-4 items-center">
-          <div className="relative">
-            <button
-              onMouseEnter={() => setDropdownOpenAbout(!isDropdownOpenAbout)}
-              onMouseLeave={() => setDropdownOpenAbout(!isDropdownOpenAbout)}
-              className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200"
-            >
+          {/* About Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setDropdownOpenAbout(true)}
+            onMouseLeave={() => setDropdownOpenAbout(false)}
+          >
+            <button className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200">
               About
               <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 10 6">
                 <path
@@ -58,14 +59,17 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               </div>
             )}
           </div>
+
           <a href="/what-we-do/">What We Do</a>
           <a href="/NEFAC-news/">NEFAC News</a>
-          <div className="relative">
-            <button
-              onMouseEnter={() => setDropdownOpenJoin(!isDropdownOpenJoin)}
-              onMouseLeave={() => setDropdownOpenJoin(!isDropdownOpenJoin)}
-              className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200"
-            >
+
+          {/* Join Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setDropdownOpenJoin(true)}
+            onMouseLeave={() => setDropdownOpenJoin(false)}
+          >
+            <button className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200">
               Join
               <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 10 6">
                 <path
@@ -131,16 +135,19 @@ const Header = ({ nefacLogo }: HeaderProps) => {
           </div>
         </nav>
       </div>
+
       <div className="flex flex-row gap-4 w-span">
         <div className="pl-[69px] pr-4">
           <SearchBar />
         </div>
-        <button
-          type="button"
-          className="text-white bg-[#2F5C9F] rounded-lg w-[117px] h-[48px]"
-        >
-          DONATE
-        </button>
+        <a href="/sustaining-memberships">
+          <button
+            type="button"
+            className="text-white bg-[#2F5C9F] rounded-lg w-[117px] h-[48px]"
+          >
+            DONATE
+          </button>
+        </a>
         <div className="grid place-items-center box-border border-[#F5F5F5] bg-[#F5F5F5] w-[48px] h-[48px] border-4 rounded-lg">
           <img
             src={nefacLogo ?? "/icons/bookmark.svg"}
