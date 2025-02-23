@@ -10,6 +10,9 @@ module.exports = {
       },
       listStyleType: {
         square: 'square'
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
       }
     },
   },
