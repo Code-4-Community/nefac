@@ -1,4 +1,4 @@
-import Bubble from "./components/bubble";
+import Bubble from "./components/Bubble";
 import Header from "./components/header";
 
 export default function Home() {
