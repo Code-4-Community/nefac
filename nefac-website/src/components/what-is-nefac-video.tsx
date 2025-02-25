@@ -51,7 +51,7 @@ const styles = {
   arrow: `w-3.5 h-3.5 transform transition-transform group-hover:translate-x-1`
 } as const;
 
-export default function WhatIsNefacVideo() {
+export const WhatIsNefacVideo: React.FC = () => {
   return (
     <section className={styles.container}>
       <div className={styles.titleWrapper}>
