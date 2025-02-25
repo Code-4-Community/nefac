@@ -1,10 +1,10 @@
 import React from "react";
-import Bubble from "./components/Bubble";
+import Bubble from "./app/components/Bubble";
 import "./globals.css";
-import SustainingMembershipsPage from "./pages/sustaining-memberships/page";
-import NewsPage from "./pages/nefac-news/page";
+import SustainingMembershipsPage from "./app/pages/sustaining-memberships/page";
+import NewsPage from "./app/pages/nefac-news/page";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/header";
+import Header from "./app/components/header";
 
 const App = () => {
 

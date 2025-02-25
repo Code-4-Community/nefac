@@ -11,14 +11,14 @@ const Header = ({ nefacLogo }: HeaderProps) => {
   const [isDropdownOpenJoin, setDropdownOpenJoin] = useState(false);
 
   return (
-    <header className="flex flex-row justify-center items-center pb-4 w-full">
+    <header className="relative flex flex-row justify-center items-center pb-4 w-full z-50">
       <img
         src={nefacLogo ?? "/icons/nefac-logo.svg"}
         alt="NEFAC LOGO"
         className="w-24 h-24"
       />
       <div className="text-[16px]">
-        <nav className="pl-10 flex justify-start gap-4 items-center">
+        <nav className="pl-10 flex justify-start gap-4 items-center relative">
           {/* About Dropdown */}
           <div
             className="relative"
@@ -38,7 +38,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               </svg>
             </button>
             {isDropdownOpenAbout && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-44 z-1000">
+              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-44 z-50">
                 <ul className="py-2 text-sm text-black">
                   <li>
                     <a href="#" className="block px-4 py-2 hover:text-black">
@@ -82,7 +82,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               </svg>
             </button>
             {isDropdownOpenJoin && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-44 z-10">
+              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-44 z-50">
                 <ul className="py-2 text-sm text-black">
                   <li>
                     <a href="#" className="block px-4 py-2 hover:text-black">
