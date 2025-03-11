@@ -2,8 +2,8 @@ import React from 'react';
 
 const styles = {
   mainBlue: 'rgba(47,92,159,1)',
-  textBox: `bg-[rgba(47,92,159,1)] text-white py-7 px-6 rounded-[24px] text-[15px]`,
-  planCard: `bg-white border-[4px] border-[rgba(47,92,159,1)] rounded-[24px] p-4 pt-12 flex flex-col items-center shadow-md`,
+  textBox: `bg-[rgba(47,92,159,1)] text-white py-7 px-6 rounded-[24px] text-[15px] font-poppins`,
+  planCard: `bg-white border-[4px] border-[rgba(47,92,159,1)] rounded-[24px] p-4 pt-12 flex flex-col items-center shadow-md font-inter`,
   planType: `w-[95%] mx-auto bg-[rgba(47,92,159,1)] text-white text-center py-2 rounded-full text-2xl mb-8 font-medium`,
   priceContainer: `text-center mb-10`,
   priceWrapper: `flex items-end justify-center gap-1`,
@@ -11,19 +11,21 @@ const styles = {
   priceNumber: `text-[rgba(47,92,159,1)] text-6xl font-bold leading-none translate-y-1`,
   priceYear: `text-[rgba(174,174,174,1)] text-2xl self-end leading-none font-semibold`,
   planButton: `bg-[rgba(47,92,159,1)] text-white px-5 py-2 mb-2 rounded-full hover:bg-[rgba(37,73,127,1)] transition-colors text-center text-m font-medium no-underline`,
-  gradientText: `text-2xl font-bold mb-4 bg-gradient-to-r from-[rgba(70,71,88,1)] to-[rgba(13,22,126,1)] text-transparent bg-clip-text`,
-  linkText: `underline`
+  gradientText: `text-2xl font-bold mb-4 bg-gradient-to-r from-[rgba(70,71,88,1)] to-[rgba(13,22,126,1)] text-transparent bg-clip-text font-poppins`,
+  linkText: `underline`,
+  mainTitle: `font-poppins text-5xl font-bold text-[rgba(47,92,159,1)] mb-12`,
+  thankYouText: `font-poppins text-lg`
 } as const;
 
 const SustainingMembershipsPage: React.FC = () => {
   return (
-    <main className={`Inter max-w-6xl mx-auto px-4 py-12`}>
-      <h1 className={`Inter text-5xl font-bold text-[${styles.mainBlue}] mb-12`}>
+    <main className="font-inter max-w-6xl mx-auto px-4 py-12">
+      <h1 className={styles.mainTitle}>
         Sustaining Memberships
       </h1>
       
       <div className="grid md:grid-cols-2 gap-12">
-        <div className={`Inter ${styles.textBox}`}>
+        <div className={styles.textBox}>
           <p className="mb-6">
           At the highest levels of government, the press is denounced as "the enemy of the people." Media outlets are derided as purveyors of "fake news." Reporters covering events are being threatened with violence and even assaulted.
           </p>
@@ -110,9 +112,8 @@ const SustainingMembershipsPage: React.FC = () => {
           </p>
         </div>
       </div>
-
-      <div className="mt-12 text-lg">
-        <p>
+      <div className="mt-12">
+        <p className={styles.thankYouText}>
           Thank you for joining NEFAC and being a part of this important fight to protect our most cherished freedoms. 
           Your annual contribution will provide vital support for NEFAC's programs. By becoming a sustaining member, 
           you will be able to engage with NEFAC in new ways and to network with our members, supporters and Board of Directors.
