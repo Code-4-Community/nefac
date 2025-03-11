@@ -112,7 +112,6 @@ const SustainingMembershipsPage: React.FC = () => {
           </p>
         </div>
       </div>
-
       <div className="mt-12">
         <p className={styles.thankYouText}>
           Thank you for joining NEFAC and being a part of this important fight to protect our most cherished freedoms. 

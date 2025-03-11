@@ -6,6 +6,7 @@ import NewsPage from "./app/pages/nefac-news/page";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./app/components/header";
 import MissionPage from "./app/pages/mission/page";
+
 const App = () => {
 
   return (
