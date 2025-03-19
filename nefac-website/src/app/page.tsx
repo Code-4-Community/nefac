@@ -1,5 +1,6 @@
-import Bubble from "./components/bubble";
-import Header from "./components/header";
+import Bubble from "../components/Bubble";
+import Header from "../components/header";
+import CommentarySection from "@/components/CommentarySection";
 
 export default function Home() {
   return (
@@ -38,7 +39,9 @@ export default function Home() {
             style="bg-nefacblue text-white text-4xl text-bold w-1/4 h-1/3 leading-[50px] p-6"
           />
         </div>
+        <CommentarySection />
       </div>
     </div>
   );
 }
+
