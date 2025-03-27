@@ -72,16 +72,10 @@ export const LeadershipPage: React.FC = () => {
   console.log(advSection)
 
   const scrollToSection = (elementRef: React.RefObject<HTMLDivElement | null>) => {
-    /*
-    console.log(elementRef.current)
-    if (elementRef.current) {
-      elementRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-      */
     if (elementRef.current) {
       elementRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "start",  // Ensures it scrolls to the top of the viewport
+        block: "start",  
         inline: "nearest",
       });
     }
