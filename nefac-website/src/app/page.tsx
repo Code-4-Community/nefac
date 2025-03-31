@@ -5,9 +5,6 @@ import CommentarySection from "@/components/CommentarySection";
 export default function Home() {
   return (
     <div className="px-36 pt-12 flex flex-row flex-wrap gap-4">
-      <div className="z-10">
-        <Header />
-      </div>
       <div className="z-0">
         <Bubble
           title="NEFAC, Mass. Open Government Groups: Governor’s Proposal Will Close the Open Meeting Law"

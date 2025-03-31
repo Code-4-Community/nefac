@@ -11,13 +11,13 @@ const App = () => {
   return (
     <>
     <Header />
-        <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/nefac-news" element={<NewsPage />} />
-        <Route path="/sustaining-memberships" element={<SustainingMembershipsPage />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/nefac-news" element={<NewsPage />} />
+          <Route path="/sustaining-memberships" element={<SustainingMembershipsPage />} />
+        </Routes>
+      </Router>
     </>
   );
 
