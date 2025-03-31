@@ -1,5 +1,5 @@
 import React from 'react';
-import NefacMission from '../../../components/nefac-mission';
+import NefacMission from '@/app/components/nefac-mission';
 
 const MissionPage = () => {
   return (

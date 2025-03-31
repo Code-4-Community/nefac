@@ -1,4 +1,4 @@
-import ArticleCardCarousel from "@/components/ArticleCardCarousel";
+import ArticleCardCarousel from "./ArticleCardCarousel";
 
 // placeholder content
 const articles = [

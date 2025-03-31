@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageCollageWrapper } from '../app/components/ImageCollage';
+import { ImageCollageWrapper } from './ImageCollage';
 
 const styles = {
   container: `max-w-6xl mx-auto px-4 py-12 md:py-16`,
