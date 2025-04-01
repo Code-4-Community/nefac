@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import NameCard from "@/app/components/NameCard";
 
 const exec1 = [
@@ -69,6 +69,7 @@ export const LeadershipPage: React.FC = () => {
   const execSection =  useRef<HTMLDivElement>(null);
   const boardSection =  useRef<HTMLDivElement>(null);
   const advSection =  useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState("Executive Committee");
   console.log(advSection)
 
   const scrollToSection = (elementRef: React.RefObject<HTMLDivElement | null>) => {
@@ -83,7 +84,7 @@ export const LeadershipPage: React.FC = () => {
   return (
     <div className="flex flex-row bg-[conic-gradient(from_41deg_at_98.2%_0%,_#FFF_0deg,_rgba(21,96,241,0.3)_135deg,_rgba(234,234,234,0.3)_182deg)] h-[3603px]">
       <div className="flex flex-col pr-10 pl-10 gap-2">
-        <button onClick={() => scrollToSection(execSection)} className="font-weight-[60d] w-[269px] pl-2 bg-white text-left border-l-4 border-blue-900">
+        {/* <button onClick={() => scrollToSection(execSection)} className="font-weight-[60d] w-[269px] pl-2 bg-white text-left border-l-4 border-blue-900">
           Executive Comittee
         </button>
         <button onClick={() => scrollToSection(boardSection)} className="font-weight-[60d] pl-2 bg-white text-left">
@@ -91,7 +92,46 @@ export const LeadershipPage: React.FC = () => {
         </button>
         <button onClick={() => scrollToSection(advSection)} className="font-weight-[60d] pl-2 bg-white text-left">
           Advisors
-        </button>
+        </button> */}
+        <div
+          onClick={() => {{
+            setActiveTab("Executive Committee")
+            scrollToSection(execSection)
+          }}}
+          className={`p-3 cursor-pointer font-semibold border-l-4 ${
+            activeTab === "Executive Committee"
+            ? "border-black bg-white text-black"
+            : "border-transparent bg-white text-black hover:bg-gray-200"
+          }`}
+          >
+          Executive Committee
+        </div>
+        <div
+          onClick={() => {{
+            setActiveTab("Board of Directors")
+            scrollToSection(boardSection)
+          }}}
+          className={`p-3 cursor-pointer font-semibold border-l-4 ${
+            activeTab === "Board of Directors"
+            ? "border-black bg-white text-black"
+            : "border-transparent bg-white text-black hover:bg-gray-200"
+          }`}
+          >
+          Board of Directors
+        </div>
+        <div
+          onClick={() => {{
+            setActiveTab("Advisors")
+            scrollToSection(advSection)
+          }}}
+          className={`p-3 cursor-pointer font-semibold border-l-4 ${
+            activeTab === "Advisors"
+            ? "border-black bg-white text-black"
+            : "border-transparent bg-white text-black hover:bg-gray-200"
+          }`}
+          >
+          Advisors
+        </div>
       </div>
       <div className="flex flex-col">
         <div className="flex flex-col">
