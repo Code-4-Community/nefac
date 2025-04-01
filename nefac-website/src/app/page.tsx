@@ -1,4 +1,3 @@
-import Bubble from "../app/components/Bubble";
 import CommentarySection from "../app/components/CommentarySection";
 
 export default function Home() {

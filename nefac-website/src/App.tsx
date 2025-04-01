@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/nefac-news" element={<NewsPage />} />
         <Route path="/sustaining-memberships" element={<SustainingMembershipsPage />} />
         <Route path="/mission" element={<MissionPage />} />
-        <Route path="/leadership" element={<LeadershipPage/>} />
+         <Route path="/leadership" element={<LeadershipPage />} />
       </Routes>
     </Router>
     </>
