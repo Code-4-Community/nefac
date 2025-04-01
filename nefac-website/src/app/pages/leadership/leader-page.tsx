@@ -82,17 +82,8 @@ export const LeadershipPage: React.FC = () => {
     }
   };
   return (
-    <div className="flex flex-row bg-[conic-gradient(from_41deg_at_98.2%_0%,_#FFF_0deg,_rgba(21,96,241,0.3)_135deg,_rgba(234,234,234,0.3)_182deg)] h-[3603px]">
-      <div className="flex flex-col pr-10 pl-10 gap-2">
-        {/* <button onClick={() => scrollToSection(execSection)} className="font-weight-[60d] w-[269px] pl-2 bg-white text-left border-l-4 border-blue-900">
-          Executive Comittee
-        </button>
-        <button onClick={() => scrollToSection(boardSection)} className="font-weight-[60d] pl-2 bg-white text-left">
-          Board of Directors
-        </button>
-        <button onClick={() => scrollToSection(advSection)} className="font-weight-[60d] pl-2 bg-white text-left">
-          Advisors
-        </button> */}
+    <div className="flex flex-row min-h-screen">
+      <div className="flex flex-col pr-10 pl-10 gap-2 sticky top-10 self-start h-fit">
         <div
           onClick={() => {{
             setActiveTab("Executive Committee")

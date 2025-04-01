@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import SearchBar from "./search-bar";
 
 export interface HeaderProps {
@@ -10,20 +10,50 @@ const Header = ({ nefacLogo }: HeaderProps) => {
   const [isDropdownOpenAbout, setDropdownOpenAbout] = useState(false);
   const [isDropdownOpenJoin, setDropdownOpenJoin] = useState(false);
 
+  const aboutTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const joinTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnterAbout = () => {
+    if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+    setDropdownOpenAbout(true);
+  };
+
+  const handleMouseLeaveAbout = () => {
+    aboutTimeoutRef.current = setTimeout(() => {
+      setDropdownOpenAbout(false);
+    }, 200);
+  };
+
+  const handleMouseEnterJoin = () => {
+    if (joinTimeoutRef.current) clearTimeout(joinTimeoutRef.current);
+    setDropdownOpenJoin(true);
+  };
+
+  const handleMouseLeaveJoin = () => {
+    joinTimeoutRef.current = setTimeout(() => {
+      setDropdownOpenJoin(false);
+    }, 200);
+  };
+
   return (
     <header className="relative flex flex-row justify-center items-center pb-4 w-full z-50">
-      <img
-        src={nefacLogo ?? "/icons/nefac-logo.svg"}
-        alt="NEFAC LOGO"
-        className="w-24 h-24"
-      />
+      <a href="/#">
+        <img
+          src={nefacLogo ?? "/icons/nefac-logo.svg"}
+          alt="NEFAC LOGO"
+          className="w-24 h-24"
+        />
+      </a>
+      <div className="pl-[69px] pr-4">
+        <SearchBar />
+      </div>
       <div className="text-[16px]">
         <nav className="pl-10 flex justify-start gap-4 items-center relative">
           {/* About Dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setDropdownOpenAbout(true)}
-            onMouseLeave={() => setDropdownOpenAbout(false)}
+            onMouseEnter={handleMouseEnterAbout}
+            onMouseLeave={handleMouseLeaveAbout}
           >
             <button className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200">
               About
@@ -38,10 +68,10 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               </svg>
             </button>
             {isDropdownOpenAbout && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-44 z-50">
+              <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
                 <ul className="py-2 text-sm text-black">
                   <li>
-                    <a href="#" className="block px-4 py-2 hover:text-black">
+                    <a href="/leadership" className="block px-4 py-2 hover:text-black">
                       Leadership
                     </a>
                   </li>
@@ -60,14 +90,14 @@ const Header = ({ nefacLogo }: HeaderProps) => {
             )}
           </div>
 
-          <a href="/what-we-do/">What We Do</a>
+          <a href="/mission/">What We Do</a>
           <a href="/NEFAC-news/">NEFAC News</a>
 
           {/* Join Dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setDropdownOpenJoin(true)}
-            onMouseLeave={() => setDropdownOpenJoin(false)}
+            onMouseEnter={handleMouseEnterJoin}
+            onMouseLeave={handleMouseLeaveJoin}
           >
             <button className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200">
               Join
@@ -82,7 +112,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               </svg>
             </button>
             {isDropdownOpenJoin && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-44 z-50">
+              <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
                 <ul className="py-2 text-sm text-black">
                   <li>
                     <a href="#" className="block px-4 py-2 hover:text-black">
@@ -137,9 +167,6 @@ const Header = ({ nefacLogo }: HeaderProps) => {
       </div>
 
       <div className="flex flex-row gap-4 w-span">
-        <div className="pl-[69px] pr-4">
-          <SearchBar />
-        </div>
         <a href="/sustaining-memberships">
           <button
             type="button"
@@ -148,13 +175,6 @@ const Header = ({ nefacLogo }: HeaderProps) => {
             DONATE
           </button>
         </a>
-        <div className="grid place-items-center box-border border-[#F5F5F5] bg-[#F5F5F5] w-[48px] h-[48px] border-4 rounded-lg">
-          <img
-            src={nefacLogo ?? "/icons/bookmark.svg"}
-            alt="bookmark"
-            className="w-[20px] h-[20px]"
-          />
-        </div>
       </div>
     </header>
   );
