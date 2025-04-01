@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/x";
 import "react-social-icons/facebook";
