@@ -1,3 +1,4 @@
+import NewsLetter from '@/app/components/NewsLetter';
 import React from 'react';
 
 
@@ -19,7 +20,35 @@ export const SubscribePage: React.FC = () => {
                         <img src="/public/images/subscribe.png" alt='subscribe image' className='rounded-lg'/>
                     </div>
                 </div>
-                
+                <h1 className="text-nefacblue font-bold text-3xl mt-4 mb-4">Newsletters</h1>
+                <div className="grid grid-cols-4 gap-4">
+                    <NewsLetter
+                        title="All NEFAC Mailings"
+                        description="Receive all NEFAC news and programming updates including our commentary and news coverage, monthly NEFAC Advocacy report, state bulletins and our First Amendment and Sunshine News briefing."
+                        url="https://lp.constantcontactpages.com/sl/YlNDCRU/allnefacmailings"
+                    />
+                    <NewsLetter
+                        title="NEFAC Advocacy"
+                        description="Our monthly roundup of coalition advocacy throughout the region. Stay on top of the issues leading NEFAC’s agenda in New England and how we’re moving the needle in each state."
+                        url="https://lp.constantcontactpages.com/sl/MrulG8H/nefacadvocacy"
+                    />
+                    <NewsLetter
+                        title="NEFAC Commentary and Coverage"
+                        description="Our expert commentary appears across the country. This is a monthly summary of where our advocacy is appearing and an easy way for you to keep in tune with current First Amendment and open government concerns."
+                        url="https://lp.constantcontactpages.com/sl/EH0YjCf/commentaryandcoverage"
+                    />
+                    <NewsLetter
+                        title="NEFAC Community"
+                        description="Join our growing community of journalists, attorneys, academics and other curious, democracy-minded folks. Each month, we’ll let you know how you can attend the coalition’s many events, classes and presentations."
+                        url="https://lp.constantcontactpages.com/sl/SaSzTzC/nefaccommunity"
+                    />
+
+                    <NewsLetter
+                        title="First Amendment and Sunshine News"
+                        description="Receive our monthly roundup of all First Amendment and open government news within New England and across the country."
+                        url="https://lp.constantcontactpages.com/sl/Ymsk67y/firstamendmentandsunshine"
+                    />
+                </div>
             </div>
         </>
     );

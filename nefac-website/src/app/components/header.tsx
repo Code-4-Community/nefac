@@ -115,6 +115,11 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
                 <ul className="py-2 text-sm text-black">
                   <li>
+                    <a href="/subscribe" className="block px-4 py-2 hover:text-black">
+                      Subscribe
+                    </a>
+                  </li>
+                  <li>
                     <a href="#" className="block px-4 py-2 hover:text-black">
                       30 Minute Skills
                     </a>
