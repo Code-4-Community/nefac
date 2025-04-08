@@ -8,6 +8,7 @@ import Footer from "./app/components/footer";
 import MissionPage from "./app/pages/mission/page";
 import Home from "./app/page";
 import LeadershipPage from "./app/pages/leadership/leader-page";
+import SubscribePage from "./app/pages/subscribe/page";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/sustaining-memberships" element={<SustainingMembershipsPage />} />
         <Route path="/mission" element={<MissionPage />} />
         <Route path="/leadership" element={<LeadershipPage />} />
+        <Route path="/subscribe" element={<SubscribePage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
