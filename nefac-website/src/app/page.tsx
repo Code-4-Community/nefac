@@ -23,10 +23,39 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
       </div>
-      <div className="px-36 flex flex-row gap-4">
-        <NefacFlipCard />
-        <NefacFlipCard />
-        <NefacFlipCard />
+      <div className="px-36 flex flex-row gap-7 w-full">
+        <NefacFlipCard
+          caption="Education"
+          imageBlue="/icons/grad-cap.svg"
+          imageWhite="/icons/grad-cap-white.svg"
+          links={[
+            { text: "Amicus Briefs", url: "/" },
+            { text: "Legal Referrals", url: "/" },
+            { text: "Defense Fund", url: "/" },
+          ]}
+        />
+        <NefacFlipCard
+          caption="Advocacy"
+          imageBlue="/icons/megaphone.svg"
+          imageWhite="/icons/megaphone-white.svg"
+          links={[
+            { text: "Commentary & Coverage", url: "/" },
+            { text: "Statements & Letters", url: "/" },
+            { text: "New England First Amendment Awards", url: "/" },
+          ]}
+        />
+        <NefacFlipCard
+          caption="Defense"
+          imageBlue="/icons/gavel.svg"
+          imageWhite="/icons/gavel-white.svg"
+          links={[
+            { text: "30-Minute Skills", url: "/" },
+            { text: "First Amendment & Free Press", url: "/" },
+            { text: "FOI Guide", url: "/" },
+            { text: "NEFAC Mentors", url: "/" },
+            { text: "Negri Institute", url: "/" },
+          ]}
+        />
       </div>
       <div className="px-36 pt-12 flex flex-col flex-wrap gap-4">
         <div className="z-0 pb-20">
