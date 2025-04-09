@@ -1,12 +1,5 @@
 import ArticleCard from './ArticleCard';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/app/components/ui/carousel";
-
+import CardCarousel from './CardCarousel';
 interface Article {
   thumbnailUrl: string;
   title: string;
@@ -16,31 +9,22 @@ interface Article {
 
 interface ArticleCardCarouselProps {
   articles: Article[];
+  showControls?: boolean;
+  slidesPerView?: number;
 }
 
-const ArticleCardCarousel = ({ articles }: ArticleCardCarouselProps) => {
+const ArticleCardCarousel = ({ articles, showControls, slidesPerView }: ArticleCardCarouselProps) => {
   return (
-    <Carousel className="w-full py-4 mb-8">
-      <CarouselContent className="flex">
-        {articles.map((article, i) => (
-          <CarouselItem 
-            key={i}
-            className="basis-full md:basis-1/2 flex p-2"
-          >
-            <div className="w-full flex flex-col h-full">
-              <ArticleCard
-                thumbnailUrl={article.thumbnailUrl}
-                title={article.title}
-                summary={article.summary}
-                articleUrl={article.articleUrl}
-              />
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+    <CardCarousel
+      items={articles}
+      renderItem={(article) => (
+        <div className="w-full flex flex-col h-full">
+          <ArticleCard {...article} />
+        </div>
+      )}
+      showControls={showControls}
+      slidesPerView={slidesPerView}
+    />
   )
 };
 
