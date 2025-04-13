@@ -47,7 +47,7 @@ const HomePage = () => {
             <a href="https://www.linkedin.com/company/nefac/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm" target="_blank" rel="noopener noreferrer">
               <FaSpotify size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
           </div>
