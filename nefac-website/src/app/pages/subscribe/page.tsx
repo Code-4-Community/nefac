@@ -21,7 +21,7 @@ export const SubscribePage: React.FC = () => {
                     </div>
                 </div>
                 <h1 className="text-nefacblue font-bold text-3xl mt-4 mb-4">Newsletters</h1>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-4 gap-4" style={{marginBottom: '3%'}}>
                     <NewsLetter
                         title="All NEFAC Mailings"
                         description="Receive all NEFAC news and programming updates including our commentary and news coverage, monthly NEFAC Advocacy report, state bulletins and our First Amendment and Sunshine News briefing."
