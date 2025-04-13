@@ -23,7 +23,7 @@ const ArticleCard = ({ thumbnailUrl, title, summary, articleUrl }: ArticleCardPr
           <h2 className="block text-[20px] leading-tight font-bold text-black">
             {title}
           </h2>
-          <p className="mt-2 text-black text-[16px]">
+          <p className="mt-2 text-black text-[14px]">
             {summary}
           </p>
         </div>
