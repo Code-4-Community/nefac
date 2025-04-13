@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import SearchBar from "./search-bar";
+import SearchBar from "./header/search-bar";
 
 export interface HeaderProps {
   nefacLogo?: string;
@@ -36,19 +36,17 @@ const Header = ({ nefacLogo }: HeaderProps) => {
   };
 
   return (
-    <header className="relative flex flex-row justify-center items-center pb-4 w-full z-50">
+    <header className="relative flex flex-row justify-between items-center my-8 mx-12 z-50 text-nefacblue">
       <a href="/#">
         <img
           src={nefacLogo ?? "/icons/nefac-logo.svg"}
           alt="NEFAC LOGO"
-          className="w-24 h-24"
+          className="w-20 h-20"
         />
       </a>
-      <div className="pl-[69px] pr-4">
-        <SearchBar />
-      </div>
-      <div className="text-[16px]">
-        <nav className="pl-10 flex justify-start gap-4 items-center relative">
+      <SearchBar />
+      <div className="text-[16px] ml-36">
+        <nav className="flex justify-start gap-4 items-center relative">
           {/* About Dropdown */}
           <div
             className="relative"
@@ -175,9 +173,9 @@ const Header = ({ nefacLogo }: HeaderProps) => {
         <a href="/sustaining-memberships">
           <button
             type="button"
-            className="text-white bg-[#2F5C9F] rounded-lg w-[117px] h-[48px]"
+            className="text-white bg-[#2F5C9F] rounded-xl w-[117px] h-[36px]"
           >
-            DONATE
+            Donate
           </button>
         </a>
       </div>

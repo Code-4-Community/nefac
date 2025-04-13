@@ -1,8 +1,8 @@
-import { Input } from "./ui/input";
+import { Input } from "@/app/components/ui/input";
 
 const SearchBar = () => {
   return (
-    <div className="flex items-center w-[399px] h-[48px] space-x-2 rounded-lg border border-gray-300 bg-gray-75 px-3.5 py-2">
+    <div className="flex items-center w-[399px] h-[36px] space-x-2 rounded-lg border border-gray-300 bg-gray-75 px-3.5 py-2">
       <img src={"/icons/3-dots.svg"} alt="3 dots" className="h-4 w-4" />
       <Input
         type="search"

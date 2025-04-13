@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import NewsBubble from '@/app/components/news-bubble';
+import NewsBubble from '@/app/components/news-page/news-bubble';
 import LeftChevron from '@/app/components/icons/LeftChevron'
 import RightChevron from '@/app/components/icons/RightChevron'
+import { WordPressArticle } from "@/app/components/news-page/article-interface";
 
 export const NewsPage = () => {
-  const [featuredArticle, setFeaturedArticle] = useState(null);
-  const [newsArticles, setNewsArticles] = useState([]);
+  const [featuredArticle, setFeaturedArticle] = useState<WordPressArticle | null>(null);
+  const [newsArticles, setNewsArticles] = useState<WordPressArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,8 +46,6 @@ export const NewsPage = () => {
       url.searchParams.append('offset', offset.toString());
       url.searchParams.append('_embed', 'true');
 
-      console.log(url.toString());
-
       const response = await fetch(url.toString());
       if (!response.ok) {
         throw new Error('Failed to fetch news articles');
@@ -84,23 +83,23 @@ export const NewsPage = () => {
     }
   }, [currentPage]);
 
-  const handlePageChange = (pageNum) => {
-    if (pageNum >=1 && pageNum <= totalPages) {
+  const handlePageChange = (pageNum: number = 1) => {
+    if (pageNum >= 1 && pageNum <= totalPages) {
       setCurrentPage(pageNum);
     }
   };
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatDate = (dateString: string) => {
+    const options = { year: "numeric" as const, month: "long" as const, day: "numeric" as const};
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
-  const stripHTML = (html) => {
+  const stripHTML = (html: string) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || '';
   };
 
-  const removeAuthor = (excerpt) => {
+  const removeAuthor = (excerpt: string) => {
     const plainText = stripHTML(excerpt);
     const authorPattern = /^By\s+(([A-Za-z]+(\s+[A-Za-z]+)?)(,?\s+and\s+|\s*,\s*)?)+?\s+(?=[A-Z])/;
     const match = plainText.match(authorPattern);
@@ -111,7 +110,7 @@ export const NewsPage = () => {
     return excerpt;
   }
 
-  const getImageFromArticle = (article) => {
+  const getImageFromArticle = (article: string) => {
     const imgRegex = /<img[^>]+src="([^">]+)"/;
     const match = article.match(imgRegex);
     return match ? match[1] : null;
@@ -138,8 +137,8 @@ export const NewsPage = () => {
 
   if (loading && currentPage === 1 && !featuredArticle) {
     return (
-      <div className="px-36 pt-12">
-        <h1 className="text-nefacblue font-bold text-5xl">NEFAC News</h1>
+      <div className="mx-20 pt-12">
+        <h1 className="text-nefacblue font-semibold text-5xl">NEFAC News</h1>
         <div className="mt-8">Loading news articles...</div>
       </div>
     );
@@ -147,16 +146,16 @@ export const NewsPage = () => {
 
   if (error && !featuredArticle) {
     return (
-      <div className="px-36 pt-12">
-        <h1 className="text-nefacblue font-bold text-5xl">NEFAC News</h1>
+      <div className="mx-20 pt-12">
+        <h1 className="text-nefacblue font-semibold  text-5xl">NEFAC News</h1>
         <div className="mt-8 text-red-500">Error: {error}</div>
       </div>
     );
   }
 
   return (
-      <div className="px-36 pt-12 flex flex-row flex-wrap gap-4">
-        <h1 className="text-nefacblue font-bold text-5xl">NEFAC News</h1>
+      <div className="mx-20 pt-12 flex flex-row flex-wrap gap-4">
+        <h1 className="text-nefacblue font-semibold  text-5xl">NEFAC News</h1>
         {featuredArticle && (
           <NewsBubble
           image={
