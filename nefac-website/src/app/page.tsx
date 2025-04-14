@@ -1,6 +1,6 @@
-import AdvocacySection from "./components/AdvocacySection";
-import CommentarySection from "./components/CommentarySection";
-import CommunitySection from "./components/CommunitySection";
+import AdvocacySection from "./components/home-page/AdvocacySection";
+import CommentarySection from "./components/home-page/CommentarySection";
+import CommunitySection from "./components/home-page/CommunitySection";
 import HomePage from "./pages/home/page";
 
 export default function Home() {
