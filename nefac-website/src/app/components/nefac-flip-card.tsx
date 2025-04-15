@@ -21,7 +21,8 @@ const NefacFlipCard = ({
           ? "bg-nefacblue text-white"
           : "bg-white text-black border-4 border-nefacblue"
       }`}
-      onClick={() => setFlipped(!isFront)}
+      onMouseEnter ={() => setFlipped(!isFront)}
+      onMouseLeave ={() => setFlipped(!isFront)}
     >
       {isFront ? (
         <div>
