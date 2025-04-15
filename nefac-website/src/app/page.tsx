@@ -1,6 +1,7 @@
 import AdvocacySection from "./components/home-page/AdvocacySection";
 import CommentarySection from "./components/home-page/CommentarySection";
 import CommunitySection from "./components/home-page/CommunitySection";
+import { NewsSection } from "./components/home-page/NewsSection";
 import HomePage from "./pages/home/page";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
     <div className="px-36 pt-12 flex flex-row flex-wrap gap-4">
       <div className="z-0 pb-20">
         <HomePage />
+        <NewsSection />
         <CommentarySection />
         <CommunitySection />
         <AdvocacySection />
