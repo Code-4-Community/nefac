@@ -1,17 +1,14 @@
 import NewsStory from "./NewsStory"
-
+import { RightOutlined } from '@ant-design/icons';
 
 export const NewsSection = () => {
     return (
-        <>
-            <div className="flex flex-col gap-4 pt-4 h-100 bg-white p-12 relative">
-                    <div className="flex items-center">
-                        <h2 className="text-nefacblue font-bold text-3xl">NEFAC News</h2>
-                        <div className="flex items-center">
-  <div className="flex-grow h-2 bg-nefacblue rounded-r-full" />
-  <span className="ml-2 text-nefacblue font-semibold text-sm">Latest News &gt;</span>
-</div>
-
+        <div className="mb-5">
+            <div className="flex flex-col gap-4 pt-4 pb-0 px-12 bg-white h-100 relative" >
+                <div className="flex items-center">
+                    <h2 className="text-nefacblue font-bold text-3xl whitespace-nowrap">NEFAC News</h2>
+                    <div className="flex-grow h-2 bg-nefacblue rounded ml-4" />
+                    <a href="/nefac-news"><p className="ml-4 text-nefacblue font-medium whitespace-nowrap">Latest News <RightOutlined/></p></a>
                 </div>
             </div>
             <div className="flex flex-col lg:flex-row gap-6 p-6">
@@ -40,6 +37,6 @@ export const NewsSection = () => {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }
