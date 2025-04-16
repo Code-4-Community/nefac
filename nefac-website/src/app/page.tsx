@@ -1,6 +1,7 @@
 import AdvocacySection from "./components/home-page/AdvocacySection";
 import CommentarySection from "./components/home-page/CommentarySection";
 import CommunitySection from "./components/home-page/CommunitySection";
+import EventsSection from "./components/home-page/EventsSection";
 import HomePage from "./pages/home/page";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <HomePage />
         <CommentarySection />
         <CommunitySection />
+        <EventsSection />
         <AdvocacySection />
       </div>
     </div>
