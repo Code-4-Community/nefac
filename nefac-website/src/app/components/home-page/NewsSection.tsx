@@ -4,7 +4,7 @@ import { RightOutlined } from '@ant-design/icons';
 export const NewsSection = () => {
     return (
         <div className="mb-5">
-            <div className="flex flex-col gap-4 pt-4 pb-0 px-12 bg-white h-100 relative" >
+            <div className="flex flex-col gap-4 pb-0 px-12 bg-white h-100 relative" >
                 <div className="flex items-center">
                     <h2 className="text-nefacblue font-bold text-3xl whitespace-nowrap">NEFAC News</h2>
                     <div className="flex-grow h-2 bg-nefacblue rounded ml-4" />
