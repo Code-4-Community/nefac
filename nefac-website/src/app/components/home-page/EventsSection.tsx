@@ -1,6 +1,6 @@
 export default function EventsSection() {
     return (
-      <div className="min-h-screen bg-white px-4 py-6">
+      <div className="bg-white px-4 py-6 mb-10">
         <div className="flex items-center">
         <h2 className="text-nefacblue font-bold text-3xl">Events</h2>
         <div className="flex-grow h-2 bg-nefacblue translate-x-12 rounded-l-full" />
