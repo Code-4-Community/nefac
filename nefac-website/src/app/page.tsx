@@ -16,11 +16,11 @@ export default function Home() {
     <div className="px-36 pt-12 flex flex-row flex-wrap gap-4">
       <div className="z-0 pb-20">
         <HomePage />
-        <NewsSection />
         <WhatIsNefacSection />
+        <NewsSection />
         <CommentarySection />
-        <CommunitySection />
         <EventsSection />
+        <CommunitySection />
         <AdvocacySection />
       </div>
     </div>
