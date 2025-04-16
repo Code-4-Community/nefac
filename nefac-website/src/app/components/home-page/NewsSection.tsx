@@ -1,6 +1,12 @@
 import NewsStory from "./NewsStory"
 import { RightOutlined } from '@ant-design/icons';
 
+const Sidebar = ({ children }: { children: React.ReactNode }) => (
+  <div className="flex flex-col gap-4 flex-1 max-w-xs bg-nefacblue rounded-md">
+    {children}
+  </div>
+);
+
 export const NewsSection = () => {
     return (
         <div className="mb-5">
@@ -14,15 +20,15 @@ export const NewsSection = () => {
             <div className="flex flex-col lg:flex-row gap-6 p-6">
                 
                 {/* Left Sidebar */}
-                <div className="flex flex-col gap-4 flex-1 max-w-xs bg-nefacblue rounded-md">
+                <Sidebar>
                     <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
                     <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
-                </div>
+                </Sidebar>
 
                 {/* Center Content */}
                 <div className="flex-[2] min-w-0">
                         <img src="public/images/filler.jpeg" alt="Main" className="rounded-md mb-4 w-full object-cover" />
-                        <h2 className="text-2xl font-bold mb-2">
+                        <h2 className="text-xl font-bold mb-2">
                         NEFAC, R.I. Open Government Groups Renew Call for Changes to Police Body Camera Policies
                         </h2>
                         <p className="text-gray-700">
@@ -31,10 +37,10 @@ export const NewsSection = () => {
                 </div>
 
                 {/* Right Sidebar */}
-                <div className="flex flex-col gap-4 flex-1 max-w-xs bg-nefacblue rounded-md">
+                <Sidebar>
                     <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
                     <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
-                </div>
+                </Sidebar>
             </div>
 
         </div>
