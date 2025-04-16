@@ -5,7 +5,7 @@ import CommunitySection from "./components/home-page/CommunitySection";
 import { NewsSection } from "./components/home-page/NewsSection";
 import EventsSection from "./components/home-page/EventsSection";
 import HomePage from "./pages/home/page";
-import WhatIsNefacSection from "./components/WhatIsNefacSection";
+import WhatIsNefacSection from "./components/home-page/WhatIsNefacSection";
 
 {
   /* this is the default home page*/
@@ -13,8 +13,8 @@ import WhatIsNefacSection from "./components/WhatIsNefacSection";
 
 export default function Home() {
   return (
-    <div className="px-36 pt-12 flex flex-row flex-wrap gap-4">
-      <div className="z-0 pb-20">
+    <div className="pt-24 flex flex-row flex-wrap gap-4">
+      <div className="z-0 mb-32">
         <HomePage />
         <WhatIsNefacSection />
         <NewsSection />

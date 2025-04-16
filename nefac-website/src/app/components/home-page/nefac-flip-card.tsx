@@ -16,7 +16,7 @@ const NefacFlipCard = ({
   const [isFront, setFlipped] = useState(false);
   return (
     <div
-      className={`relative w-[379px] h-[250px] rounded-lg shadow-md cursor-pointer transition-colors duration-300 ${
+      className={`relative w-[32%] h-[250px] rounded-lg shadow-md cursor-pointer transition-colors duration-300 ${
         isFront
           ? "bg-nefacblue text-white"
           : "bg-white text-black border-4 border-nefacblue"

@@ -23,8 +23,8 @@ const communityArticles = [
 
 export default function CommunitySection() {
   return (
-    <div className="flex flex-col gap-4 pt-6 my-12 h-100 bg-nefacblue ml-12 pr-12 relative rounded-l-3xl">
-      <div className="flex items-center pl-6">
+    <div className="flex flex-col gap-4 pt-12 mb-24 h-100 bg-nefacblue ml-12 pr-16 relative rounded-l-3xl">
+      <div className="flex items-center pl-12">
         <h2 className="text-white font-bold text-3xl">Community</h2>
       </div>
 
@@ -37,7 +37,7 @@ export default function CommunitySection() {
         </a>
       </div>
 
-      <div className="pl-4">
+      <div className="pl-6">
         <ArticleCardCarousel 
             articles={communityArticles} 
             showControls={false}  // Hide navigation buttons

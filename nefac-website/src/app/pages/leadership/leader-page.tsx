@@ -82,7 +82,7 @@ export const LeadershipPage: React.FC = () => {
     }
   };
   return (
-    <div className="flex flex-row min-h-screen">
+    <div className="flex flex-row min-h-screen my-24 px-12">
       <div className="flex flex-col pr-10 pl-10 gap-2 sticky top-10 self-start h-fit">
         <div
           onClick={() => {{
@@ -129,7 +129,8 @@ export const LeadershipPage: React.FC = () => {
         <div ref={execSection} className="execSection">
           <h1
             
-            className="text-lg text-gradient-to-r from-[#464758] via-[#464758] to-[#0D167E] font-default"
+            className="text-3xl font-medium text-gradient-to-r from-[#464758] via-[#464758] to-[#0D167E]
+            mb-8"
           >
             EXECUTIVE COMMITTEE
           </h1>
@@ -149,10 +150,11 @@ export const LeadershipPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <hr className="pb-4 w-span text-[#EBEBEB]"></hr>
+        <hr className="pb-4 my-6 w-span text-[#EBEBEB]"></hr>
         <div ref={boardSection} className="boardSection">
         <h1
-          className="text-lg text-gradient-to-r from-[#464758] via-[#464758] to-[#0D167E] font-default"
+          className="text-3xl font-medium text-gradient-to-r from-[#464758] via-[#464758] to-[#0D167E]
+          mb-8"
         >
           BOARD OF DIRECTORS
         </h1>
@@ -171,11 +173,12 @@ export const LeadershipPage: React.FC = () => {
             ))}
           </div>
         </div>
-        <hr className="pb-4 w-span text-[#EBEBEB]"></hr>
+        <hr className="pb-4 my-6 w-span text-[#EBEBEB]"></hr>
         <div ref={advSection} className="advSection">
         <h1
           ref={advSection}
-          className="text-lg text-gradient-to-r from-[#464758] via-[#464758] to-[#0D167E] font-default"
+          className="text-3xl font-medium text-gradient-to-r from-[#464758] via-[#464758] to-[#0D167E]
+          mb-8"
         >
           ADVISORS
         </h1>

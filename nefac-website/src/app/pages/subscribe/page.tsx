@@ -4,10 +4,10 @@ import React from 'react';
 export const SubscribePage: React.FC = () => {
     return (
         <>
-            <div className="px-36 pt-12 flex flex-row flex-wrap gap-4">
-                <h1 className="text-nefacblue font-bold text-5xl">Subscribe</h1>
-                <div className="flex gap-8">
-                    <div className="flex-1">
+            <div className="px-24 pt-12 flex flex-row flex-wrap gap-4">   
+                <div className="flex flex-row gap-12 items-center mb-12">
+                    <div className="flex flex-col w-2/3">
+                        <h1 className="text-nefacblue font-bold text-5xl my-8">Subscribe</h1>
                         <p className="font-poppins font-bold text-[20px] leading-[150%] tracking-[0%]">
                             Thank you for your help protecting First Amendment freedoms and the public’s right to know about government. We want to keep you informed about NEFAC advocacy and events in a way that’s most convenient for you.
                         </p>
@@ -15,12 +15,12 @@ export const SubscribePage: React.FC = () => {
                             Already a subscriber but want to change your newsletter preferences? Just click the “Change Profile” link at the bottom of any recent NEFAC email. You can also view all previous newsletters here.
                         </p>
                     </div>
-                    <div className="flex-1">
-                        <img src="/public/images/subscribe.png" alt='subscribe image' className='rounded-lg'/>
+                    <div className="flex w-1/2">
+                        <img src="/images/subscribe.png" alt='subscribe image' className='rounded-lg'/>
                     </div>
                 </div>
-                <h1 className="text-nefacblue font-bold text-3xl mt-4 mb-4">Newsletters</h1>
-                <div className="grid grid-cols-4 gap-4" style={{marginBottom: '3%'}}>
+                <h1 className="text-nefacblue font-bold text-3xl mb-4">Newsletters</h1>
+                <div className="grid grid-cols-3 gap-4 mb-32">
                     <NewsLetter
                         title="All NEFAC Mailings"
                         description="Receive all NEFAC news and programming updates including our commentary and news coverage, monthly NEFAC Advocacy report, state bulletins and our First Amendment and Sunshine News briefing."

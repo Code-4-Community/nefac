@@ -9,7 +9,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => (
 
 export const NewsSection = () => {
     return (
-        <div className="mb-5">
+        <div className="mb-16 px-20">
             <div className="flex flex-col gap-4 pb-0 px-6 bg-white h-100 relative" >
                 <div className="flex items-center">
                     <h2 className="text-nefacblue font-bold text-3xl whitespace-nowrap">NEFAC News</h2>

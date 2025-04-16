@@ -14,12 +14,12 @@ const styles = {
   gradientText: `text-2xl font-bold mb-4 bg-gradient-to-r from-[rgba(70,71,88,1)] to-[rgba(13,22,126,1)] text-transparent bg-clip-text font-poppins`,
   linkText: `underline`,
   mainTitle: `font-poppins text-5xl font-bold text-[rgba(47,92,159,1)] mb-12`,
-  thankYouText: `font-poppins text-lg`
+  thankYouText: `font-poppins text-lg mb-12`
 } as const;
 
 const SustainingMembershipsPage: React.FC = () => {
   return (
-    <main className="font-inter max-w-6xl mx-auto px-4 py-12">
+    <main className="font-inter px-24 mx-auto py-12">
       <h1 className={styles.mainTitle}>
         Sustaining Memberships
       </h1>

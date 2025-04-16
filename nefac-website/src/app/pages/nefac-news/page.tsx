@@ -147,15 +147,15 @@ export const NewsPage = () => {
   if (error && !featuredArticle) {
     return (
       <div className="mx-20 pt-12">
-        <h1 className="text-nefacblue font-semibold  text-5xl">NEFAC News</h1>
+        <h1 className="text-nefacblue font-semibold text-5xl">NEFAC News</h1>
         <div className="mt-8 text-red-500">Error: {error}</div>
       </div>
     );
   }
 
   return (
-      <div className="mx-20 pt-12 flex flex-row flex-wrap gap-4">
-        <h1 className="text-nefacblue font-semibold  text-5xl">NEFAC News</h1>
+      <div className="mx-20 pt-16 flex flex-row flex-wrap gap-4">
+        <h1 className="text-nefacblue font-semibold text-5xl mb-4">NEFAC News</h1>
         {featuredArticle && (
           <NewsBubble
           image={

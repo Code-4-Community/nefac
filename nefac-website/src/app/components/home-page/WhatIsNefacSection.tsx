@@ -1,9 +1,9 @@
-import NefacFlipCard from "./nefac-flip-card";
+import NefacFlipCard from "@/app/components/home-page/nefac-flip-card";
 
 export default function WhatIsNefacSection() {
   return (
-    <section className="overflow-x-hidden mb-5">
-      <div className="max-w-[1300px] mx-auto px-4">
+    <section className="overflow-x-hidden mb-16 px-20">
+      <div className="max-w-[1300px] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center pb-6 gap-3">
           <h1 className="text-[32px] sm:text-[40px] text-nefacblue font-semibold whitespace-nowrap">
@@ -21,7 +21,7 @@ export default function WhatIsNefacSection() {
         </div>
 
         {/* Flip Cards */}
-        <div className="flex flex-col sm:flex-row flex-wrap gap-6 justify-center">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-between">
           <NefacFlipCard
             caption="Education"
             imageBlue="/icons/grad-cap.svg"

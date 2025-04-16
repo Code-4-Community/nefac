@@ -4,11 +4,11 @@ import { FaSquareFacebook,FaSquareXTwitter, FaSquareInstagram } from "react-icon
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen max-w-7xl items-center">
+    <div className="min-h-screen items-center px-20">
 
       <div className="flex flex-col md:flex-row gap-10">
         <div className="w-full md:w-1/2">
-          <h1 className="text-5xl font-black mb-5 font-inter leading-tight">
+          <h1 className="text-5xl font-black mb-5 font-inter leading-snug">
             Championing First Amendment Rights for All
           </h1>
           
