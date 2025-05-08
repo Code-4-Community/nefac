@@ -37,7 +37,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
 
   return (
     <header className="relative flex flex-row justify-between 
-    items-center pt-6 pb-4 px-12 z-50 text-nefacblue border-b-4">
+    items-center pt-6 pb-4 px-12 z-50 text-nefacblue border-b-4 bg-white">
       <div className="flex flex-row items-center gap-8">
         <a href="/#">
           <img
