@@ -18,7 +18,6 @@ msedgedriver.exe
 
 # Ignore logs & output files
 *.log
-*.txt
 *.csv
 *.json
 

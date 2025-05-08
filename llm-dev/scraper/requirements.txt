@@ -1,0 +1,5 @@
+selenium>=4.15.2
+webdriver-manager>=4.0.1
+beautifulsoup4>=4.12.2
+requests>=2.31.0
+urllib3>=2.1.0 
