@@ -39,6 +39,8 @@ const events = [
   },
 ];
 
+// Uncomment this line and comment the above events to test layout without any events
+//const events: any[] = [];
 
 
 const sortedEvents = events.sort((a, b) => a.date.localeCompare(b.date));
