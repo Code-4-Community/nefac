@@ -1,41 +1,62 @@
 import { useState } from "react";
 
+// to represent an event
+interface Event {
+  // event title
+  title: string;
+
+  // ISO date (YYYY-MM-DD)
+  date: string;
+
+  // arbitrary string time range (e.g. 6:00-7:00)
+  time: string;
+
+  // image URL to be shown when selected (optional)
+  selectImage?: string;
+
+  // URL the user can open to learn more / register / view (optional)
+  infoUrl?: string;
+}
+
+
 // Temporary dummy data for the events
-const events = [
+const events: Event[] = [
   {
     title: "Title 1",
     date: "2025-02-12",
-    time: "6:30-7:30",
+    time: "6:30-7:30 PM",
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
   },
   {
     title: "Title 2",
     date: "2025-02-02",
-    time: "6:30-7:30",
+    time: "6:30-7:30 PM",
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
   },
   {
     title: "Title 3",
     date: "2025-03-13",
-    time: "6:30-7:30",
+    time: "6:30-7:30 PM",
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
   },
   {
     title: "Title 4",
     date: "2025-04-29",
-    time: "6:30-7:30",
-    selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
+    time: "6:30-7:30 PM",
+    selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg",
+    infoUrl: "https://nefac.org"
   },
   {
     title: "This is the title 5, the title that tests to see if there is an image here, in which case there is none.",
     date: "2025-04-16",
-    time: "6:30-7:30"
+    time: "6:30-7:30 PM"
   },
   {
     title: "Title 6",
     date: "2025-05-27",
-    time: "6:30-7:30",
-    selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
+    time: "6:30-7:30 PM",
+    selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg",
+    infoUrl: "https://google.com"
   },
 ];
 
@@ -43,7 +64,7 @@ const events = [
 //const events: any[] = [];
 
 
-const sortedEvents = events.sort((a, b) => a.date.localeCompare(b.date));
+const sortedEvents = events.sort((a, b) => a.date.localeCompare(b.date)).slice(0, 5);
 
 export default function EventsSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -84,7 +105,7 @@ export default function EventsSection() {
                         `}
                       >
                         <div
-                          className={`rounded-lg p-3 font-semibold text-sm text-left w-1/3 md:w-1/5 ${
+                          className={`transition-all rounded-md p-3 font-semibold text-sm text-left w-1/5 md:w-1/5 ${
                             i === selectedIndex ? "bg-black text-white" : "bg-white text-nefacblue"
                           }`}
                         >
@@ -130,7 +151,7 @@ export default function EventsSection() {
                 </div>
 
                 <div className="hidden md:block w-1/2">
-                  <div className="w-full h-full bg-white rounded-md p-8 text-black flex flex-col flex-grow justify-between -mt-2.5">
+                  <div className={"w-full h-full bg-white rounded-md p-8 text-black flex flex-col flex-grow justify-between" + (selectedIndex == 0 ? " md:rounded-tl-none" : "")}>
                     {sortedEvents[selectedIndex].selectImage ? (
                       <>
                         <div className="h-1/2">
@@ -163,6 +184,9 @@ export default function EventsSection() {
                           <b>Time: </b>{sortedEvents[selectedIndex].time}
                         </p>
                       </div>
+                    )}
+                    {sortedEvents[selectedIndex].infoUrl && (
+                        <a className="bg-nefacblue text-white text-center rounded-md p-2" href={sortedEvents[selectedIndex].infoUrl} target="_blank">Learn More</a>
                     )}
                   </div>
                 </div>
