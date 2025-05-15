@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="flex flex-col md:flex-row gap-10">
         <div className="w-full md:w-1/2 z-10">
           <h1 className="text-6xl font-black mb-5 mt-16 font-inter leading-snug">
-            Championing First Amendment Rights for All
+            We are democracy defenders.
           </h1>
           
           <p className="text-lg mb-6 font-inter leading-snug">
