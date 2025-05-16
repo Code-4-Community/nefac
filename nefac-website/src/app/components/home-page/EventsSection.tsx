@@ -5,11 +5,8 @@ interface Event {
   // event title
   title: string;
 
-  // ISO date (YYYY-MM-DD)
-  date: string;
-
-  // arbitrary string time range (e.g. 6:00-7:00)
-  time: string;
+  startDate: Date;
+  endDate: Date;
 
   // image URL to be shown when selected (optional)
   selectImage?: string;
@@ -23,38 +20,38 @@ interface Event {
 const events: Event[] = [
   {
     title: "Title 1",
-    date: "2025-02-12",
-    time: "6:30-7:30 PM",
+    startDate: new Date("2025-02-12T18:30:00"),
+    endDate: new Date("2025-02-12T19:30:00"),
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
   },
   {
     title: "Title 2",
-    date: "2025-02-02",
-    time: "6:30-7:30 PM",
+    startDate: new Date("2025-02-02T18:30:00"),
+    endDate: new Date("2025-02-02T19:30:00"),
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
   },
   {
     title: "Title 3",
-    date: "2025-03-13",
-    time: "6:30-7:30 PM",
+    startDate: new Date("2025-03-13T18:30:00"),
+    endDate: new Date("2025-03-13T19:30:00"),
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
   },
   {
     title: "Title 4",
-    date: "2025-04-29",
-    time: "6:30-7:30 PM",
+    startDate: new Date("2025-04-29T18:30:00"),
+    endDate: new Date("2025-04-29T19:30:00"),
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg",
     infoUrl: "https://nefac.org"
   },
   {
     title: "This is the title 5, the title that tests to see if there is an image here, in which case there is none.",
-    date: "2025-04-16",
-    time: "6:30-7:30 PM"
+    startDate: new Date("2025-04-16T18:30:00"),
+    endDate: new Date("2025-04-16T19:30:00"),
   },
   {
     title: "Title 6",
-    date: "2025-05-27",
-    time: "6:30-7:30 PM",
+    startDate: new Date("2025-05-27T18:30:00"),
+    endDate: new Date("2025-05-27T19:30:00"),
     selectImage: "https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg",
     infoUrl: "https://google.com"
   },
@@ -64,14 +61,19 @@ const events: Event[] = [
 //const events: any[] = [];
 
 
-const sortedEvents = events.sort((a, b) => a.date.localeCompare(b.date)).slice(0, 5);
+const sortedEvents = events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime()).slice(0, 5);
 
 export default function EventsSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  function formatDate(dateString: string): string {
-    const date = new Date(dateString);
+  // Extract human-readable date from date object (2025-02-12 becomes February 12th)
+  function formatDate(date: Date): string {
     return date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+  }
+
+  // Extract human-readable time from date object (2025-02-12T18:30:00 becomes 6:30)
+  function formatTime(date: Date): string {
+    return date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", });
   }
 
   return (
@@ -109,8 +111,8 @@ export default function EventsSection() {
                             i === selectedIndex ? "bg-black text-white" : "bg-white text-nefacblue"
                           }`}
                         >
-                          <div className="text-xs sm:text-xs md:text-sm lg: text-base">{formatDate(event.date)}</div>
-                          <div className="text-xs font-normal">{event.time}</div>
+                          <div className="text-xs sm:text-xs md:text-sm lg: text-base">{formatDate(event.startDate)}</div>
+                          <div className="text-xs font-normal">{formatTime(event.startDate)}-{formatTime(event.endDate)}</div>
                         </div>
                         <div className="px-4 py-2 text-sm flex-1">{event.title}</div>
                       </div>
@@ -127,20 +129,20 @@ export default function EventsSection() {
                               />
                               <p className="font-bold text-lg">{event.title}</p>
                               <p className="text-nefacblue text-base">
-                                <b>Date:</b> {formatDate(event.date)}
+                                <b>Date:</b> {formatDate(event.startDate)}
                               </p>
                               <p className="text-nefacblue text-base">
-                                <b>Time:</b> {event.time}
+                                <b>Time:</b> {formatTime(event.startDate)}-{formatTime(event.endDate)}
                               </p>
                             </>
                           ) : (
                             <>
                               <p className="font-bold text-lg">{event.title}</p>
                               <p className="text-nefacblue text-base">
-                                <b>Date:</b> {formatDate(event.date)}
+                                <b>Date:</b> {formatDate(event.startDate)}
                               </p>
                               <p className="text-nefacblue text-base">
-                                <b>Time:</b> {event.time}
+                                <b>Time:</b> {formatTime(event.startDate)}-{formatTime(event.endDate)}
                               </p>
                             </>
                           )}
@@ -166,9 +168,9 @@ export default function EventsSection() {
                             {sortedEvents[selectedIndex].title}
                           </p>
                           <p className="text-nefacblue">
-                            <b>Date: </b>{formatDate(sortedEvents[selectedIndex].date)}
+                            <b>Date: </b>{formatDate(sortedEvents[selectedIndex].startDate)}
                             <br />
-                            <b>Time: </b>{sortedEvents[selectedIndex].time}
+                            <b>Time: </b>{formatTime(sortedEvents[selectedIndex].startDate)}-{formatTime(sortedEvents[selectedIndex].endDate)}
                           </p>
                         </div>
                       </>
@@ -178,10 +180,10 @@ export default function EventsSection() {
                           {sortedEvents[selectedIndex].title}
                         </p>
                         <p className="text-nefacblue text-base md:text-xl">
-                          <b>Date: </b>{formatDate(sortedEvents[selectedIndex].date)}
+                          <b>Date: </b>{formatDate(sortedEvents[selectedIndex].startDate)}
                         </p>
                         <p className="text-nefacblue text-base md:text-xl">
-                          <b>Time: </b>{sortedEvents[selectedIndex].time}
+                          <b>Time: </b>{formatTime(sortedEvents[selectedIndex].startDate)}-{formatTime(sortedEvents[selectedIndex].endDate)}
                         </p>
                       </div>
                     )}
