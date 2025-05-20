@@ -10,20 +10,21 @@ export default function InitiativeDescription({
     thumbnailUrl,
 }: InitiativeDescriptionProps) {
     return (
-        <div className="flex flex-row w-full">
-            <div className="w-[60%]">
-                <div className="text-blue-900 text-[32px]">
+        <div className="flex flex-col sm:flex-row w-full">
+            <div className="w-full sm:w-[60%]">
+                <div className="text-blue-900 text-2xl sm:text-3xl font-semibold mb-2">
                     {header}
                 </div>
-                <div className="text-[16px]">
+                <div className="text-base sm:text-lg">
                     {description}
                 </div>
             </div>
+
             <img
                 src={thumbnailUrl}
-                className="rounded-3xl w-[30%] object-cover items-center justify-center ml-4 mb-4"
                 alt="Education Initiative Thumbnail Image"
+                className="w-full sm:w-[40%] max-w-[400px] h-auto object-cover rounded-3xl"
             />
         </div>
-    )
+    );
 }
