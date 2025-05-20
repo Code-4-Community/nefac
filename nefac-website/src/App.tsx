@@ -9,6 +9,7 @@ import MissionPage from "./app/pages/mission/page";
 import Home from "./app/page";
 import LeadershipPage from "./app/pages/leadership/leader-page";
 import SubscribePage from "./app/pages/subscribe/page";
+import EducationInitiativePage from "./app/components/education-initiative-page/EducationInitiativePage";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/mission" element={<MissionPage />} />
         <Route path="/leadership" element={<LeadershipPage />} />
         <Route path="/subscribe" element={<SubscribePage />} />
+        <Route path="/education-initiative" element={<EducationInitiativePage initDescSect={true} upcomingPresSection={true} pastPresSection={true} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
