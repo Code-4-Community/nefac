@@ -4,10 +4,10 @@ import { FaSquareFacebook,FaSquareXTwitter, FaSquareInstagram } from "react-icon
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen items-center px-20 relative">
+    <div className="h-fit items-center px-20 relative">
 
-      <div className="flex flex-col md:flex-row gap-10">
-        <div className="w-full md:w-1/2 z-10">
+      <div className="flex gap-10">
+        <div className="w-1/2 z-10 items-center">
           <h1 className="text-6xl font-black mb-5 mt-16 font-inter leading-snug">
             We are democracy defenders.
           </h1>
@@ -54,65 +54,67 @@ const HomePage = () => {
           </div>
         </div>
         
-        <div className="absolute top-[-20%] right-[-5%] w-[50%] max-h-[120vh] overflow-hidden">
-          <div className="grid grid-cols-6 grid-rows-15 gap-3 h-[1000px] w-full">
-            {/* LEFT COLUMN */}
-            <div className="col-span-2 row-span-7 rounded-lg overflow-hidden col-start-1 row-start-1">
-              <img 
-                src="images\nefac-conference.png" 
-                alt="NEFAC Panel Speaker"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="col-span-2 row-span-7 rounded-lg overflow-hidden col-start-1 row-start-8">
-              <img 
-                src="images\nefac-dinner.png" 
-                alt="NEFAC Dinner" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* MIDDLE COLUMN */}
-            <div className="col-span-2 row-span-4 rounded-lg overflow-hidden col-start-3 row-start-1">
-              <img 
-                src="images\nefac-award.png" 
-                alt="NEFAC Award"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="col-span-2 row-span-5 rounded-lg overflow-hidden col-start-3 row-start-5">
-              <img 
-                src="images\nefac-writing.png" 
-                alt="NEFAC Panel Writing" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="col-span-2 row-span-5 rounded-lg overflow-hidden col-start-3 row-start-10">
-              <img 
-                src="images\nefac-conversation.png" 
-                alt="NEFAC Conversation" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* RIGHT COLUMN */}
-            <div className="col-span-2 row-span-7 rounded-lg overflow-hidden col-start-5 row-start-2">
-              <img 
-                src="images\nefac presentation.png" 
-                alt="NEFAC Presentation" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="col-span-2 row-span-6 rounded-lg overflow-hidden col-start-5 row-start-9">
-              <img 
-                src="images\nefac-award.png" 
-                alt="NEFAC Award"
-                className="w-full h-full object-cover"
-              />
+        <div className="h-[45rem]">
+          <div className="absolute top-[-20%] right-[-5%] w-[50%] h-[50rem] overflow-hidden">
+            <div className="grid grid-cols-6 grid-rows-15 gap-3 h-full w-full">
+              {/* LEFT COLUMN */}
+              <div className="col-span-2 row-span-7 rounded-lg overflow-hidden col-start-1 row-start-1">
+                <img 
+                  src="images\nefac-conference.png" 
+                  alt="NEFAC Panel Speaker"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="col-span-2 row-span-7 rounded-lg overflow-hidden col-start-1 row-start-8">
+                <img 
+                  src="images\nefac-dinner.png" 
+                  alt="NEFAC Dinner" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* MIDDLE COLUMN */}
+              <div className="col-span-2 row-span-4 rounded-lg overflow-hidden col-start-3 row-start-1">
+                <img 
+                  src="images\nefac-award.png" 
+                  alt="NEFAC Award"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="col-span-2 row-span-5 rounded-lg overflow-hidden col-start-3 row-start-5">
+                <img 
+                  src="images\nefac-writing.png" 
+                  alt="NEFAC Panel Writing" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="col-span-2 row-span-5 rounded-lg overflow-hidden col-start-3 row-start-10">
+                <img 
+                  src="images\nefac-conversation.png" 
+                  alt="NEFAC Conversation" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* RIGHT COLUMN */}
+              <div className="col-span-2 row-span-7 rounded-lg overflow-hidden col-start-5 row-start-2">
+                <img 
+                  src="images\nefac presentation.png" 
+                  alt="NEFAC Presentation" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="col-span-2 row-span-6 rounded-lg overflow-hidden col-start-5 row-start-9">
+                <img 
+                  src="images\nefac-award.png" 
+                  alt="NEFAC Award"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
