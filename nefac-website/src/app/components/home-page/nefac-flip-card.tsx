@@ -33,7 +33,7 @@ const NefacFlipCard = ({
                 alt="card icon"
                 className="w-[26px] h-[26px]"
               />
-              <h1 className="pr-13">{caption}</h1>
+              <h1 className="text-[1.5vw] pr-13">{caption}</h1>
             </div>
             <img
               src="/icons/flip-white.svg"
@@ -42,7 +42,7 @@ const NefacFlipCard = ({
             />
           </div>
           {links && links.length > 0 && (
-            <ul className="list-none w-full pl-4 pr-4">
+            <ul className="list-none w-full pl-4 pr-4 text-[1.2vw]">
               {" "}
               {/* Add pr-4 here */}
               {links.map((link, idx) => (
@@ -75,10 +75,10 @@ const NefacFlipCard = ({
           <img
             src={imageBlue ?? "/icons/nefac-logo.svg"}
             alt="card icon"
-            className="w-16 h-16 mb-2"
+            className="w-[30%] h-[30%] mb-2"
           />
           {caption && (
-            <p className="text-md font-semibold text-center text-nefacblue">
+            <p className="text-[1.5vw] font-semibold text-center text-nefacblue">
               {caption}
             </p>
           )}
