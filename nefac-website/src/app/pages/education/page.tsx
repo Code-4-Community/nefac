@@ -110,7 +110,7 @@ const mockRecordingsEmpty: PastRecording[] = [];
 
 const EducationPage: React.FC = () => {
     return (
-        <PastRecordingsSection recordings={mockRecordingsEmpty} />
+        <PastRecordingsSection recordings={mockRecordings} />
     )
 };
 

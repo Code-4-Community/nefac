@@ -39,7 +39,7 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                     </button>
                 </div>
             )}
-            {visibleCount > sorted.length && sorted.length !== 0 && (
+            {visibleCount === sorted.length && sorted.length > 5 && (
                 <div className="group mb-4">
                     <button
                         onClick={() => {
