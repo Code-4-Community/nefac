@@ -16,7 +16,7 @@ const NefacFlipCard = ({
   const [isFront, setFlipped] = useState(false);
   return (
     <div
-      className={`relative w-[32%] h-[250px] rounded-lg shadow-md cursor-pointer transition-colors duration-300 ${
+      className={`relative w-[32%] h-[260px] rounded-lg shadow-md cursor-pointer transition-colors duration-300 ${
         isFront
           ? "bg-nefacblue text-white border-4 border-nefacblue"
           : "bg-white text-black border-4 border-nefacblue"
@@ -31,7 +31,7 @@ const NefacFlipCard = ({
                 alt="card icon"
                 className="w-[15%] h-[15%] sm:w-[10%] sm:h-[10%]"
               />
-              <h1 className="text-sm sm:text-xl">{caption}</h1>
+              <h1 className="text-sm sm:text-lg md:text-xl ">{caption}</h1>
             </div>
             <img
               src="/icons/flip-white.svg"
@@ -42,8 +42,6 @@ const NefacFlipCard = ({
           </div>
           {links && links.length > 0 && (
             <ul className="list-none w-full pl-4 pr-4 text-sm">
-              {" "}
-              {/* Add pr-4 here */}
               {links.map((link, idx) => (
                 <li key={idx} className="mb-1">
                   <a
@@ -52,7 +50,7 @@ const NefacFlipCard = ({
                     rel="noopener noreferrer"
                     className="flex items-center text-white hover:text-nefacgray transition-colors"
                   >
-                    <span className="mr-2 text-xs sm:text-lg">{link.text}</span>
+                    <span className="mr-2 text-xs sm:text-md md:text-lg">{link.text}</span>
                     <img
                       src="/icons/white-arrow.svg"
                       alt="arrow icon"
