@@ -93,7 +93,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
             </div>
 
             <a href="/mission/">What We Do</a>
-            <a href="/NEFAC-news/">NEFAC News</a>
+            <a href="/nefac-news/">NEFAC News</a>
 
             {/* Join Dropdown */}
             <div
