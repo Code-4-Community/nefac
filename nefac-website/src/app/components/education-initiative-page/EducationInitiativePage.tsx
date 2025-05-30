@@ -1,57 +1,31 @@
-import InitiativeDescription from "./InitiativeDescription";
+import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
 
 interface EducationInitiativePageProps {
-    initDescSect: boolean;
-    upcomingPresSection: boolean;
-    pastPresSection: boolean;
+    children: any
 }
 
 // Single page of education initiative component
 // Page will later need to be updated to use the WordPress API to get the actual information
-export default function EducationInitiativePage({
-    // Parameters for what sections of the page should exist
-    initDescSect,
-    upcomingPresSection,
-    pastPresSection
-}: EducationInitiativePageProps) {
+export default function EducationInitiativePage(props: EducationInitiativePageProps) {
     return (
         <div className="min-h-screen">
             <div className="text-nefacblue text-[36px] font-bold px-8">
                 Education Initiatives
             </div>
             <div className="w-full flex flex-row gap-10">
-                <Sidebar />
+                {/* Sidebar component (kept here because the Sidebar is present in every EducationInitiative) */}
+                <Sidebar
+                    items={[
+                        { title: "30 Minute Skills", link: "/education-initiative" },
+                        { title: "First Amendment and the Free Press", link: "/education-initiative-abc" },
+                        { title: "FOI Guide", link: "/education-initiative-def" },
+                        { title: "NEFAC Mentors", link: "/education-initiative-ghi" },
+                        { title: "Negri Institute", link: "/education-initiative-jkl" },
+                    ]}
+                />
                 <div className="w-full flex flex-col">
-                    {initDescSect && (
-                    <InitiativeDescription 
-                        header = "This is the Header Portion"
-                        description="Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative.
-                        Testing text for the First Amendment and Free Press Education Initiative."
-                        thumbnailUrl="https://gw-advance-prod-us-east-1-system.s3.amazonaws.com/uploads/campaign_image/name/6220f528cabcde2023b2a543/8d7e7465-97b6-461a-a141-66ddeb535b7b.jpeg"
-                    />
-                    )}
-                    {/* TODO: Replace this with the abstract components from tickets 50 and 51 */}
-                    {upcomingPresSection && (
-                    <div className="w-full text-[32px]">
-                        Upcoming Presentations Section Display Text.
-                        Upcoming Presentations Section Display Text.
-                        Upcoming Presentations Section Display Text.
-                        Upcoming Presentations Section Display Text.
-                        Upcoming Presentations Section Display Text.
-                    </div>
-                    )}
-                    {pastPresSection && (
-                    <div className="w-full text-[32px]">
-                        Past Presentations Section Display Text
-                    </div>
-                    )}
+                    {props.children}
                 </div>
             </div>
         </div>
