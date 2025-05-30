@@ -8,7 +8,7 @@ export const NewsPage = () => {
   const [featuredArticle, setFeaturedArticle] = useState<WordPressArticle | null>(null);
   const [newsArticles, setNewsArticles] = useState<WordPressArticle[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<String>('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -60,9 +60,9 @@ export const NewsPage = () => {
       setTotalPages(calculatedTotalPages > 0 ? calculatedTotalPages : 1);
 
       setNewsArticles(data);
-    } catch (error) {
-      setError(error.message);
-      console.error('Error fetching news articles:', error);
+    } catch (err) {
+      setError((err as Error).message);
+      console.error('Error fetching news articles:', (err as Error).message);
     } finally {
       setLoading(false);
     }
