@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import NameCard from "@/app/components/leadership-page/NameCard";
+import NameCard from "@/components/leadership-page/NameCard";
 
 const exec1 = [
   {

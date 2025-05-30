@@ -1,11 +1,11 @@
 
-import AdvocacySection from "./components/home-page/AdvocacySection";
-import CommentarySection from "./components/home-page/CommentarySection";
-import CommunitySection from "./components/home-page/CommunitySection";
-import { NewsSection } from "./components/home-page/NewsSection";
-import EventsSection from "./components/home-page/EventsSection";
-import HomePage from "./pages/home/page";
-import WhatIsNefacSection from "./components/home-page/WhatIsNefacSection";
+import AdvocacySection from "../components/home-page/AdvocacySection";
+import CommentarySection from "../components/home-page/CommentarySection";
+import CommunitySection from "../components/home-page/CommunitySection";
+import { NewsSection } from "../components/home-page/NewsSection";
+import EventsSection from "../components/home-page/EventsSection";
+import HomePage from "./home";
+import WhatIsNefacSection from "../components/home-page/WhatIsNefacSection";
 
 {
   /* this is the default home page*/

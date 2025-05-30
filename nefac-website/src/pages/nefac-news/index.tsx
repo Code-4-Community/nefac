@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import NewsBubble from '@/app/components/news-page/news-bubble';
-import LeftChevron from '@/app/components/icons/LeftChevron'
-import RightChevron from '@/app/components/icons/RightChevron'
-import { WordPressArticle } from "@/app/components/news-page/article-interface";
+import NewsBubble from '@/components/news-page/news-bubble';
+import LeftChevron from '@/components/icons/LeftChevron'
+import RightChevron from '@/components/icons/RightChevron'
+import { WordPressArticle } from "@/components/news-page/article-interface";
 
 export const NewsPage = () => {
   const [featuredArticle, setFeaturedArticle] = useState<WordPressArticle | null>(null);

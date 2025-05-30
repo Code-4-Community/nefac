@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/x";
 import "react-social-icons/facebook";
@@ -26,16 +26,16 @@ const Footer = ({ nefacLogo }: FooterProps) => {
           <div className="flex flex-col">
             <h1 className="text-white font-bold mb-4">Connect with NEFAC</h1>
             <nav className="grid grid-cols-2 gap-x-6 gap-y-2">
-              <Link to="/contact" className="text-white underline">
+              <Link href="/contact" className="text-white underline">
                 Contact
               </Link>
-              <Link to="/join" className="text-white underline">
+              <Link href="/join" className="text-white underline">
                 Join
               </Link>
-              <Link to="/donate" className="text-white underline">
+              <Link href="/donate" className="text-white underline">
                 Donate
               </Link>
-              <Link to="/subscribe" className="text-white underline">
+              <Link href="/subscribe" className="text-white underline">
                 Subscribe
               </Link>
             </nav>
@@ -105,21 +105,21 @@ const Footer = ({ nefacLogo }: FooterProps) => {
       </div>
       {/* bottom links */}
       <div className="w-full flex flex-row gap-10 justify-center mt-16">
-        <Link to="/donate" className="text-white pr-8">
+        <Link href="/donate" className="text-white pr-8">
           <span className="mr-1">© 2025</span>
           <span className="underline">
             New England First Amendment Coalition
           </span>
         </Link>
         <Link
-          to="https://wordpress.org/"
+          href="https://wordpress.org/"
           target="_blank"
           className="text-white pr-8 underline"
         >
           Powered by WordPress
         </Link>
 
-        <Link to="/donate" className="text-white pr-8 underline">
+        <Link href="/donate" className="text-white pr-8 underline">
           Privacy Policy
         </Link>
       </div>

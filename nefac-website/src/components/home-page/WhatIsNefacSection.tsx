@@ -1,4 +1,4 @@
-import NefacFlipCard from "@/app/components/home-page/nefac-flip-card";
+import NefacFlipCard from "@/components/home-page/nefac-flip-card";
 
 export default function WhatIsNefacSection() {
   return (

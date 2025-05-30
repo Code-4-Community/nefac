@@ -4,7 +4,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/app/components/ui/carousel";
+} from "@/components/ui/carousel";
 
 interface CardCarouselProps<T> {
   items: T[];

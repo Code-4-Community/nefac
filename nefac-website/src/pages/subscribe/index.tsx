@@ -1,4 +1,4 @@
-import NewsLetter from '@/app/components/NewsLetter';
+import NewsLetter from '@/components/NewsLetter';
 import React from 'react';
 
 export const SubscribePage: React.FC = () => {

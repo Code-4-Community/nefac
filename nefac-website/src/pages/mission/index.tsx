@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageCollageWrapper } from '@/app/components/mission-page/ImageCollage';
+import { ImageCollageWrapper } from '@/components/mission-page/ImageCollage';
 
 const styles = {
   container: `flex flex-row py-8 md:py-12 items-center`,

@@ -1,5 +1,5 @@
 import NewsStory from "./NewsStory"
-import { RightOutlined } from '@ant-design/icons';
+import { ChevronRight } from 'lucide-react';
 
 const Sidebar = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-col gap-4 flex-1 max-w-xs bg-nefacblue rounded-md">
@@ -14,7 +14,7 @@ export const NewsSection = () => {
                 <div className="flex items-center">
                     <h2 className="text-nefacblue font-bold text-3xl whitespace-nowrap">NEFAC News</h2>
                     <div className="flex-grow h-2 bg-nefacblue rounded ml-4" />
-                    <a href="/nefac-news"><p className="ml-4 text-nefacblue font-bold whitespace-nowrap">Latest News <RightOutlined/></p></a>
+                    <a href="/nefac-news"><p className="ml-4 text-nefacblue font-bold whitespace-nowrap">Latest News <ChevronRight/></p></a>
                 </div>
             </div>
             <div className="flex flex-col lg:flex-row gap-6 p-6">
