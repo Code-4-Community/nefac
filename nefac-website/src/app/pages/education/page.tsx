@@ -1,5 +1,7 @@
-import PastRecordingsSection from "@/app/components/education-page/PastRecordingsSection";
-import { PastRecording } from "@/app/components/education-page/PastRecordingInterface";
+import PastRecordingsSection from "@/app/components/education/past-recordings/PastRecordingsSection";
+import { PastRecording } from "@/app/components/education/past-recordings/PastRecordingInterface";
+import EducationInitiativeWrapper from "@/app/components/education/EducationInitiativeWrapper";
+import InitiativeDescription from "@/app/components/education/InitiativeDescription";
 
 const mockRecordings: PastRecording[] = [
     {
@@ -110,7 +112,14 @@ const mockRecordingsEmpty: PastRecording[] = [];
 
 const EducationPage: React.FC = () => {
     return (
-        <PastRecordingsSection recordings={mockRecordings} />
+        <EducationInitiativeWrapper>
+            <InitiativeDescription 
+                header="First Amendment and Free Press" 
+                description="Lorem ipsum dolor sit amet"
+                thumbnailUrl="/images/nefac-conference.png"
+            />
+            <PastRecordingsSection recordings={mockRecordings} />
+        </EducationInitiativeWrapper>
     )
 };
 

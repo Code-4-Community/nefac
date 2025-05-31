@@ -12,7 +12,7 @@ export default function InitiativeDescription({
     return (
         <div className="flex flex-col sm:flex-row w-full">
             <div className="w-full sm:w-[60%]">
-                <div className="text-blue-900 text-2xl sm:text-3xl font-semibold mb-2">
+                <div className="text-nefacblue text-2xl sm:text-3xl font-semibold mb-2">
                     {header}
                 </div>
                 <div className="text-base sm:text-lg">

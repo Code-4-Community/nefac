@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
 
-interface EducationInitiativePageProps {
+interface EducationInitiativeWrapperProps {
     children: any
 }
 
 // Single page of education initiative component
 // Page will later need to be updated to use the WordPress API to get the actual information
-export default function EducationInitiativePage(props: EducationInitiativePageProps) {
+export default function EducationInitiativeWrapper(props: EducationInitiativeWrapperProps) {
     return (
         <div className="min-h-screen">
             <div className="text-nefacblue text-[36px] font-bold px-8">
