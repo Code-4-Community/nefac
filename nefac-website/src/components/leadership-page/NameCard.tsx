@@ -1,6 +1,6 @@
 import React from "react";
 
-interface NameCardProps {
+export interface NameCardProps {
   name: string
   title? : string;
 }

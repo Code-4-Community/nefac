@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "react",
+    "react-jsx-runtime",
+    "wp-block-editor",
+    "wp-blocks",
+    "wp-components"
+  ],
+  "version": "181279db47bd6e2be9f8"
+}
