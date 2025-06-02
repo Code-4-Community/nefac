@@ -37,8 +37,25 @@ class WebsiteCrawler:
         path = parsed.path.lower()
         return any(path.endswith(ext) for ext in self.ATTACHMENT_EXTENSIONS)
 
+    def _normalize_protocol(self, url):
+        """Normalize protocol to https:// (or http://) for consistency"""
+        parsed = urlparse(url)
+        if parsed.scheme in ('http', 'https'):
+            # Change to desired protocol (e.g., https)
+            scheme = 'https'
+        else:
+            # Assume http if no scheme, though this is rare with urljoin
+            scheme = 'https'
+        return parsed._replace(scheme=scheme, netloc=parsed.netloc.lower()).geturl()
+
+    def _is_valid_link(self, url):
+        """Check if URL belongs to same domain, ignoring protocol."""
+        parsed = urlparse(url)
+        # Normalize netloc to lowercase for comparison
+        return parsed.netloc.lower() == self.domain.lower()
+
     def _extract_links(self, url):
-        """Get all absolute links from page content (ignoring fragments and attachments)"""
+        """Get all absolute links from page content (ignoring fragments, attachments, and protocol)"""
         try:
             if self.verbose:
                 print(f"Fetching: {url}")
@@ -51,12 +68,12 @@ class WebsiteCrawler:
             for tag in soup.find_all('a', href=True):
                 absolute_url = urljoin(url, tag['href'])
                 defragged_url = urldefrag(absolute_url).url
-                
-                if self._is_valid_link(defragged_url):
-                    if self.include_attachments or not self.is_attachment(defragged_url):
-                        links.add(defragged_url)
+                normalized_url = self._normalize_protocol(defragged_url)
+                if self._is_valid_link(normalized_url):
+                    if self.include_attachments or not self.is_attachment(normalized_url):
+                        links.add(normalized_url)
                     elif self.verbose:
-                        print(f"Ignoring attachment: {defragged_url}")
+                        print(f"Ignoring attachment: {normalized_url}")
             return links
         except Exception as e:
             if self.verbose:
