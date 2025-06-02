@@ -40,7 +40,7 @@ python crawler.py https://nefac.org
 
 | Flag                  | Description                                              | Default     |
 |-----------------------|----------------------------------------------------------|-------------|
-| `--max-depth`         | Maximum link depth from homepage                         | 5           |
+| `--max-depth`         | Maximum link depth from homepage                         | 3           |
 | `--verbose`           | Enable detailed crawling information                     | False       |
 | `--include-attachments` | Include attachment links (PDFs, images, videos, etc.)    | False       |
 | `--output`            | Path for JSON output file                                | output.json |
