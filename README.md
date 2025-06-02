@@ -1,7 +1,7 @@
 # NEFAC Website
 Code4Community is developing a new, modern website for the [New England First Amendment Coalition](https://nefac.org) (NEFAC). The code for the website is stored and managed in this repository.
 
-> ![WARNING]
+> [!WARNING]
 > The Setup and File Structure seconds are outdated because the project has been refactored to use Next.js and Faust.js. New documentation will be written soon.
 
 ## Setup
