@@ -38,15 +38,23 @@ class WebsiteCrawler:
         return any(path.endswith(ext) for ext in self.ATTACHMENT_EXTENSIONS)
 
     def _normalize_protocol(self, url):
-        """Normalize protocol to https:// (or http://) for consistency"""
+        """Normalize protocol to https, lowercase domain, and remove trailing slashes"""
         parsed = urlparse(url)
-        if parsed.scheme in ('http', 'https'):
-            # Change to desired protocol (e.g., https)
-            scheme = 'https'
-        else:
-            # Assume http if no scheme, though this is rare with urljoin
-            scheme = 'https'
-        return parsed._replace(scheme=scheme, netloc=parsed.netloc.lower()).geturl()
+        
+        # Normalize scheme to https
+        scheme = 'https' if parsed.scheme in ('http', 'https') else 'https'
+        
+        # Normalize netloc to lowercase
+        netloc = parsed.netloc.lower()
+        
+        # Normalize path: remove trailing slash unless it's the root path
+        path = parsed.path.rstrip('/') or '/'  # Handle empty path after stripping
+        
+        return parsed._replace(
+            scheme=scheme,
+            netloc=netloc,
+            path=path
+        ).geturl()
 
     def _is_valid_link(self, url):
         """Check if URL belongs to same domain, ignoring protocol."""
