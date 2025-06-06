@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import NameCard from "@/components/leadership-page/NameCard";
+import Member from "@/components/leadership-page/Member";
 
 const exec1 = [
   {
@@ -139,13 +139,13 @@ export const LeadershipPage: React.FC = () => {
             {/* Left col*/}
             <div className="flex flex-col gap-2 pb-4">
               {exec1.map((position, index) => (
-                <NameCard {...position} key={index} />
+                <Member {...position} key={index} />
               ))}
             </div>
             {/* Right col*/}
             <div className="flex flex-col gap-2 pb-4">
               {exec2.map((position, index) => (
-                <NameCard {...position} key={index} />
+                <Member {...position} key={index} />
               ))}
             </div>
           </div>
@@ -163,13 +163,13 @@ export const LeadershipPage: React.FC = () => {
           {/* Left col*/}
           <div className="flex flex-col gap-2 pb-4">
             {board1.map((position, index) => (
-              <NameCard {...position} key={index} />
+              <Member {...position} key={index} />
             ))}
           </div>
           {/* Right col*/}
           <div className="flex flex-col gap-2 pb-4">
             {board2.map((position, index) => (
-              <NameCard {...position} key={index} />
+              <Member {...position} key={index} />
             ))}
           </div>
         </div>
@@ -187,13 +187,13 @@ export const LeadershipPage: React.FC = () => {
           {/* Left col*/}
           <div className="flex flex-col gap-2 pb-4">
             {board1.map((position, index) => (
-              <NameCard {...position} key={index} />
+              <Member {...position} key={index} />
             ))}
           </div>
           {/* Right col*/}
           <div className="flex flex-col gap-2 pb-4">
             {board2.map((position, index) => (
-              <NameCard {...position} key={index} />
+              <Member {...position} key={index} />
             ))}
           </div>
         </div>

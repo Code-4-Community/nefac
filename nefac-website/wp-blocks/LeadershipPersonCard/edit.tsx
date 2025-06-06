@@ -5,7 +5,6 @@ import { BlockEditProps } from '@wordpress/blocks';
 
 interface LeadershipPersonAttributes {
   name?: string;
-  role?: string;
   description?: string;
   section?: 'director' | 'executive' | 'board' | 'advisors';
 }
@@ -16,7 +15,7 @@ interface LeadershipPersonAttributes {
 // }
 
 const Edit: React.FC<BlockEditProps<LeadershipPersonAttributes>> = ({ attributes, setAttributes }) => {
-  const { name, role, description, section = 'executive' } = attributes;
+  const { name, description, section = 'executive' } = attributes;
 
   return (
     <div {...useBlockProps()}>
@@ -28,9 +27,9 @@ const Edit: React.FC<BlockEditProps<LeadershipPersonAttributes>> = ({ attributes
       />
 
       <TextControl
-        label="Role"
-        value={role || ''}
-        onChange={(value) => setAttributes({ role: value })}
+        label="Description"
+        value={description || ''}
+        onChange={(value) => setAttributes({ description: value })}
       />
 
       <SelectControl
@@ -43,12 +42,6 @@ const Edit: React.FC<BlockEditProps<LeadershipPersonAttributes>> = ({ attributes
           { label: 'Advisors', value: 'advisors' }
         ]}
         onChange={(value) => setAttributes({ section: value as LeadershipPersonAttributes['section'] })}
-      />
-
-      <TextareaControl
-        label="Description"
-        value={description || ''}
-        onChange={(value) => setAttributes({ description: value })}
       />
     </div>
   );

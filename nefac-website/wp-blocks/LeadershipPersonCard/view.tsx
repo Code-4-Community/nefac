@@ -1,24 +1,14 @@
-import React from 'react';
-import { gql } from '@apollo/client';
-import NameCard, { NameCardProps } from '../../src/components/leadership-page/NameCard';
+import React from "react";
+import Member from "../../src/components/leadership-page/Member";
 
-interface LeadershipPersonBlockProps {
-  attributes: NameCardProps & {
+export interface LeadershipPersonBlockProps {
+  attributes: {
+    name: string;
+    description?: string;
     section?: string;
   };
 }
 
 export const LeadershipPersonBlock: React.FC<LeadershipPersonBlockProps> = ({ attributes }) => (
-  <NameCard {...attributes} />
+  <Member name={attributes.name} title={attributes.description} />
 );
-
-export const fragments = gql`
-  fragment LeadershipPersonFragment on LeadershipPerson {
-    attributes {
-      name
-      role
-      description
-      section
-    }
-  }
-`;

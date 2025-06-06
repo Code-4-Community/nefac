@@ -12,10 +12,6 @@
         "type": "string",
         "default": ""
       },
-      "role": {
-        "type": "string",
-        "default": ""
-      },
       "description": {
         "type": "string",
         "default": ""

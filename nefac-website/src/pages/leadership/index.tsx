@@ -1,62 +1,80 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useQuery, gql } from "@apollo/client";
+import { groupBy } from "lodash";
+import { WordPressBlocksViewer } from "@faustwp/blocks";
 
-// Member cards 
-const Member: React.FC<{ name: string; title: string }> = ({ name, title }) => {
-    return (
-      <div className="p-4 bg-gray-100 w-72 rounded-md">
-        <p className="font-inter font-bold">{name}</p>
-        {title && <p className="text-md">{title}</p>}
-      </div>
-    );
-  };
+const SECTION_LABELS: Record<string, string> = {
+  executive: "Executive Committee",
+  board: "Board of Directors",
+  advisors: "Advisors",
+  director: "Executive Director",
+};
+
+const TABS = ["executive", "board", "advisors", "director"];
+
+const GET_LEADERSHIP_PAGE = gql`
+  query GetLeadershipPage($uri: ID!) {
+    page(id: $uri, idType: URI) {
+      title
+      editorBlocks {
+        __typename
+        name
+        ... on NefacLeadershipPersonCard {
+          attributes {
+            name
+            description
+            section
+          }
+        }
+      }
+    }
+  }
+`;
 
 const LeadershipPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("Executive Committee");
+  const { data, loading, error } = useQuery(GET_LEADERSHIP_PAGE, {
+    variables: { uri: "/leadership" },
+  });
 
-  const tabs = ["Executive Committee", "Board of Directors", "Advisors"];
+  const [activeTab, setActiveTab] = useState("executive");
+
+  if (loading) return <div>Loading...</div>;
+  if (error || !data?.page) return <div>Error loading leadership data.</div>;
+
+  // Only use blocks of your custom type
+  const leadershipBlocks = (data.page.editorBlocks || []).filter(
+    (block: any) => block.__typename === "NefacLeadershipPersonCard"
+  );
+  const grouped = groupBy(
+    leadershipBlocks,
+    (block: any) => block.attributes.section || "executive"
+  );
 
   return (
     <div className="flex p-8 gap-8">
       <div className="w-269px flex flex-col space-y-2">
-        {tabs.map((item) => (
+        {TABS.map((key) => (
           <div
-            key={item}
-            onClick={() => setActiveTab(item)}
+            key={key}
+            onClick={() => setActiveTab(key)}
             className={`p-3 cursor-pointer font-semibold border-l-4 ${
-              activeTab === item
+              activeTab === key
                 ? "border-black bg-white text-black"
                 : "border-transparent bg-white text-black hover:bg-gray-200"
             }`}
           >
-            {item}
+            {SECTION_LABELS[key]}
           </div>
         ))}
       </div>
 
       <div className="flex-1">
-        <h2 className="text-xl text-[#464758] font-bold mb-4">{activeTab.toUpperCase()}</h2>
-        {activeTab === "Executive Committee" && (
-          <div className="flex gap-8">
-            <div className="flex flex-col space-y-4">
-              <Member name="Justin Silverman, Esq." title="Executive Director" />
-              <Member name="Gregory V Sullivan, Esq." title="President" />
-              <Member name="Maggie Mulvihill" title="First Vice President" />
-              <Member
-                name='Christopher "Topher" Hamblett'
-                title="Second Vice President"
-              />
-            </div>
-
-            <div className="flex flex-col space-y-4">
-              <Member
-                name="Justin Silverman, Esq."
-                title="Treasurer and Clerk"
-              />
-              <Member name="Shirley Leung" title="" />
-              <Member name="Emily Sweeney" title="" />
-            </div>
-          </div>
-        )}
+        <h2 className="text-xl text-[#464758] font-bold mb-4">
+          {SECTION_LABELS[activeTab]?.toUpperCase() || ""}
+        </h2>
+        <div className="flex gap-8 flex-wrap">
+          <WordPressBlocksViewer blocks={grouped[activeTab] || []} />
+        </div>
       </div>
     </div>
   );
