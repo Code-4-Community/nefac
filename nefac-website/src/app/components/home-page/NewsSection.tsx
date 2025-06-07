@@ -21,13 +21,13 @@ export const NewsSection = () => {
                 
                 {/* Left Sidebar */}
                 <Sidebar>
-                    <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
-                    <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
+                    <NewsStory imageSrc="/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
+                    <NewsStory imageSrc="/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
                 </Sidebar>
 
                 {/* Center Content */}
                 <div className="flex-[2] min-w-0">
-                        <img src="public/images/filler.jpeg" alt="Main" className="rounded-md mb-4 w-full object-cover" />
+                        <img src="/images/filler.jpeg" alt="Main" className="rounded-md mb-4 w-full object-cover" />
                         <h2 className="text-xl font-bold mb-2">
                         NEFAC, R.I. Open Government Groups Renew Call for Changes to Police Body Camera Policies
                         </h2>
@@ -38,8 +38,8 @@ export const NewsSection = () => {
 
                 {/* Right Sidebar */}
                 <Sidebar>
-                    <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
-                    <NewsStory imageSrc="public/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
+                    <NewsStory imageSrc="/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
+                    <NewsStory imageSrc="/images/filler.jpeg" title="Other relevant initiative titles for user to navigate through" date="February 5, 2025" />
                 </Sidebar>
             </div>
 

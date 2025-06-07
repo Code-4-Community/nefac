@@ -11,7 +11,6 @@ import LeadershipPage from "./app/pages/leadership/leader-page";
 import SubscribePage from "./app/pages/subscribe/page";
 import EducationPage from "./app/pages/education/page";
 
-
 const App = () => {
   return (
     <BrowserRouter>

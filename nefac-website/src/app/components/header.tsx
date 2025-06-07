@@ -9,9 +9,11 @@ export interface HeaderProps {
 const Header = ({ nefacLogo }: HeaderProps) => {
   const [isDropdownOpenAbout, setDropdownOpenAbout] = useState(false);
   const [isDropdownOpenJoin, setDropdownOpenJoin] = useState(false);
+  const [isDropdownOpenWWD, setDropdownOpenWWD] = useState(false);
 
   const aboutTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const joinTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const wwdTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnterAbout = () => {
     if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
@@ -32,6 +34,17 @@ const Header = ({ nefacLogo }: HeaderProps) => {
   const handleMouseLeaveJoin = () => {
     joinTimeoutRef.current = setTimeout(() => {
       setDropdownOpenJoin(false);
+    }, 200);
+  };
+  
+  const handleMouseEnterWWD = () => {
+    if (wwdTimeoutRef.current) clearTimeout(wwdTimeoutRef.current);
+    setDropdownOpenWWD(true);
+  };
+
+  const handleMouseLeaveWWD = () => {
+    wwdTimeoutRef.current = setTimeout(() => {
+      setDropdownOpenWWD(false);
     }, 200);
   };
 
@@ -91,8 +104,46 @@ const Header = ({ nefacLogo }: HeaderProps) => {
                 </div>
               )}
             </div>
-
-            <a href="/mission/">What We Do</a>
+            {/* What We Do Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnterWWD}
+              onMouseLeave={handleMouseLeaveWWD}
+            >
+              <button className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200">
+                What We Do
+                <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 10 6">
+                  <path
+                    stroke="#3E323280"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              {isDropdownOpenWWD && (
+                <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
+                  <ul className="py-2 text-sm text-black">
+                    <li>
+                      <a href="/education" className="block px-4 py-2 hover:text-black">
+                        Education
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="block px-4 py-2 hover:text-black">
+                        Advocacy
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="block px-4 py-2 hover:text-black">
+                        Defense
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
             <a href="/NEFAC-news/">NEFAC News</a>
 
             {/* Join Dropdown */}
