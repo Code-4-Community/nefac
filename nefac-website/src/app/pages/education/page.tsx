@@ -2,7 +2,85 @@ import PastRecordingsSection from "@/app/components/education/past-recordings/Pa
 import { PastRecording } from "@/app/components/education/past-recordings/PastRecordingInterface";
 import EducationInitiativeWrapper from "@/app/components/education/EducationInitiativeWrapper";
 import InitiativeDescription from "@/app/components/education/InitiativeDescription";
+import { UpcomingEvent } from "@/app/components/education/upcoming-events/UpcomingEventInterface";
+import UpcomingEventCalendar from "@/app/components/education/upcoming-events/UpcomingEventCalendar";
 
+// mock data for a properly filled calendar of events
+const mockFiveUpcomingEvents: UpcomingEvent[] = [
+    {
+        startDate: new Date("2025-04-29T14:00:00"),
+        title: " First Amendment and the Free Press",
+        location: "University of Massachusetts Amherst",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-05-02T14:00:00"),
+        title: "New England Scholastic Press Association Conference",
+        location: "Boston University",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-05-14T14:00:00"),
+        title: "First Amendment Law: Defamation and Privacy",
+        location: "Nackey S. Loeb School of Communications | Saint Anselm College",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-05-14T14:00:00"),
+        title: "Young Journalists Workshop",
+        location: "Endicott College",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-04-21T10:00:00"),
+        title: "Londonderry (N.H.) Town Council",
+        location: "Online",
+    }];
+
+// mock data for a calendar of events with more than 5 events
+const mockSevenUpcomingEvents: UpcomingEvent[] = [
+    {
+        startDate: new Date("2025-04-29T14:00:00"),
+        title: " First Amendment and the Free Press",
+        location: "University of Massachusetts Amherst",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-05-02T14:00:00"),
+        title: "New England Scholastic Press Association Conference",
+        location: "Boston University",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-05-14T14:00:00"),
+        title: "First Amendment Law: Defamation and Privacy",
+        location: "Nackey S. Loeb School of Communications | Saint Anselm College",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-05-14T14:00:00"),
+        title: "Young Journalists Workshop",
+        location: "Endicott College",
+        infoUrl: "https://www.google.com/",
+    },
+    {
+        startDate: new Date("2025-04-21T10:00:00"),
+        title: "Londonderry (N.H.) Town Council",
+        location: "Online",
+    },
+    {
+        startDate: new Date("2025-07-21T10:00:00"),
+        title: "NEFAC Meeting",
+        location: "Online",
+    },
+    {
+        startDate: new Date("2025-04-29T14:00:00"),
+        title: "C4C Meeting",
+        location: "Snell Library",
+    }];
+
+const mockEmptyEvents: UpcomingEvent[] = [];
+  
 const mockRecordings: PastRecording[] = [
     {
         publishedDate: new Date("2022-05-20"),
@@ -118,6 +196,7 @@ const EducationPage: React.FC = () => {
                 description="Lorem ipsum dolor sit amet"
                 thumbnailUrl="/images/nefac-conference.png"
             />
+            <UpcomingEventCalendar events={mockFiveUpcomingEvents} />
             <PastRecordingsSection recordings={mockRecordings} />
         </EducationInitiativeWrapper>
     )
