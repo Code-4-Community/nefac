@@ -2,11 +2,11 @@ import React from "react";
 import { UpcomingEvent } from "./UpcomingEventInterface";
 import UpcomingEventCard from "./UpcomingEventCard";
 
-interface UpcomingEventsCalendarProps {
+interface UpcomingEventCalendarProps {
   events: UpcomingEvent[];
 }
 
-const UpcomingEventsCalendar: React.FC<UpcomingEventsCalendarProps> = ({ events }) => {
+const UpcomingEventCalendar: React.FC<UpcomingEventCalendarProps> = ({ events }) => {
   // sort events by date (soonest first) and limit to 5
   const sortedEvents = [...events]
     .sort((a, b) => a.startDate.getTime() - b.startDate.getTime())
@@ -34,4 +34,4 @@ const UpcomingEventsCalendar: React.FC<UpcomingEventsCalendarProps> = ({ events 
   );
 };
 
-export default UpcomingEventsCalendar;
+export default UpcomingEventCalendar;
