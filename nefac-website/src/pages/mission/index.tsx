@@ -1,5 +1,9 @@
 import React from 'react';
 import { ImageCollageWrapper } from '@/components/mission-page/ImageCollage';
+import { gql } from '@apollo/client';
+import { getNextServerSideProps } from '@faustwp/core';
+import Page from '../[...wordpressNode]';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const styles = {
   container: `flex flex-row py-8 md:py-12 items-center`,
@@ -12,37 +16,30 @@ const styles = {
   taxInfo: `mt-4 text-gray-600 font-inter`,
 } as const;
 
-const MissionPage = () => {
+interface editorBlocks {
+  type: string;
+  renderedHtml: string;
+}
+  
+const MissionPage = (props: any) => {
+  
+  const { data } = props
+
+  const heading = data.page.editorBlocks.filter((block: editorBlocks) => block.type === "CoreHeading");
+  const paragraphText = data.page.editorBlocks.filter((block: editorBlocks) => block.type === "CoreParagraph");
+  
+  const title = heading[0].renderedHtml
+  const paragraphOne = paragraphText[0].renderedHtml
+  const taxInfo = paragraphText[1].renderedHtml
+
   return (
     <div className="min-h-screen">
       <section className={styles.container}>
         <div className={styles.contentWrapper}>
           <div className={styles.textSection}>
-            <h2 className={styles.title}>NEFAC's MISSION</h2>
-            
-            <p className={styles.paragraph}>
-              The New England First Amendment Coalition <strong>defends, promotes</strong>, and <strong>expands</strong>{' '}
-              public access to government and the work it does. The 
-              coalition is a broad-based organization of people who believe in the 
-              power of transparency in a democratic society. Its members include{' '}
-              <strong>lawyers, journalists, historians, librarians, and academicians</strong>, as well as 
-              private citizens and organizations whose core beliefs include the 
-              principles of the First Amendment.
-            </p>
-            
-            <p className={styles.paragraph}>
-              The coalition aspires to advance and <strong>protect the five freedoms of the 
-              First Amendment</strong>, and the principle of the public's right to know, in{' '}
-              <strong>Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont</strong>. 
-              In collaboration with other like-minded advocacy 
-              organizations, NEFAC also seeks to <strong>advance understanding of the 
-              First Amendment</strong> across the nation and freedom of speech and press 
-              issues around the world.
-            </p>
-            
-            <p className={styles.taxInfo}>
-              NEFAC is a 501(c)(3) non-profit organization. Tax ID: 20-4826233.
-            </p>
+            <div className={styles.title} dangerouslySetInnerHTML={{__html: title}}></div>
+            <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: paragraphOne}}></div>
+            <div className={styles.taxInfo} dangerouslySetInnerHTML={{__html: taxInfo}}></div>
           </div>
         </div>
         <div className={styles.imageSection}>
@@ -53,4 +50,20 @@ const MissionPage = () => {
   );
 };
 
+MissionPage.query = gql`
+  query GetMissionContents{
+    page(id: "about", idType: URI) {
+      editorBlocks {
+        type
+        renderedHtml
+      }
+    }
+}`
+
 export default MissionPage;
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return getNextServerSideProps(context, {
+    Page: MissionPage,
+  });
+}
