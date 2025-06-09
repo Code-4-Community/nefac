@@ -1,9 +1,9 @@
-import PastRecordingsSection from "@/app/components/education/past-recordings/PastRecordingsSection";
-import { PastRecording } from "@/app/components/education/past-recordings/PastRecordingInterface";
-import EducationInitiativeWrapper from "@/app/components/education/EducationInitiativeWrapper";
-import InitiativeDescription from "@/app/components/education/InitiativeDescription";
-import { UpcomingEvent } from "@/app/components/education/upcoming-events/UpcomingEventInterface";
-import UpcomingEventCalendar from "@/app/components/education/upcoming-events/UpcomingEventCalendar";
+import PastRecordingsSection from "@/components/education/past-recordings/PastRecordingsSection";
+import { PastRecording } from "@/components/education/past-recordings/PastRecordingInterface";
+import EducationInitiativeWrapper from "@/components/education/EducationInitiativeWrapper";
+import InitiativeDescription from "@/components/education/InitiativeDescription";
+import { UpcomingEvent } from "@/components/education/upcoming-events/UpcomingEventInterface";
+import UpcomingEventCalendar from "@/components/education/upcoming-events/UpcomingEventCalendar";
 
 // mock data for a properly filled calendar of events
 const mockFiveUpcomingEvents: UpcomingEvent[] = [
