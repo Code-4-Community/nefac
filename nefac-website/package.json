@@ -17,6 +17,8 @@
     "@faustwp/blocks": "^6.1.2",
     "@faustwp/cli": "^3.2.3",
     "@faustwp/core": "^3.2.3",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-slot": "^1.2.3",
     "@wordpress/style-engine": "^2.24.0",
