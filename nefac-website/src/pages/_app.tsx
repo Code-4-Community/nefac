@@ -16,11 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
       <FaustProvider pageProps={pageProps}>
-        <WordPressBlocksProvider
-            config={{
-                blocks,
-            }}
-        >
+        <WordPressBlocksProvider config={{ blocks }}>
             <Header />
             <Component {...pageProps} key={router.asPath} />
             <Footer />

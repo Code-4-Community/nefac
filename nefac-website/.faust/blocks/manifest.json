@@ -19,10 +19,6 @@
           "type": "string",
           "default": ""
         },
-        "role": {
-          "type": "string",
-          "default": ""
-        },
         "description": {
           "type": "string",
           "default": ""
@@ -36,5 +32,5 @@
       "editorScript": "file:./index.js"
     }
   ],
-  "timestamp": "2025-06-01T02:36:05.542Z"
+  "timestamp": "2025-06-08T06:23:43.056Z"
 }

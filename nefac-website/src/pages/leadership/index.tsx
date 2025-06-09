@@ -36,6 +36,7 @@ const LeadershipPage: React.FC = () => {
     variables: { uri: "/leadership" },
   });
 
+  console.log("Data:" + data);
   const [activeTab, setActiveTab] = useState("executive");
 
   if (loading) return <div>Loading...</div>;

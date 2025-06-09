@@ -9,26 +9,21 @@ interface LeadershipPersonAttributes {
   section?: 'director' | 'executive' | 'board' | 'advisors';
 }
 
-// interface EditProps {
-//   attributes: LeadershipPersonAttributes;
-//   setAttributes: (attrs: Partial<LeadershipPersonAttributes>) => void;
-// }
-
-const Edit: React.FC<BlockEditProps<LeadershipPersonAttributes>> = ({ attributes, setAttributes }) => {
-  const { name, description, section = 'executive' } = attributes;
+function Edit(props: BlockEditProps<LeadershipPersonAttributes>) {
+  const { attributes, setAttributes } = props;
+  const { name = '', description = '', section = 'executive' } = attributes;
 
   return (
     <div {...useBlockProps()}>
-
       <TextControl
         label="Name"
-        value={name || ''}
+        value={name}
         onChange={(value) => setAttributes({ name: value })}
       />
 
-      <TextControl
+      <TextareaControl
         label="Description"
-        value={description || ''}
+        value={description}
         onChange={(value) => setAttributes({ description: value })}
       />
 
@@ -41,10 +36,12 @@ const Edit: React.FC<BlockEditProps<LeadershipPersonAttributes>> = ({ attributes
           { label: 'Board of Directors', value: 'board' },
           { label: 'Advisors', value: 'advisors' }
         ]}
-        onChange={(value) => setAttributes({ section: value as LeadershipPersonAttributes['section'] })}
+        onChange={(value) =>
+          setAttributes({ section: value as LeadershipPersonAttributes['section'] })
+        }
       />
     </div>
   );
-};
+}
 
 export default Edit;

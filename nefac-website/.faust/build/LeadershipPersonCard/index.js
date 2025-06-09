@@ -8,7 +8,7 @@
   \***************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"nefac/leadership-person-card","title":"Leadership Person Card","category":"common","icon":"businessperson","description":"A block for displaying a person\'s name and description on leadership pages.","keywords":["leadership","person","profile","team"],"attributes":{"name":{"type":"string","default":""},"role":{"type":"string","default":""},"description":{"type":"string","default":""},"section":{"type":"string","default":"board"}},"textdomain":"nefac","editorScript":"file:./index.ts"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"nefac/leadership-person-card","title":"Leadership Person Card","category":"common","icon":"businessperson","description":"A block for displaying a person\'s name and description on leadership pages.","keywords":["leadership","person","profile","team"],"attributes":{"name":{"type":"string","default":""},"description":{"type":"string","default":""},"section":{"type":"string","default":"board"}},"textdomain":"nefac","editorScript":"file:./index.ts"}');
 
 /***/ }),
 
@@ -34,34 +34,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// interface EditProps {
-//   attributes: LeadershipPersonAttributes;
-//   setAttributes: (attrs: Partial<LeadershipPersonAttributes>) => void;
-// }
-
-const Edit = ({
-  attributes,
-  setAttributes
-}) => {
+function Edit(props) {
   const {
-    name,
-    role,
-    description,
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    name = '',
+    description = '',
     section = 'executive'
   } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
       label: "Name",
-      value: name || '',
+      value: name,
       onChange: value => setAttributes({
         name: value
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-      label: "Role",
-      value: role || '',
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+      label: "Description",
+      value: description,
       onChange: value => setAttributes({
-        role: value
+        description: value
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
       label: "Section",
@@ -82,16 +77,49 @@ const Edit = ({
       onChange: value => setAttributes({
         section: value
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
-      label: "Description",
-      value: description || '',
-      onChange: value => setAttributes({
-        description: value
-      })
     })]
   });
-};
+}
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
+
+/***/ }),
+
+/***/ "./wp-blocks/LeadershipPersonCard/save.tsx":
+/*!*************************************************!*\
+  !*** ./wp-blocks/LeadershipPersonCard/save.tsx ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function save({
+  attributes
+}) {
+  const {
+    name,
+    description,
+    section
+  } = attributes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+    "data-section": section,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+      children: name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      children: description
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("small", {
+      children: ["Section: ", section]
+    })]
+  });
+}
 
 /***/ }),
 
@@ -224,6 +252,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./wp-blocks/LeadershipPersonCard/edit.tsx");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block.json */ "./wp-blocks/LeadershipPersonCard/block.json");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./wp-blocks/LeadershipPersonCard/save.tsx");
+
 
 
 
@@ -231,7 +261,7 @@ __webpack_require__.r(__webpack_exports__);
   ..._block_json__WEBPACK_IMPORTED_MODULE_2__,
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
   // not ideal; use proper typing when wordpress NPM modules update for React 19
-  save: () => null
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 })();
 
