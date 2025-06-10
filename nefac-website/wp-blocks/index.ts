@@ -1,7 +1,9 @@
 import { CoreBlocks } from "@faustwp/blocks";
 import { LeadershipPersonBlock } from "./LeadershipPersonCard/view";
  
-export default {
+const blocks = {
 	'nefac/leadership-person-card': LeadershipPersonBlock,
-	...CoreBlocks,
+	//...CoreBlocks,
 };
+
+export default blocks;
