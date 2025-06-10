@@ -11,6 +11,7 @@ const SECTION_LABELS: Record<string, string> = {
 
 const TABS = ["executive", "board", "advisors", "director"];
 
+// Placeholder query
 const GET_LEADERSHIP_PAGE = gql`
   query GetLeadershipPage {
     page(id: "/about/leadership-new-draft/", idType: URI) {
