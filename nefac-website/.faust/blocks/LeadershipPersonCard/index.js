@@ -108,6 +108,12 @@ function save({
     description = '',
     section = 'board'
   } = attributes;
+  console.log('Save function called with attributes:', attributes);
+  console.log('Processed values:', {
+    name,
+    description,
+    section
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

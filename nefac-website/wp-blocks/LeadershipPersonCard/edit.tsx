@@ -9,6 +9,7 @@ interface LeadershipPersonAttributes {
   section?: 'director' | 'executive' | 'board' | 'advisors';
 }
 
+// Edit function to be used in the WP block editor
 function Edit(props: BlockEditProps<LeadershipPersonAttributes>) {
   const { attributes, setAttributes } = props;
   const { name = '', description = '', section = 'executive' } = attributes;

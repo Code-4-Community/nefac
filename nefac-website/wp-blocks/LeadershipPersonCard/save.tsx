@@ -6,11 +6,9 @@ interface LeadershipPersonAttributes {
   section?: 'director' | 'executive' | 'board' | 'advisors';
 }
 
+// How the blocks show up on the 
 export default function save({ attributes }: { attributes: LeadershipPersonAttributes }) {
   const { name = '', description = '', section = 'board' } = attributes;
-
-  console.log('Save function called with attributes:', attributes);
-  console.log('Processed values:', { name, description, section });
   
   return (
     <div {...useBlockProps.save()}>

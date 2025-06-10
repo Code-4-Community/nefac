@@ -12,15 +12,15 @@ import "../../faust.config";
 // import "@/styles/blocks.scss";
 
 export default function App({ Component, pageProps }: AppProps) {
-    const router = useRouter();
+  const router = useRouter();
 
-    return (
-      <FaustProvider pageProps={pageProps}>
-        <WordPressBlocksProvider config={{ blocks }}>
-            <Header />
-            <Component {...pageProps} key={router.asPath} />
-            <Footer />
-        </WordPressBlocksProvider>
-      </FaustProvider>
-    )
-  }
+  return (
+    <FaustProvider pageProps={pageProps}>
+      <WordPressBlocksProvider config={{ blocks }}>
+          <Header />
+          <Component {...pageProps} key={router.asPath} />
+          <Footer />
+      </WordPressBlocksProvider>
+    </FaustProvider>
+  )
+}
