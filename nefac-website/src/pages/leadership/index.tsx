@@ -72,7 +72,7 @@ const SectionCard: React.FC<{ sectionKey: string; sectionTitle: string; members:
 }) => {
   const [expanded, setExpanded] = useState(false);
   // How many members we want to display by default
-  const maxVisible = 2;
+  const maxVisible = 3;
   const visibleMembers = expanded ? members : members.slice(0, maxVisible);
 
   return (
@@ -81,31 +81,36 @@ const SectionCard: React.FC<{ sectionKey: string; sectionTitle: string; members:
         {sectionTitle.toUpperCase()}
       </h2>
 
-      <div className="flex gap-8 flex-wrap">
-        {visibleMembers.map((block: any, index: number) => (
-          <LeadershipCard
-            key={index}
-            name={block.attributes.name}
-            description={block.attributes.description}
-            section={block.attributes.section}
-          />
-        ))}
+      <div className="w-full">
+        <div className="flex gap-8 flex-wrap">
+          {visibleMembers.map((block: any, index: number) => (
+            <LeadershipCard
+              key={index}
+              name={block.attributes.name}
+              description={block.attributes.description}
+              section={block.attributes.section}
+            />
+          ))}
+        </div>
+
+        {members.length > maxVisible && (
+          <div className="mt-4 w-fit mx-auto">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="cursor-pointer flex items-center gap-2 text-black"
+            >
+              <span className="text-base">
+                {expanded ? "View Less" : "View More"}
+              </span>
+              <FontAwesomeIcon
+                icon={expanded ? faChevronUp : faChevronDown}
+                className="text-lg"
+              />
+            </button>
+          </div>
+        )}
       </div>
 
-      {members.length > maxVisible && (
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-4 cursor-pointer flex items-center gap-5 text-black"
-        >
-          <span className="text-base">
-            {expanded ? "View Less" : "View More"}
-          </span>
-          <FontAwesomeIcon
-            icon={expanded ? faChevronUp : faChevronDown}
-            className="text-lg"
-          />
-        </button>
-      )}
     </div>
   );
 };
@@ -135,13 +140,12 @@ const LeadershipPage: React.FC = () => {
 
   return (
     <div className="flex p-8 gap-10">
-      {/* TODO: This should likey be changed to the reusable sidebar component once it gets merged into main, being left as is for now */}
-      <div className="w-[15%] sticky top-8 self-start flex flex-col space-y-2 ml-5">
+      <div className="sticky top-8 self-start flex flex-col space-y-2">
         {tabs.map((key) => (
           <a key={key} href={`#${key}`}>
             <div
               onClick={() => setActiveTab(key)}
-              className={`p-3 cursor-pointer font-semibold border-l-4 ${
+              className={`p-3 cursor-pointer font-semibold border-l-4 text-xs sm:text-base ${
                 activeTab === key
                   ? "border-black bg-white text-black"
                   : "border-transparent bg-white text-black hover:bg-gray-200"
