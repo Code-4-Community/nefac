@@ -34,6 +34,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// Edit function to be used in the WP block editor
 function Edit(props) {
   const {
     attributes,
@@ -62,9 +63,6 @@ function Edit(props) {
       label: "Section",
       value: section,
       options: [{
-        label: 'Executive Director',
-        value: 'director'
-      }, {
         label: 'Executive Committee',
         value: 'executive'
       }, {
@@ -100,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
+// How the blocks show up on the 
 function save({
   attributes
 }) {
@@ -108,12 +107,6 @@ function save({
     description = '',
     section = 'board'
   } = attributes;
-  console.log('Save function called with attributes:', attributes);
-  console.log('Processed values:', {
-    name,
-    description,
-    section
-  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

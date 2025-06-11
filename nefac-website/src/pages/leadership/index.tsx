@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { groupBy } from "lodash";
 
-const SECTION_LABELS: Record<string, string> = {
+const section_map: Record<string, string> = {
   executive: "Executive Committee",
   board: "Board of Directors",
   advisors: "Advisors",
-  director: "Executive Director",
 };
 
-const TABS = ["executive", "board", "advisors", "director"];
+const tabs = ["executive", "board", "advisors"];
 
 // Placeholder query
 const GET_LEADERSHIP_PAGE = gql`
@@ -53,16 +52,16 @@ const GET_LEADERSHIP_PAGE = gql`
 //   }
 // `;
 
+
 // Custom component to render individual leadership cards
-const LeadershipCard: React.FC<{ name: string; description: string; section: string}> = ({ name, description, section }) => (
-  <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-    <h3 className="text-lg font-semibold text-gray-900 mb-2">{name}</h3>
-    <p className="text-gray-600 text-sm mb-2">{description}</p>
-    <span className="inline-block px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded">
-      {SECTION_LABELS[section] || section}
-    </span>
-  </div>
-);
+const LeadershipCard: React.FC<{ name: string; description: string; section: string}> = ({ name, description, section }) => {
+  return (
+      <div className="p-4 bg-gray-100 w-72 rounded-md">
+        <p className="font-inter font-bold">{name}</p>
+        {description && <p className="text-md">{description}</p>}
+      </div>
+    );
+};
 
 const SectionCard: React.FC<{ sectionKey: string; sectionTitle: string;  members: any[]}> = ({ sectionKey, sectionTitle, members }) => (
   <div id={sectionKey} className="w-full mb-12 scroll-mt-8">
@@ -90,11 +89,6 @@ const LeadershipPage: React.FC = () => {
   if (loading) return <div>Loading...</div>;
   if (error || !data?.page) return <div>Error loading leadership data.</div>;
 
-  console.log("All block names:", data.page.editorBlocks.map((block: any) => ({
-    name: block.name,
-    typename: block.__typename
-  })));
-
   // Filter for your custom blocks
   const leadershipBlocks = (data.page.editorBlocks || []).filter(
     (block: any) => block.name === "nefac/leadership-person-card"
@@ -110,7 +104,7 @@ const LeadershipPage: React.FC = () => {
   return (
     <div className="flex p-8 gap-8">
       <div className="w-269px flex flex-col space-y-2">
-        {TABS.map((key) => (
+        {tabs.map((key) => (
           <div
             key={key}
             onClick={() => setActiveTab(key)}
@@ -120,17 +114,17 @@ const LeadershipPage: React.FC = () => {
                 : "border-transparent bg-white text-black hover:bg-gray-200"
             }`}
           >
-            {SECTION_LABELS[key]}
+            {section_map[key]}
           </div>
         ))}
       </div>
 
       <div className="flex-1">
-        {TABS.map((key) => (
+        {tabs.map((key) => (
           <SectionCard
             key={key}
             sectionKey={key}
-            sectionTitle={SECTION_LABELS[key]}
+            sectionTitle={section_map[key]}
             members={grouped[key] || []}
           />
         ))}

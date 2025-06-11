@@ -1,10 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor';
-
-interface LeadershipPersonAttributes {
-  name?: string;
-  description?: string;
-  section?: 'director' | 'executive' | 'board' | 'advisors';
-}
+import LeadershipPersonAttributes from './LeadershipPersonAttributes';
 
 // How the blocks show up on the 
 export default function save({ attributes }: { attributes: LeadershipPersonAttributes }) {
