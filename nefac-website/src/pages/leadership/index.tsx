@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { groupBy } from "lodash";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const section_map: Record<string, string> = {
   executive: "Executive Committee",
@@ -10,7 +12,7 @@ const section_map: Record<string, string> = {
 
 const tabs = ["executive", "board", "advisors"];
 
-// Placeholder query
+// Placeholder query till live site is working
 const GET_LEADERSHIP_PAGE = gql`
   query GetLeadershipPage {
     page(id: "/about/leadership-new-draft/", idType: URI) {
@@ -63,28 +65,58 @@ const LeadershipCard: React.FC<{ name: string; description: string; section: str
     );
 };
 
-const SectionCard: React.FC<{ sectionKey: string; sectionTitle: string;  members: any[]}> = ({ sectionKey, sectionTitle, members }) => (
-  <div id={sectionKey} className="w-full mb-12 scroll-mt-8">
-    <h2 className="text-xl text-[#464758] font-bold mb-4">
-      {sectionTitle.toUpperCase()}
-    </h2>
-    <div className="flex gap-8 flex-wrap">
-      {members.map((block: any, index: number) => (
-        <LeadershipCard
-          key={index}
-          name={block.attributes.name}
-          description={block.attributes.description}
-          section={block.attributes.section}
-        />
-      ))}
+const SectionCard: React.FC<{ sectionKey: string; sectionTitle: string; members: any[] }> = ({
+  sectionKey,
+  sectionTitle,
+  members,
+}) => {
+  const [expanded, setExpanded] = useState(false);
+  // How many members we want to display by default
+  const maxVisible = 2;
+  const visibleMembers = expanded ? members : members.slice(0, maxVisible);
+
+  return (
+    <div id={sectionKey} className="w-full mb-12 scroll-mt-8">
+      <h2 className="text-xl text-[#464758] font-bold mb-4">
+        {sectionTitle.toUpperCase()}
+      </h2>
+
+      <div className="flex gap-8 flex-wrap">
+        {visibleMembers.map((block: any, index: number) => (
+          <LeadershipCard
+            key={index}
+            name={block.attributes.name}
+            description={block.attributes.description}
+            section={block.attributes.section}
+          />
+        ))}
+      </div>
+
+      {members.length > maxVisible && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-4 cursor-pointer flex items-center gap-5 text-black"
+        >
+          <span className="text-base">
+            {expanded ? "View Less" : "View More"}
+          </span>
+          <FontAwesomeIcon
+            icon={expanded ? faChevronUp : faChevronDown}
+            className="text-lg"
+          />
+        </button>
+      )}
     </div>
-  </div>
-);
+  );
+};
+
 
 const LeadershipPage: React.FC = () => {
-  const { data, loading, error } = useQuery(GET_LEADERSHIP_PAGE);
+  const { data, loading, error } = useQuery(GET_LEADERSHIP_PAGE, {
+    fetchPolicy: "no-cache"
+  })
 
-  const [activeTab, setActiveTab] = useState("board");
+  const [activeTab, setActiveTab] = useState("executive");
 
   if (loading) return <div>Loading...</div>;
   if (error || !data?.page) return <div>Error loading leadership data.</div>;
@@ -102,31 +134,38 @@ const LeadershipPage: React.FC = () => {
   );
 
   return (
-    <div className="flex p-8 gap-8">
-      <div className="w-269px flex flex-col space-y-2">
+    <div className="flex p-8 gap-10">
+      {/* TODO: This should likey be changed to the reusable sidebar component once it gets merged into main, being left as is for now */}
+      <div className="w-[15%] sticky top-8 self-start flex flex-col space-y-2 ml-5">
         {tabs.map((key) => (
-          <div
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`p-3 cursor-pointer font-semibold border-l-4 ${
-              activeTab === key
-                ? "border-black bg-white text-black"
-                : "border-transparent bg-white text-black hover:bg-gray-200"
-            }`}
-          >
-            {section_map[key]}
-          </div>
+          <a key={key} href={`#${key}`}>
+            <div
+              onClick={() => setActiveTab(key)}
+              className={`p-3 cursor-pointer font-semibold border-l-4 ${
+                activeTab === key
+                  ? "border-black bg-white text-black"
+                  : "border-transparent bg-white text-black hover:bg-gray-200"
+              }`}
+            >
+              {section_map[key]}
+            </div>
+          </a>
         ))}
       </div>
 
       <div className="flex-1">
-        {tabs.map((key) => (
-          <SectionCard
-            key={key}
-            sectionKey={key}
-            sectionTitle={section_map[key]}
-            members={grouped[key] || []}
-          />
+        {tabs.map((key, index) => (
+          <>
+            <SectionCard
+              key={key}
+              sectionKey={key}
+              sectionTitle={section_map[key]}
+              members={grouped[key] || []}
+            />
+            {index < tabs.length - 1 && (
+              <div className="my-5 w-full h-1" style={{ backgroundColor: "#c4c4c4" }} />
+            )}
+          </>
         ))}
       </div>
     </div>
