@@ -3,23 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "dev": "vite",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "dev": "next dev",
+    "build": "next build",
+    "generate": "faust generatePossibleTypes",
+    "generate:types": "graphql-codegen",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "graphql-codegen"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
+    "@apollo/client": "^3.13.8",
+    "@faustwp/blocks": "^6.1.2",
+    "@faustwp/cli": "^3.2.3",
+    "@faustwp/core": "^3.2.3",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-label": "^2.1.2",
-    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@wordpress/style-engine": "^2.24.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "embla-carousel-react": "^8.5.2",
+    "embla-carousel-react": "^8.6.0",
+    "graphql": "^16.11.0",
     "lucide-react": "^0.475.0",
-    "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.2.0",
     "react-social-icons": "^6.22.0",
@@ -27,15 +38,14 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.6",
     "@tailwindcss/postcss": "^4.0.6",
     "@types/node": "20.17.17",
     "@types/react": "19.0.8",
     "@types/react-dom": "^19",
-    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.2",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.7.3",
-    "vite": "^6.1.0"
+    "typescript": "^5.7.3"
   }
 }
