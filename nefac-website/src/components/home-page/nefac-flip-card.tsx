@@ -21,12 +21,9 @@ const NefacFlipCard = ({
           ? "bg-nefacblue text-white border-4 border-nefacblue"
           : "bg-white text-black border-4 border-nefacblue"
       }`}
-<<<<<<< HEAD:nefac-website/src/app/components/home-page/nefac-flip-card.tsx
-=======
 
       onMouseEnter ={() => setFlipped(!isFront)}
       onMouseLeave ={() => setFlipped(!isFront)}
->>>>>>> 3d2e5d389d3b7186a0a8a8e1a9d671e620754682:nefac-website/src/components/home-page/nefac-flip-card.tsx
     >
       {isFront ? (
         <div>
@@ -73,10 +70,6 @@ const NefacFlipCard = ({
           <img
             src="/icons/flip-blue.svg"
             alt="flip icon"
-<<<<<<< HEAD:nefac-website/src/app/components/home-page/nefac-flip-card.tsx
-            onClick={() => setFlipped(!isFront)}
-=======
->>>>>>> 3d2e5d389d3b7186a0a8a8e1a9d671e620754682:nefac-website/src/components/home-page/nefac-flip-card.tsx
             className="absolute top-2 sm:top-4 right-2 w-[15%] h-[15%] sm:w-[10%] sm:h-[10%] pr-2"
           />
           <img
