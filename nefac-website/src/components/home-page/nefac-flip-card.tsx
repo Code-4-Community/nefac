@@ -16,44 +16,44 @@ const NefacFlipCard = ({
   const [isFront, setFlipped] = useState(false);
   return (
     <div
-      className={`relative w-[32%] h-[250px] rounded-lg shadow-md cursor-pointer transition-colors duration-300 ${
+      className={`relative w-[32%] h-[260px] rounded-lg shadow-md cursor-pointer transition-colors duration-300 ${
         isFront
-          ? "bg-nefacblue text-white"
+          ? "bg-nefacblue text-white border-4 border-nefacblue"
           : "bg-white text-black border-4 border-nefacblue"
       }`}
+
       onMouseEnter ={() => setFlipped(!isFront)}
       onMouseLeave ={() => setFlipped(!isFront)}
     >
       {isFront ? (
         <div>
           <div className="pb-4">
-            <div className="pl-4 pt-4 flex flex-row justify-left gap-4">
+            <div className="pl-4 pt-4 flex flex-row justify-left items-center gap-2 sm:gap-4">
               <img
                 src={imageWhite ?? "/icons/nefac-logo.svg"}
                 alt="card icon"
-                className="w-[26px] h-[26px]"
+                className="w-[15%] h-[15%] sm:w-[10%] sm:h-[10%]"
               />
-              <h1 className="pr-13">{caption}</h1>
+              <h1 className="text-sm sm:text-lg md:text-xl ">{caption}</h1>
             </div>
             <img
               src="/icons/flip-white.svg"
               alt="flip icon"
-              className="absolute top-4 right-2 w-[30px] h-[27px] pr-2"
+              onClick={() => setFlipped(!isFront)}
+              className="absolute top-2 sm:top-4 right-2 w-[15%] h-[15%] sm:w-[10%] sm:h-[10%] pr-2"
             />
           </div>
           {links && links.length > 0 && (
-            <ul className="list-none w-full pl-4 pr-4">
-              {" "}
-              {/* Add pr-4 here */}
+            <ul className="list-none w-full pl-4 pr-4 text-sm">
               {links.map((link, idx) => (
-                <li key={idx}>
+                <li key={idx} className="mb-1">
                   <a
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-white hover:text-nefacgray transition-colors"
                   >
-                    <span>{link.text}</span>
+                    <span className="mr-2 text-xs sm:text-md md:text-lg">{link.text}</span>
                     <img
                       src="/icons/white-arrow.svg"
                       alt="arrow icon"
@@ -70,15 +70,15 @@ const NefacFlipCard = ({
           <img
             src="/icons/flip-blue.svg"
             alt="flip icon"
-            className="absolute top-2 right-2 w-8 h-8"
+            className="absolute top-2 sm:top-4 right-2 w-[15%] h-[15%] sm:w-[10%] sm:h-[10%] pr-2"
           />
           <img
             src={imageBlue ?? "/icons/nefac-logo.svg"}
             alt="card icon"
-            className="w-16 h-16 mb-2"
+            className="w-[30%] h-[30%] mb-2"
           />
           {caption && (
-            <p className="text-md font-semibold text-center text-nefacblue">
+            <p className="text-2xl font-semibold text-center text-nefacblue">
               {caption}
             </p>
           )}

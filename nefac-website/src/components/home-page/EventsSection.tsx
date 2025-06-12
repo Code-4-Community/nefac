@@ -79,14 +79,14 @@ export default function EventsSection() {
   return (
     <div className="py-6 mb-16">
       <div className="flex items-center mb-8 overflow-hidden">
-        <h2 className="text-nefacblue font-bold text-2xl md:text-3xl pl-4 md:pl-24">Events</h2>
+        <h2 className="text-nefacblue font-bold text-2xl md:text-3xl pl-4 md:pl-24">Community</h2>
         <div className="grow h-2 bg-nefacblue translate-x-12 rounded-l-full" />
     </div>
 
       <div className="md:pr-24 px-4 md:px-0">
         <div className="bg-nefacblue text-white rounded-r-xl py-8 flex flex-col md:flex-row gap-8 mt-4 md:px-24 px-6">
           <div className="flex-1">
-            <h2 className="text-2xl font-semibold mb-8">Related Events</h2>
+            <h2 className="text-2xl font-semibold mb-8">Upcoming Events</h2>
 
             {sortedEvents.length === 0 ? (
               <p>
