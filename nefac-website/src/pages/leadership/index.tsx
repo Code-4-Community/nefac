@@ -58,8 +58,8 @@ const GET_LEADERSHIP_PAGE = gql`
 // Custom component to render individual leadership cards
 const LeadershipCard: React.FC<{ name: string; description: string; section: string}> = ({ name, description, section }) => {
   return (
-      <div className="p-4 bg-gray-100 w-72 rounded-md">
-        <p className="font-inter font-bold">{name}</p>
+      <div className="p-4 bg-gray-100 w-[260px] rounded-md">
+        <p className="flex flex-wrap font-bold">{name}</p>
         {description && <p className="text-md">{description}</p>}
       </div>
     );
@@ -82,7 +82,7 @@ const SectionCard: React.FC<{ sectionKey: string; sectionTitle: string; members:
       </h2>
 
       <div className="w-full">
-        <div className="flex gap-8 flex-wrap">
+        <div className="flex gap-10 flex-wrap">
           {visibleMembers.map((block: any, index: number) => (
             <LeadershipCard
               key={index}
@@ -130,8 +130,6 @@ const LeadershipPage: React.FC = () => {
   const leadershipBlocks = (data.page.editorBlocks || []).filter(
     (block: any) => block.name === "nefac/leadership-person-card"
   );
-
-  console.log("Leadership blocks:", leadershipBlocks);
 
   const grouped = groupBy(
     leadershipBlocks,
