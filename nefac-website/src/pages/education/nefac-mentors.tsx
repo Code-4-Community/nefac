@@ -1,11 +1,19 @@
+import Testimonial from '@/components/education/education-initatives/Testimonial'
 import EducationInitiativeWrapper from '@/components/education/EducationInitiativeWrapper'
 import React from 'react'
 
+// Dummy date till we start pulling actual testimonials
+let testimonials = [
+    "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+]
 
 const NefacMentors = () => {
   return (
     <EducationInitiativeWrapper>
-        <div className="flex flex-col w-full gap-8">
+        <div className="flex flex-col w-full gap-20">
 
             <div className="flex flex-col sm:flex-row w-full gap-6">
                 <div className="w-full sm:w-[60%]">
@@ -46,15 +54,23 @@ const NefacMentors = () => {
                 />
             </div>
 
-            <div className="flex flex-col sm:flex-row w-full gap-6">
-                <div className="w-full sm:w-[60%]">
-                    <div className="text-nefacblue text-2xl sm:text-3xl font-semibold mb-2">
-                        Testimonials
-                        <div className='w-full bg-nefacblue h-[3px]' /> 
-                    </div>
-                    <p>Hello World</p>
+            <div className="flex flex-col gap-4 w-[80%] text-nefacblue text-2xl sm:text-3xl font-semibold mb-2">
+                <div className="flex items-center w-full">
+                    <span className="whitespace-nowrap">Testimonials</span>
+                    <div className="w-full h-[3px] bg-nefacblue ml-4" />
+                </div>
+
+                <div className="grid sm:grid-cols-2 grid-cols-4 gap-4">
+                    {testimonials.map((testimonial, index) => (
+                    <Testimonial key={index} content={testimonial} />
+                    ))}
                 </div>
             </div>
+
+            <div>
+                Hello World
+            </div>
+
         </div>
     </EducationInitiativeWrapper>
 
