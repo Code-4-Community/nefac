@@ -1,11 +1,18 @@
 import Link from "next/link";
-import { SocialIcon } from "react-social-icons";
-import "react-social-icons/x";
-import "react-social-icons/facebook";
-import "react-social-icons/linkedin";
-import "react-social-icons/youtube";
-import "react-social-icons/instagram";
-import "react-social-icons/tiktok";
+import { Instagram, Facebook, X, YouTube, LinkedIn } from "@mui/icons-material";
+import { SvgIcon } from "@mui/material";
+const TikTok = () => {
+  return (
+    <svg
+      fill="white"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 50 50"
+      width="30"
+    >
+      <path d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z" />
+    </svg>
+  );
+};
 import EmailForm from "./footer/email-form";
 
 export interface FooterProps {
@@ -42,7 +49,7 @@ const Footer = ({ nefacLogo }: FooterProps) => {
           </div>
           {/* email section */}
           <div className="flex flex-col">
-            <h1 className="text-white font-bold">Get Email Updates</h1>
+            <h1 className="text-white font-bold mb-2">Get Email Updates</h1>
             <EmailForm />
           </div>
           {/* social media section */}
@@ -50,54 +57,57 @@ const Footer = ({ nefacLogo }: FooterProps) => {
             <h1 className="text-white font-bold pb-4">Follow Us</h1>
             <div className="flex flex-wrap gap-4">
               <div className="flex flex-row gap-3">
-                <SocialIcon
-                  style={{ height: 30, width: 30 }}
-                  target="_blank"
-                  network="x"
-                  url="http://www.twitter.com/fivefreedoms"
-                />
-                <SocialIcon
-                  style={{ height: 30, width: 30 }}
-                  target="_blank"
-                  network="facebook"
-                  url="https://www.facebook.com/nefac.org/"
-                />
-                <SocialIcon
-                  style={{ height: 30, width: 30 }}
-                  target="_blank"
-                  network="linkedin"
-                  url="https://www.linkedin.com/company/nefac/"
-                />
-                <SocialIcon
-                  style={{ height: 30, width: 30 }}
-                  target="_blank"
-                  network="youtube"
-                  url="http://www.youtube.com/c/fivefreedoms"
-                />
-                <SocialIcon
-                  style={{ height: 30, width: 30 }}
-                  target="_blank"
-                  network="instagram"
-                  url="https://www.instagram.com/nefirstamendmentcoalition/"
-                />
-                <SocialIcon
-                  style={{ height: 30, width: 30 }}
-                  target="_blank"
-                  network="tiktok"
-                  url="https://www.tiktok.com/@fivefreedoms?lang=en&is_copy_url=1&is_from_webapp=v2"
-                />
+                <a href="https://www.twitter.com/fivefreedoms" target="_blank">
+                  <X
+                    sx={{ fontSize: 30 }}
+                    className="text-white hover:text-nefacgray transition-colors"
+                  />
+                </a>
+                <a href="https://www.facebook.com/nefac.org/" target="_blank">
+                  <Facebook
+                    sx={{ fontSize: 30 }}
+                    className="text-white hover:text-nefacgray transition-colors"
+                  />
+                </a>
+                <a href="https://www.linkedin.com/company/nefac/" target="_blank">
+                  <LinkedIn
+                    sx={{ fontSize: 30 }}
+                    className="text-white hover:text-nefacgray transition-colors"
+                  />
+                </a>
+                <a href="https://www.youtube.com/c/fivefreedoms" target="_blank">
+                  <YouTube
+                    sx={{ fontSize: 30 }}
+                    className="text-white hover:text-nefacgray transition-colors"
+                  />
+                </a>
+                <a href="https://www.instagram.com/nefirstamendmentcoalition/" target="_blank">
+                  <Instagram
+                    sx={{ fontSize: 30 }}
+                    className="text-white hover:text-nefacgray transition-colors"
+                  />
+                </a>
+                <a href="https://www.tiktok.com/@fivefreedoms?lang=en&is_copy_url=1&is_from_webapp=v2" target="_blank">
+                  <SvgIcon
+                    component={TikTok}
+                    sx={{ fontSize: 20 }}
+                    className="text-white hover:text-nefacgray transition-colors"
+                  />
+                </a>
                 <a href="https://nefac.eventbrite.com/" target="_blank">
                   <img
-                    src={"/icons/eventbrite-icon.svg"}
-                    alt="eventbrite logo"
+                    src={"/icons/eventbrite.svg"}
+                    alt="Eventbrite logo"
                     className="w-[30px] h-[30px]"
                   />
                 </a>
-                <SocialIcon
-                  target="_blank"
-                  style={{ height: 30, width: 30 }}
-                  url="https://bsky.app/profile/nefac.bsky.social"
-                />
+                <a href="https://bsky.app/profile/nefac.bsky.social" target="_blank">
+                  <img
+                    src={"/icons/bsky.svg"}
+                    alt="Bluesky logo"
+                    className="w-[30px] h-[30px]"
+                  />
+                </a>
               </div>
             </div>
           </div>

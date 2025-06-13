@@ -1,6 +1,7 @@
 import React from 'react';
-import {FaLinkedin, FaSpotify} from 'react-icons/fa';
-import { FaSquareFacebook,FaSquareXTwitter, FaSquareInstagram } from "react-icons/fa6";
+import { Facebook, X, Instagram, LinkedIn } from "@mui/icons-material";
+import { Spotify } from "mdi-material-ui";
+import { SvgIcon } from '@mui/material';
 
 const HomePage = () => {
   return (
@@ -34,22 +35,22 @@ const HomePage = () => {
             </a>
           </div>
           
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <a href="https://www.facebook.com/nefac.org/" target="_blank" rel="noopener noreferrer">
-             {/* FaSquareFacebook is bigger somehow, so decrease size by 1*/}
-              <FaSquareFacebook size={24} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+              <Facebook sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
+            {/* X is bigger somehow, so decrease size by 5*/}
             <a href="http://www.twitter.com/fivefreedoms" target="_blank" rel="noopener noreferrer">
-              <FaSquareXTwitter size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+              <X sx={{ fontSize:25 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
             <a href="https://www.instagram.com/nefirstamendmentcoalition/" target="_blank" rel="noopener noreferrer">
-              <FaSquareInstagram size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+              <Instagram sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
             <a href="https://www.linkedin.com/company/nefac/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+              <LinkedIn sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
             <a href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm" target="_blank" rel="noopener noreferrer">
-              <FaSpotify size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+              <SvgIcon component={Spotify} sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
             </a>
           </div>
         </div>

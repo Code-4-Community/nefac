@@ -1,87 +1,12 @@
-import PastRecordingsSection from "@/components/education-page/past-recordings/PastRecordingsSection";
-import { PastRecording } from "@/components/education-page/past-recordings/PastRecordingInterface";
-import EducationInitiativeWrapper from "@/components/education-page/EducationInitiativeWrapper";
-import InitiativeDescription from "@/components/education-page/InitiativeDescription";
-import { UpcomingEvent } from "@/components/education-page/upcoming-events/UpcomingEventInterface";
-import UpcomingEventCalendar from "@/components/education-page/upcoming-events/UpcomingEventCalendar";
+import React from 'react';
+import EducationInitiativeWrapper from '@/components/education-page/EducationInitiativeWrapper';
+import InitiativeDescription from '@/components/education-page/InitiativeDescription';
+import PastRecordingsSection from '@/components/education-page/past-recordings/PastRecordingsSection';
+import { PastRecording } from '@/components/education-page/past-recordings/PastRecordingInterface';
 
-// mock data for a properly filled calendar of events
-const mockFiveUpcomingEvents: UpcomingEvent[] = [
-    {
-        startDate: new Date("2025-04-29T14:00:00"),
-        title: " First Amendment and the Free Press",
-        location: "University of Massachusetts Amherst",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-05-02T14:00:00"),
-        title: "New England Scholastic Press Association Conference",
-        location: "Boston University",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-05-14T14:00:00"),
-        title: "First Amendment Law: Defamation and Privacy",
-        location: "Nackey S. Loeb School of Communications | Saint Anselm College",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-05-14T14:00:00"),
-        title: "Young Journalists Workshop",
-        location: "Endicott College",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-04-21T10:00:00"),
-        title: "Londonderry (N.H.) Town Council",
-        location: "Online",
-    }];
+export const EducationPage: React.FC = () => {
 
-// mock data for a calendar of events with more than 5 events
-const mockSevenUpcomingEvents: UpcomingEvent[] = [
-    {
-        startDate: new Date("2025-04-29T14:00:00"),
-        title: " First Amendment and the Free Press",
-        location: "University of Massachusetts Amherst",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-05-02T14:00:00"),
-        title: "New England Scholastic Press Association Conference",
-        location: "Boston University",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-05-14T14:00:00"),
-        title: "First Amendment Law: Defamation and Privacy",
-        location: "Nackey S. Loeb School of Communications | Saint Anselm College",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-05-14T14:00:00"),
-        title: "Young Journalists Workshop",
-        location: "Endicott College",
-        infoUrl: "https://www.google.com/",
-    },
-    {
-        startDate: new Date("2025-04-21T10:00:00"),
-        title: "Londonderry (N.H.) Town Council",
-        location: "Online",
-    },
-    {
-        startDate: new Date("2025-07-21T10:00:00"),
-        title: "NEFAC Meeting",
-        location: "Online",
-    },
-    {
-        startDate: new Date("2025-04-29T14:00:00"),
-        title: "C4C Meeting",
-        location: "Snell Library",
-    }];
-
-const mockEmptyEvents: UpcomingEvent[] = [];
-  
-const mockRecordings: PastRecording[] = [
+    const mockRecordings: PastRecording[] = [
     {
         publishedDate: new Date("2022-05-20"),
         recordingUrl: "https://www.youtube.com/watch?v=oYzYTWe31Ng",
@@ -185,21 +110,20 @@ const mockRecordings: PastRecording[] = [
     }
 ];
 
-// for testing no recordings message
-const mockRecordingsEmpty: PastRecording[] = [];
-
-const EducationPage: React.FC = () => {
     return (
-        <EducationInitiativeWrapper>
-            <InitiativeDescription 
-                header="First Amendment and Free Press" 
-                description="Lorem ipsum dolor sit amet"
-                thumbnailUrl="/images/nefac-conference.png"
-            />
-            <UpcomingEventCalendar events={mockFiveUpcomingEvents} />
-            <PastRecordingsSection recordings={mockRecordings} />
-        </EducationInitiativeWrapper>
-    )
-};
+        <>
+            <div className="px-24 pt-12 flex flex-row flex-wrap gap-4">   
+                <EducationInitiativeWrapper>
+                    <InitiativeDescription 
+                        header="30 Minute Skills"
+                        description="Join our experts for quick, practical lessons on various aspects of journalism and First Amendment law. These 30-minute sessions are designed to give you actionable insights and skills you can immediately apply to your work."
+                        thumbnailUrl="/images/nefac-conference.png"
+                    />
+                    <PastRecordingsSection recordings={mockRecordings}/>
+                </EducationInitiativeWrapper>
+            </div>
+        </>
+    );
+}
 
 export default EducationPage;

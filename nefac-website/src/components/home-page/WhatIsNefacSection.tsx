@@ -1,8 +1,9 @@
-import NefacFlipCard from "@/components/home-page/nefac-flip-card";
+import NefacFlipCard from "@/components/home-page/NEFACFlipCard";
+import { School, Campaign, Gavel } from "@mui/icons-material"
 
 export default function WhatIsNefacSection() {
   return (
-    <section className="overflow-x-hidden mb-16 px-20">
+    <section className="overflow-hidden mb-16 px-6 md:px-20">
       <div className="max-w-[1300px] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center pb-6 gap-3">
@@ -21,11 +22,11 @@ export default function WhatIsNefacSection() {
         </div>
 
         {/* Flip Cards */}
-        <div className="flex flex-col sm:flex-row flex-wrap justify-between">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-between gap-6">
           <NefacFlipCard
             caption="Education"
-            imageBlue="/icons/grad-cap.svg"
-            imageWhite="/icons/grad-cap-white.svg"
+            imageBlue={<School sx={{ fontSize:60 }} />}
+            imageWhite={<School sx={{ fontSize:30, color: 'white' }} />}
             links={[
               { text: "Amicus Briefs", url: "/" },
               { text: "Legal Referrals", url: "/" },
@@ -34,8 +35,8 @@ export default function WhatIsNefacSection() {
           />
           <NefacFlipCard
             caption="Advocacy"
-            imageBlue="/icons/megaphone.svg"
-            imageWhite="/icons/megaphone-white.svg"
+            imageBlue={<Campaign sx={{ fontSize:60 }} />}
+            imageWhite={<Campaign sx={{ fontSize:30, color: 'white' }} />}
             links={[
               { text: "Commentary & Coverage", url: "/" },
               { text: "Statements & Letters", url: "/" },
@@ -44,8 +45,8 @@ export default function WhatIsNefacSection() {
           />
           <NefacFlipCard
             caption="Defense"
-            imageBlue="/icons/gavel.svg"
-            imageWhite="/icons/gavel-white.svg"
+            imageBlue={<Gavel sx={{ fontSize:60 }} />}
+            imageWhite={<Gavel sx={{ fontSize:30, color: 'white' }} />}
             links={[
               { text: "30-Minute Skills", url: "/" },
               { text: "First Amendment & Free Press", url: "/" },

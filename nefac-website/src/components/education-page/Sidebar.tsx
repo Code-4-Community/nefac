@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from "next/router";
+import { ChevronRight, Close } from "@mui/icons-material";
 
 interface SidebarItem {
   title: string;
@@ -13,8 +12,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ items }: SidebarProps) {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,11 +20,11 @@ export default function Sidebar({ items }: SidebarProps) {
       <div className="hidden md:flex sticky top-4 h-fit self-start">
         <div className="flex flex-col px-4 py-4 gap-2 w-[300px]">
           {items.map((item, i) => {
-            const isActive = location.pathname === item.link;
+            const isActive = router.pathname === item.link;
             return (
               <div
                 key={i}
-                onClick={() => navigate(item.link)}
+                onClick={() => router.push(item.link)}
                 className={`cursor-pointer px-4 py-2 rounded-r-3xl 
                   ${isActive ? "bg-gray-100 border-l-4 border-blue-600" : "bg-white"}`}
               >
@@ -44,7 +42,7 @@ export default function Sidebar({ items }: SidebarProps) {
             onClick={() => setIsOpen(true)}
             className="text-2xl font-bold p-2"
           >
-            <FontAwesomeIcon icon={faAngleRight} />
+            <ChevronRight />
           </button>
           <div className="w-[3px] h-[300px] bg-gray-200" />
         </div>
@@ -56,17 +54,17 @@ export default function Sidebar({ items }: SidebarProps) {
             onClick={() => setIsOpen(false)}
             className="flex justify-end text-6xl font-bold text-black pr-5"
           >
-            <FontAwesomeIcon icon={faXmark} />
+            <Close />
           </button>
 
           <div className="flex flex-col gap-5 mt-20">
             {items.map((item, i) => {
-              const isActive = location.pathname === item.link;
+              const isActive = router.pathname === item.link;
               return (
                 <div
                   key={i}
                   onClick={() => {
-                    navigate(item.link);
+                    router.push(item.link);
                     setIsOpen(false);
                   }}
                   className={`cursor-pointer px-4 py-2 rounded-r-3xl text-3xl 

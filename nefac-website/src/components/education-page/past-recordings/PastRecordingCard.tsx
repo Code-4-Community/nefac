@@ -1,4 +1,5 @@
 import { PastRecording } from "./PastRecordingInterface";
+import { YouTube } from "@mui/icons-material";
 
 interface PastRecordingCardProps {
     recording: PastRecording;
@@ -18,11 +19,7 @@ const PastRecordingCard: React.FC<PastRecordingCardProps> = ({ recording }) => {
                     className="rounded-lg w-full aspect-video object-cover border-[3px] border-[#D8DADD]" 
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <img
-                        src="/icons/youtube.png"
-                        alt="YouTube Logo"
-                        className="w-10 h-auto opacity-75"
-                    />
+                    <YouTube sx={{ fontSize: 60, color:"red", opacity:.8 }}/>
                 </div>
             </a>
         </div>
