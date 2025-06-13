@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NewsBubble from '@/components/news-page/news-bubble';
-import LeftChevron from '@/components/icons/LeftChevron'
-import RightChevron from '@/components/icons/RightChevron'
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { WordPressArticle } from "@/components/news-page/article-interface";
 
 export const NewsPage = () => {
@@ -197,7 +196,7 @@ export const NewsPage = () => {
                 className="px-3 py-1 mx-1 rounded-md text-gray-600 disabled:text-gray-300 disabled:cursor-not-allowed"
                 aria-label="Previous Page"
               >
-                <LeftChevron width={24} height={24} />
+                <ChevronLeft />
               </button>
               {generatePageNumbers().map((pageNum) => (
                 <button
@@ -218,7 +217,7 @@ export const NewsPage = () => {
                     className="px-3 py-1 mx-1 rounded-md text-gray-600 disabled:text-gray-300 disabled:cursor-not-allowed"
                     aria-label="Next Page"
                 >
-                    <RightChevron width={24} height={24} />
+                    <ChevronRight />
               </button>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { PastRecording } from "./PastRecordingInterface";
 import PastRecordingCard from "./PastRecordingCard";
 import { useState } from "react";
+import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
 interface PastRecordingProps {
     recordings: PastRecording[];
@@ -35,7 +36,7 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                         className="flex flex-row mt-4 px-4 py-2 text-[#565353] gap-6 items-center"
                     >
                         <p className="underline italic font-bold text-[#565353] text-xl group-hover:text-black">VIEW MORE</p>
-                        <img src="/icons/down.svg" alt="down arrow" className="w-6 h-6 group-hover:brightness-0" />
+                        <ExpandMore fontSize="large" className="group-hover:brightness-0" />
                     </button>
                 </div>
             )}
@@ -49,7 +50,7 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                         className="flex flex-row mt-4 px-4 py-2 text-[#565353] gap-6 items-center"
                     >
                         <p className="underline italic font-bold text-[#565353] text-xl group-hover:text-black">VIEW LESS</p>
-                        <img src="/icons/up.svg" alt="up arrow" className="w-6 h-6 group-hover:brightness-0" />
+                        <ExpandLess fontSize="large" className="group-hover:brightness-0" />
                     </button>
                 </div>
             )}

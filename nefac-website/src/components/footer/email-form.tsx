@@ -1,25 +1,50 @@
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button, TextField } from "@mui/material";
 
 export default function EmailForm() {
   return (
-    <div className="w-full flex flex-col">
-      <div className="flex flex-row gap-2">
-        <div className="w-full">
-          <Label htmlFor="fname">First Name</Label>
-          <Input id="fname" placeholder="First Name"/>
-        </div>
-        <div className="w-full">
-          <Label htmlFor="lname">Last Name</Label>
-          <Input id="lname" placeholder="Last Name"/>
-        </div>
+    <div className="w-full flex flex-col gap-4">
+      <div className="flex flex-row gap-4">
+        <TextField
+          id="fname"
+          label="First Name"
+          placeholder="First Name"
+          variant="outlined"
+          fullWidth
+          size="small"
+          sx={{ bgcolor: 'white', borderRadius: 1 }}
+        />
+        <TextField
+          id="lname"
+          label="Last Name"
+          placeholder="Last Name"
+          variant="outlined"
+          fullWidth
+          size="small"
+          sx={{ bgcolor: 'white', borderRadius: 1 }}
+        />
       </div>
-      <div className="w-full">
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" placeholder="Email" />
-      </div>
-      <Button className="bg-[#1560F1] text-white mt-2">SIGN UP</Button>
+      <TextField
+        id="email"
+        label="Email"
+        placeholder="Email"
+        variant="outlined"
+        fullWidth
+        size="small"
+        sx={{ bgcolor: 'white', borderRadius: 1, mb: 1 }}
+      />
+      <Button 
+        variant="contained" 
+        sx={{ 
+          bgcolor: '#1560F1', 
+          color: 'white',
+          '&:hover': {
+            bgcolor: 'white',
+            color: '#1560F1'
+          }
+        }}
+      >
+        SIGN UP
+      </Button>
     </div>
   );
 }

@@ -12,8 +12,8 @@ import WhatIsNefacSection from "../components/home-page/WhatIsNefacSection";
 
 export default function Home() {
   return (
-    <div className="pt-24 flex flex-row flex-wrap gap-4">
-      <div className="z-0 mb-32">
+    <div className="pt-24 flex flex-row flex-wrap gap-4 overflow-x-hidden">
+      <div className="z-0 mb-32 w-full">
         <HomePage />
         <WhatIsNefacSection />
         <NewsSection />
