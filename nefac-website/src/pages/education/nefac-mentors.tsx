@@ -3,24 +3,13 @@ import Testimonial from '@/components/education/education-initatives/Testimonial
 import EducationInitiativeWrapper from '@/components/education/EducationInitiativeWrapper'
 import React from 'react'
 
-// Dummy date till we start pulling actual testimonials
+// Mock date till we start pulling actual testimonials
 let testimonials = [
     "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
     "Lorem ipsum dolor sit amet",
     "Lorem ipsum dolor sit amet",
     "Lorem ipsum dolor sit amet",
 ]
-
-// Custom component to render individual leadership cards
-// TODO: Already exists in 60-faustify-leadership page. To be removed eventually before merging
-const LeadershipCard: React.FC<{ name: string; description: string; section: string}> = ({ name, description, section }) => {
-  return (
-      <div className="p-4 bg-gray-100 w-[260px] rounded-md">
-        <p className="flex flex-wrap font-bold">{name}</p>
-        {description && <p className="text-md">{description}</p>}
-      </div>
-    );
-};
 
 const NefacMentors = () => {
   return (
@@ -82,7 +71,7 @@ const NefacMentors = () => {
                     <div className="w-full h-[3px] bg-nefacblue ml-4" />
                 </div>
 
-                <div className="grid sm:grid-cols-2 grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {testimonials.map((testimonial, index) => (
                     <Testimonial key={index} content={testimonial} />
                     ))}
@@ -169,7 +158,7 @@ const NefacMentors = () => {
                     Feel free to contact those below who have mentorship experience and will share their tips and best practices.
                 </p>
 
-                <div className="px-10 py-6 bg-gray-100 w-[40%] rounded-md text-black text-[20px]">
+                <div className="px-10 py-6 bg-gray-100 w-full sm:w-[45%] rounded-md text-black text-[20px]">
                     <p className="flex flex-wrap font-bold">Maggie Mulvihill</p>
                     <p className="text-md">mmulvih@bu.edu</p>
                 </div>
