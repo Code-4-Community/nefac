@@ -16,7 +16,7 @@ export const NewsSection = () => {
                     <div className="flex-grow h-2 bg-nefacblue rounded ml-4" />
                     <a href="/nefac-news">
                       <p className="ml-4 text-nefacblue font-bold whitespace-nowrap flex items-center">
-                        Latest News <ChevronRight fontSize="large"/>
+                        Latest News <ChevronRight />
                       </p>
                     </a>
                 </div>

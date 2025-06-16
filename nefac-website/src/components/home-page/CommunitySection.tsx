@@ -1,4 +1,5 @@
 import ArticleCardCarousel from "./ArticleCardCarousel";
+import { ChevronRight } from "mdi-material-ui";
 
 const communityArticles = [
   {
@@ -33,7 +34,8 @@ export default function CommunitySection() {
           href="#"
           className="text-white hover:underline transition-colors duration-300"
         >
-          More Community News {'>'}
+          More Community News
+          <ChevronRight />
         </a>
       </div>
 
