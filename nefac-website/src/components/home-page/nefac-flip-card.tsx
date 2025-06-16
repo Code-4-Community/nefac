@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { mapLinks } from "./WhatIsNefacSection";
 
 interface NefacFlipCardProps {
   caption?: string;
@@ -43,27 +44,7 @@ const NefacFlipCard = ({
               className="absolute top-2 sm:top-4 right-2 w-[15%] h-[15%] sm:w-[10%] sm:h-[10%] pr-2"
             />
           </div>
-          {links && links.length > 0 && (
-            <ul className="list-none w-full pl-4 pr-4 text-sm">
-              {links.map((link, idx) => (
-                <li key={idx} className="mb-1">
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-white hover:text-nefacgray transition-colors"
-                  >
-                    <span className="mr-2 text-xs sm:text-md md:text-lg">{link.text}</span>
-                    <img
-                      src="/icons/white-arrow.svg"
-                      alt="arrow icon"
-                      className="w-[12px] h-[12px] ml-auto"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+          {links && links.length > 0 && (mapLinks(links))}
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-full">
