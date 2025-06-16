@@ -1,5 +1,3 @@
-// import NefacFlipCard from "@/app/components/home-page/nefac-flip-card";
-
 import {
   Accordion,
   AccordionContent,
