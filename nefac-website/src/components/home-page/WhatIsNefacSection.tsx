@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion"
 
 import { useState, useEffect } from 'react';
-import NefacFlipCard from "./nefac-flip-card";
+import NefacFlipCard from "./NefacFlipCard";
 
 interface Link {
   text: string;
