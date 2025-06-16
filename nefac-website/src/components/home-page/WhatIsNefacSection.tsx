@@ -42,9 +42,9 @@ export function mapLinks(links: Link[]) {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center text-white hover:text-nefacgray transition-colors"
+          className="flex items-center text-white hover:text-nefacgray hover:underline transition-colors"
         >
-          <span className="mr-2 hover:underline text-lg sm:text-4xl md:text-lg">{link.text}</span>
+          <span className="mr-2 text-lg sm:text-4xl md:text-lg">{link.text}</span>
           <img
             src="/icons/white-arrow.svg"
             alt="arrow icon"
