@@ -1,3 +1,4 @@
+import NefacFlipCard from "@/app/components/home-page/nefac-flip-card";
 import {
   Accordion,
   AccordionContent,
@@ -5,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-import NefacFlipCard from "./NefacFlipCard";
+import { useState, useEffect } from 'react';
 
 interface Link {
   text: string;
@@ -30,7 +31,7 @@ const defenselinks : Link[] = [
   { text: "Negri Institute", url: "/" },
 ];
 
-export function mapLinks(links: Link[]) {
+function mapLinks(links: Link[]) {
   return (
     <ul className="list-none w-full pl-4 pr-4 text-sm">
     {links.map((link, idx) => (
@@ -39,9 +40,9 @@ export function mapLinks(links: Link[]) {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center text-white hover:text-nefacgray hover:underline transition-colors"
+          className="flex items-center text-white hover:text-nefacgray transition-colors"
         >
-          <span className="mr-2 text-lg sm:text-4xl md:text-lg">{link.text}</span>
+          <span className="mr-2 text-xs sm:text-lg">{link.text}</span>
           <img
             src="/icons/white-arrow.svg"
             alt="arrow icon"
@@ -53,8 +54,18 @@ export function mapLinks(links: Link[]) {
     </ul>)
 }
 
-// Main Section Component
 export default function WhatIsNefacSection() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    console.log(isMobile);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section className="overflow-x-hidden mb-16 px-20">
       <div className="max-w-[1300px] mx-auto">
@@ -75,58 +86,29 @@ export default function WhatIsNefacSection() {
         </div>
 
         {/* Flip Cards or Accordion*/}
-        <div className="block sm:hidden">
-          <Accordion type="single" collapsible className="w-full border-2 bg-nefacblue text-white rounded-lg">
+        {isMobile ? (
+          <Accordion type="single" collapsible className="w-full bg-nefacblue text-white rounded-lg">
           <AccordionItem value="item-1" className="ml-4 mr-4">
-            <AccordionTrigger>
-              <div className="flex justify-start gap-2">
-                <img
-                src={"/icons/grad-cap-white.svg"}
-                alt="card icon"
-                className="w-[25px] h-[25px]"
-              />
-              <span className="text-xl">Education</span>
-              </div>
-              </AccordionTrigger>
+            <AccordionTrigger>Education</AccordionTrigger>
             <AccordionContent>
             {educationLinks && educationLinks.length > 0 && (mapLinks(educationLinks))}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2" className="ml-4 mr-4">
-            <AccordionTrigger>
-              <div className="flex justify-start gap-2">
-                <img
-                src={"/icons/megaphone-white.svg"}
-                alt="card icon"
-                className="w-[22px] h-[22px]"
-              />
-              <span className="text-xl">Advocacy</span>
-              </div>
-            </AccordionTrigger>
+            <AccordionTrigger>Advocacy</AccordionTrigger>
             <AccordionContent>
             {advocacyLinks && advocacyLinks.length > 0 && (mapLinks(advocacyLinks))}
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-3" className="ml-4 mr-4 border-b-0">
-            <AccordionTrigger>
-              <div className="flex justify-start gap-2">
-                <img
-                src={"/icons/gavel-white.svg"}
-                alt="card icon"
-                className="w-[22px] h-[22px]"
-              />
-              <span className="text-xl">Defense</span>
-              </div>
-            </AccordionTrigger>
+          <AccordionItem value="item-3" className="ml-4 mr-4">
+            <AccordionTrigger>Defense</AccordionTrigger>
             <AccordionContent>
             {defenselinks && defenselinks.length > 0 && (mapLinks(defenselinks))}            
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        </div>
-
-      <div className="hidden sm:flex">
-        <div className="flex flex-col sm:flex-row flex-wrap justify-between w-full">
+        ) : (
+        <div className="flex flex-col sm:flex-row flex-wrap justify-between">
           <NefacFlipCard
             caption="Education"
             imageBlue="/icons/grad-cap.svg"
@@ -146,7 +128,7 @@ export default function WhatIsNefacSection() {
             links={defenselinks}
           />
         </div>
-      </div>
+  )}
       </div>
     </section>
   );}
