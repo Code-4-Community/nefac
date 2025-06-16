@@ -7,7 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-import { useState, useEffect } from 'react';
 import NefacFlipCard from "./NefacFlipCard";
 
 interface Link {
