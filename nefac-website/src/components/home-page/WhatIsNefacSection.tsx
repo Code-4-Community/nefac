@@ -56,6 +56,7 @@ export function mapLinks(links: Link[]) {
     </ul>)
 }
 
+// Main Section Component
 export default function WhatIsNefacSection() {
   return (
     <section className="overflow-x-hidden mb-16 px-20">
