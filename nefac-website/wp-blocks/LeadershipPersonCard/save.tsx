@@ -7,9 +7,9 @@ export default function save({ attributes }: { attributes: LeadershipPersonAttri
   return (
     <div {...useBlockProps.save()}>
       <div className="leadership-person-card" data-section={section}>
-        <h3 className="person-name">{name}</h3>
-        <p className="person-description">{description}</p>
-        <span className="person-section" style={{ display: 'none' }}>{section}</span>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <span style={{ display: 'none' }}>{section}</span>
       </div>
     </div>
   );
