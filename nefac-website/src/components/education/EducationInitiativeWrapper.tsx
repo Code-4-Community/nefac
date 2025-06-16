@@ -5,6 +5,7 @@ interface EducationInitiativeWrapperProps {
     children: any
 }
 
+
 // Single page of education initiative component
 // Page will later need to be updated to use the WordPress API to get the actual information
 export default function EducationInitiativeWrapper(props: EducationInitiativeWrapperProps) {
@@ -19,12 +20,12 @@ export default function EducationInitiativeWrapper(props: EducationInitiativeWra
                     items={[
                         { title: "30 Minute Skills", link: "/education-initiative" },
                         { title: "First Amendment and the Free Press", link: "/education-initiative-abc" },
-                        { title: "FOI Guide", link: "/education-initiative-def" },
+                        { title: "FOI Guide", link: "/education/foi-guide" },
                         { title: "NEFAC Mentors", link: "/education-initiative-ghi" },
                         { title: "Negri Institute", link: "/education-initiative-jkl" },
                     ]}
                 />
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col border">
                     {props.children}
                 </div>
             </div>
