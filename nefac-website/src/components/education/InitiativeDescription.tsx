@@ -1,7 +1,7 @@
 interface InitiativeDescriptionProps {
     header: string;
     description: string;
-    thumbnailUrl: string;
+    thumbnailUrl?: string;
 }
 
 export default function InitiativeDescription({
@@ -20,11 +20,13 @@ export default function InitiativeDescription({
                 </div>
             </div>
 
-            <img
-                src={thumbnailUrl}
-                alt="Education Initiative Thumbnail Image"
-                className="w-full sm:w-[40%] max-w-[400px] h-auto object-cover rounded-3xl"
-            />
+            {thumbnailUrl && (
+                <img
+                    src={thumbnailUrl}
+                    alt="Education Initiative Thumbnail"
+                    className="w-full sm:w-[40%] max-w-[400px] h-auto object-cover rounded-3xl"
+                />
+            )}
         </div>
     );
 }
