@@ -13,11 +13,11 @@ const NewEnglandMap = React.memo(function NewEnglandMap({
 }: Props) {
   return (
     <svg
-      width="460"
-      height="600"
+      width="500"
+      height="620"
       viewBox="0 0 442 588"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-[500px] h-[620px]"
+      className="w-auto h-auto"
     >
       {NEStates.map((state) => {
         const isHovered = hoveredId === state.id; // ← boolean, changes for ONE state, memoization
