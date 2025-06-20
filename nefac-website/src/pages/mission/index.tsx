@@ -2,8 +2,7 @@ import React from 'react';
 import { ImageCollageWrapper } from '@/components/mission-page/ImageCollage';
 import { gql } from '@apollo/client';
 import { getNextServerSideProps } from '@faustwp/core';
-import Page from '../[...wordpressNode]';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 
 const styles = {
   container: `flex flex-row py-8 md:py-12 items-center`,
