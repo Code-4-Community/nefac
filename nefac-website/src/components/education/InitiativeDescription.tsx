@@ -11,11 +11,11 @@ export default function InitiativeDescription({
 }: InitiativeDescriptionProps) {
     return (
         <div className="flex flex-col sm:flex-row w-full">
-            <div className="w-full sm:w-[60%]">
-                <div className="text-nefacblue text-2xl sm:text-3xl font-semibold mb-2">
+            <div className="w-full sm:w-[60%] md:w-full">
+                <div className="text-[#3C3F60 text-2xl sm:text-3xl font-semibold mb-2">
                     {header}
                 </div>
-                <div className="text-base sm:text-lg">
+                <div className="text-base sm:text-lg md:text-xl">
                     {description}
                 </div>
             </div>
