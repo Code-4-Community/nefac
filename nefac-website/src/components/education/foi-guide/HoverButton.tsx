@@ -45,7 +45,7 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
         </span>
         {/* Background Hover Fill */}
         <div
-          className={`absolute inset-0 h-[calc(100%-1px)] duration-200 rounded-[10px] z-10 origin-left transition-transform
+          className={`absolute inset-0 h-full duration-200 rounded-[10px] z-10 origin-left transition-transform
             ${scale} ${bg}
           `}
         />
