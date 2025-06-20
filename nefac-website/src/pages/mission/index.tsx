@@ -12,7 +12,7 @@ const styles = {
   title: `text-3xl font-bold text-[rgba(47,92,159,1)] mb-8 font-poppins`,
   paragraph: `text-gray-700 font-inter text-lg`,
   highlight: `font-semibold text-[rgba(47,92,159,1)]`,
-  imageSection: `w-full md:w-1/2 flex justify-center md:justify-end bg-nefacblue p-16 rounded-l-lg`,
+  imageSection: `w-full md:w-1/2 flex justify-center md:justify-end p-16 rounded-l-lg`,
   taxInfo: `mt-4 text-gray-600 font-inter`,
 } as const;
 
