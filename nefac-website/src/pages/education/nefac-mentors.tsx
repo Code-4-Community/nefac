@@ -65,9 +65,9 @@ const NefacMentors = () => {
                 />
             </div>
 
-            <div className="flex flex-col gap-4 w-[80%] text-nefacblue text-2xl sm:text-3xl font-semibold mb-2">
+            <div className="flex flex-col gap-4 w-[80%] text-nefacblue text-2xl sm:text-3xl mb-2">
                 <div className="flex items-center w-full">
-                    <span className="whitespace-nowrap">Testimonials</span>
+                    <span className="whitespace-nowrap font-semibold">Testimonials</span>
                     <div className="w-full h-[3px] bg-nefacblue ml-4" />
                 </div>
 
