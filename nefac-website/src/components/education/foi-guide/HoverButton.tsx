@@ -20,7 +20,7 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
     : "scale-x-[0.97]";
   const bg = isHovered ? "bg-nefacblue" : "bg-white";
   const arrowLoc = isHovered ? "w-full bg-black" : "w-[10%] bg-nefacblue";
-  const arrowFill = isHovered ? "fill-white right-1" : "fill-black";
+  const arrowFill = isHovered ? "fill-white right-1.5" : "fill-black";
   const textColor = isHovered ? "text-white" : "text-black";
 
   return (
