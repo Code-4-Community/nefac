@@ -22,12 +22,12 @@ export default function MapButtonsPanel() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full gap-4">
+    <div className="flex flex-col w-full">
       {/* Left Column: Title and buttons */}
       <h1 className="col-span-1 text-2xl font-bold text-nefacblue font-poppins pt-5">
         Guide Information
       </h1>
-      <div className="grid grid-cols-2 gap-2.5 gap-x-4 h-full">
+      <div className="grid grid-cols-2 gap-y-2.5 gap-x-4 h-full">
         {states.map((state) => (
           <div
             key={state.id}
