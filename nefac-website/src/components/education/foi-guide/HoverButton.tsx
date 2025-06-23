@@ -19,8 +19,8 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
     ? "scale-x-[0.984]"
     : "scale-x-[0.97]";
   const bg = isHovered ? "bg-nefacblue" : "bg-white";
-  const arrowLoc = isHovered ? "w-full bg-black" : "w-[10%] bg-nefacblue";
-  const arrowFill = isHovered ? "fill-white right-1.5" : "fill-black";
+  const arrowFill = isHovered ? "bg-black" : "bg-nefacblue";
+  const arrowLoc = isHovered ? "fill-white right-[0.375rem]" : "fill-black";
   const textColor = isHovered ? "text-white" : "text-black";
 
   return (
@@ -51,16 +51,16 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
         />
         {/* Arrow */}
         <div
-          className={`absolute right-0 h-full
+          className={`absolute right-0 h-full w-12
             transition-all duration-300
             flex items-center 
-            ${arrowLoc}`}
+            ${arrowFill}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="39.6 49.5 202 424.2"
-            className={`z-20 transition-all duration-300 absolute right-4 
-              ${arrowFill}`}
+            className={`z-20 transition-all duration-300 absolute right-4
+              ${arrowLoc}`}
           >
             <path d="M281.4 235.7c12.6 12.6 12.6 33.1 0 45.7l-161.6 161.6c-12.6 12.6-33.1 12.6-45.7 0s-12.6-33.1 0-45.7L212.8 258.6 74.1 119.8c-12.6-12.6-12.6-33.1 0-45.7s33.1-12.6 45.7 0l161.6 161.6z" />
           </svg>
