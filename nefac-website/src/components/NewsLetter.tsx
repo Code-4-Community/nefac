@@ -15,7 +15,7 @@ const styles = {
 
   // General Newletter
   generalTitle: `inline-block min-h-[39px] font-bold text-[20px] leading-[100%] tracking-[0%] font-[Poppins]`,
-  generalContainer: `bg-white border-[rgba(47,92,159,1)] rounded-[10px] p-4 pt-6 flex justify-around`,
+  generalContainer: `bg-white border-[rgba(47,92,159,1)] rounded-[10px] p-4 pt-6 flex justify-between`,
   generalButton: `w-fit bg-[rgba(47,92,159,1)] text-white px-5 py-2 mx-4 my-4 rounded-[10px] hover:bg-[rgba(37,73,127,1)] transition-colors text-center text-m font-semibold text-[14px] no-underline font-inter`,
 
   // State Newsletter
