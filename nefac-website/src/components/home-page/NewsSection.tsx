@@ -1,5 +1,6 @@
 import NewsStory from "./NewsStory"
-import { ChevronRight } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-col gap-4 flex-1 max-w-xs bg-nefacblue rounded-md">
@@ -16,7 +17,7 @@ export const NewsSection = () => {
                     <div className="flex-grow h-2 bg-nefacblue rounded ml-4" />
                     <a href="/nefac-news">
                       <p className="ml-4 text-nefacblue font-bold whitespace-nowrap flex items-center">
-                        Latest News <ChevronRight />
+                        Latest News <FontAwesomeIcon icon={faChevronRight} className="ml-2"/>
                       </p>
                     </a>
                 </div>

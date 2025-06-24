@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import NewsBubble from '@/components/news-page/news-bubble';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { WordPressArticle } from "@/components/news-page/article-interface";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 export const NewsPage = () => {
   const [featuredArticle, setFeaturedArticle] = useState<WordPressArticle | null>(null);
@@ -196,7 +197,7 @@ export const NewsPage = () => {
                 className="px-3 py-1 mx-1 rounded-md text-gray-600 disabled:text-gray-300 disabled:cursor-not-allowed"
                 aria-label="Previous Page"
               >
-                <ChevronLeft />
+                <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
               </button>
               {generatePageNumbers().map((pageNum) => (
                 <button
@@ -217,7 +218,7 @@ export const NewsPage = () => {
                     className="px-3 py-1 mx-1 rounded-md text-gray-600 disabled:text-gray-300 disabled:cursor-not-allowed"
                     aria-label="Next Page"
                 >
-                    <ChevronRight />
+                  <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
               </button>
             </div>
           </div>

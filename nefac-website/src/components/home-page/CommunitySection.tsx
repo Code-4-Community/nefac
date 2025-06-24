@@ -1,5 +1,6 @@
 import ArticleCardCarousel from "./ArticleCardCarousel";
-import { ChevronRight } from "mdi-material-ui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const communityArticles = [
   {
@@ -35,7 +36,7 @@ export default function CommunitySection() {
           className="text-white hover:underline transition-colors duration-300"
         >
           More Community News
-          <ChevronRight />
+          <FontAwesomeIcon icon={faChevronRight} className="ml-2" />
         </a>
       </div>
 

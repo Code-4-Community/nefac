@@ -1,5 +1,6 @@
 import NefacFlipCard from "@/components/home-page/NEFACFlipCard";
-import { School, Campaign, Gavel } from "@mui/icons-material"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGraduationCap, faBullhorn, faGavel } from "@fortawesome/free-solid-svg-icons";
 
 export default function WhatIsNefacSection() {
   return (
@@ -25,8 +26,8 @@ export default function WhatIsNefacSection() {
         <div className="flex flex-col sm:flex-row flex-wrap justify-between gap-6">
           <NefacFlipCard
             caption="Education"
-            imageBlue={<School sx={{ fontSize:60 }} />}
-            imageWhite={<School sx={{ fontSize:30, color: 'white' }} />}
+            imageBlue={<FontAwesomeIcon icon={faGraduationCap} style={{fontSize:"60px"}}/>}
+            imageWhite={<FontAwesomeIcon icon={faGraduationCap} style={{fontSize:"24px", color:"white"}}/>}
             links={[
               { text: "Amicus Briefs", url: "/" },
               { text: "Legal Referrals", url: "/" },
@@ -35,8 +36,8 @@ export default function WhatIsNefacSection() {
           />
           <NefacFlipCard
             caption="Advocacy"
-            imageBlue={<Campaign sx={{ fontSize:60 }} />}
-            imageWhite={<Campaign sx={{ fontSize:30, color: 'white' }} />}
+            imageBlue={<FontAwesomeIcon icon={faBullhorn} style={{fontSize:"60px"}}/>}
+            imageWhite={<FontAwesomeIcon icon={faBullhorn} style={{fontSize:"24px", color:"white"}}/>}
             links={[
               { text: "Commentary & Coverage", url: "/" },
               { text: "Statements & Letters", url: "/" },
@@ -45,8 +46,8 @@ export default function WhatIsNefacSection() {
           />
           <NefacFlipCard
             caption="Defense"
-            imageBlue={<Gavel sx={{ fontSize:60 }} />}
-            imageWhite={<Gavel sx={{ fontSize:30, color: 'white' }} />}
+            imageBlue={<FontAwesomeIcon icon={faGavel} style={{fontSize:"60px"}}/>}
+            imageWhite={<FontAwesomeIcon icon={faGavel} style={{fontSize:"24px", color:"white"}}/>}
             links={[
               { text: "30-Minute Skills", url: "/" },
               { text: "First Amendment & Free Press", url: "/" },

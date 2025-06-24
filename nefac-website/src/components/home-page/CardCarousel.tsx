@@ -1,10 +1,15 @@
-import { Box, IconButton } from '@mui/material';
-import { NavigateBefore, NavigateNext } from '@mui/icons-material';
-import { useState } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface CardCarouselProps<T> {
   items: T[];
   renderItem: (item: T) => React.ReactNode;
+  carouselItemClass?: string;
   showControls?: boolean;
   slidesPerView?: number;
 }
@@ -12,79 +17,30 @@ interface CardCarouselProps<T> {
 const CardCarousel = <T,>({ 
   items, 
   renderItem,
+  carouselItemClass = "basis-full flex py-2 px-1/4 flex-shrink-0",
   showControls = true,
-  slidesPerView = 2
+  slidesPerView = 2  // Default to 2 cards
 }: CardCarouselProps<T>) => {
-  const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = Math.ceil(items.length / slidesPerView);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
   return (
-    <Box sx={{ width: '100%', position: 'relative', py: 4, mb: 8, overflow: 'hidden' }}>
-      <Box sx={{ 
-        display: 'flex', 
-        px: 2,
-        transform: `translateX(-${activeStep * (100 / slidesPerView)}%)`,
-        transition: 'transform 0.3s ease-in-out',
-      }}>
+    <Carousel className="w-full py-4 mb-8">
+      <CarouselContent className="flex">
         {items.map((item, i) => (
-          <Box 
+          <CarouselItem 
             key={i} 
-            sx={{ 
-              flex: `0 0 ${100/slidesPerView}%`,
-              maxWidth: `${100/slidesPerView}%`,
-              px: 1
-            }}
+            className={carouselItemClass}
+            style={{flexBasis: `calc(100%/${slidesPerView})`}}
           >
             {renderItem(item)}
-          </Box>
+          </CarouselItem>
         ))}
-      </Box>
-      
+      </CarouselContent>
       {showControls && (
         <>
-          <IconButton
-            sx={{
-              position: 'absolute',
-              left: 8,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              bgcolor: 'background.paper',
-              boxShadow: 1,
-              '&:hover': { bgcolor: 'background.paper' },
-              zIndex: 1
-            }}
-            onClick={handleBack}
-            disabled={activeStep === 0}
-          >
-            <NavigateBefore />
-          </IconButton>
-          <IconButton
-            sx={{
-              position: 'absolute',
-              right: 8,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              bgcolor: 'background.paper',
-              boxShadow: 1,
-              '&:hover': { bgcolor: 'background.paper' },
-              zIndex: 1
-            }}
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
-            <NavigateNext />
-          </IconButton>
+          <CarouselPrevious />
+          <CarouselNext />
         </>
       )}
-    </Box>
+    </Carousel>
   );
 };
 

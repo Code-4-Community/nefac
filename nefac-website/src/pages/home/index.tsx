@@ -1,7 +1,6 @@
 import React from 'react';
-import { Facebook, X, Instagram, LinkedIn } from "@mui/icons-material";
-import { Spotify } from "mdi-material-ui";
-import { SvgIcon } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons';
 
 const HomePage = () => {
   return (
@@ -37,20 +36,34 @@ const HomePage = () => {
           
           <div className="flex gap-4 items-center">
             <a href="https://www.facebook.com/nefac.org/" target="_blank" rel="noopener noreferrer">
-              <Facebook sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+            <FontAwesomeIcon 
+              icon={faFacebook} 
+              className="w-[30px] h-[30px] hover:text-[#2F5C9F] transition-colors"
+            />
             </a>
-            {/* X is bigger somehow, so decrease size by 5*/}
             <a href="http://www.twitter.com/fivefreedoms" target="_blank" rel="noopener noreferrer">
-              <X sx={{ fontSize:25 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+            <FontAwesomeIcon 
+              icon={faTwitter} 
+              className="w-[30px] h-[30px] hover:text-[#2F5C9F] transition-colors"
+            />
             </a>
             <a href="https://www.instagram.com/nefirstamendmentcoalition/" target="_blank" rel="noopener noreferrer">
-              <Instagram sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+            <FontAwesomeIcon 
+              icon={faInstagram} 
+              className="w-[30px] h-[30px] hover:text-[#2F5C9F] transition-colors"
+            />
             </a>
             <a href="https://www.linkedin.com/company/nefac/" target="_blank" rel="noopener noreferrer">
-              <LinkedIn sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+            <FontAwesomeIcon 
+              icon={faLinkedin} 
+              className="w-[30px] h-[30px] hover:text-[#2F5C9F] transition-colors"
+            />
             </a>
             <a href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm" target="_blank" rel="noopener noreferrer">
-              <SvgIcon component={Spotify} sx={{ fontSize:30 }} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
+            <FontAwesomeIcon 
+              icon={faSpotify} 
+              className="w-[30px] h-[30px] hover:text-[#2F5C9F] transition-colors"
+            />
             </a>
           </div>
         </div>

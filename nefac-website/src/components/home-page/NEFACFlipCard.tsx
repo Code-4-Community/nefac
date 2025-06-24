@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Flip, ChevronRight } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
 
 interface NefacFlipCardProps {
   caption?: string;
@@ -34,7 +35,11 @@ const NefacFlipCard = ({
               </div>
               <h1 className="pr-13">{caption}</h1>
             </div>
-            <Flip sx={{color:"white", fontSize:40}} className="absolute top-4 right-2 pr-2"/>
+            <FontAwesomeIcon
+              icon={faRepeat}
+              className="absolute top-4 right-2 pr-2 text-white"
+              style={{ fontSize: "28px" }}
+            />
           </div>
           {links && links.length > 0 && (
             <ul className="list-none w-full pl-4 pr-4">
@@ -47,7 +52,11 @@ const NefacFlipCard = ({
                     className="flex items-center text-white hover:text-nefacgray transition-colors"
                   >
                     <span>{link.text}</span>
-                    <ChevronRight sx={{ color:"white"}} className="ml-auto"/>
+                    <FontAwesomeIcon
+                      icon={faChevronRight}
+                      className="ml-auto text-white"
+                      style={{ fontSize: "16px" }}
+                    />
                   </a>
                 </li>
               ))}
@@ -56,12 +65,16 @@ const NefacFlipCard = ({
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-full">
-          <Flip sx={{color:"#2F5C9F", fontSize:40}} className="absolute top-4 right-2 pr-2"/>
-          <div className="mb-2 text-nefacblue">
+          <FontAwesomeIcon
+              icon={faRepeat}
+              className="absolute top-4 right-2 pr-2 text-nefacblue"
+              style={{ fontSize: "28px" }}
+            />
+          <div className="mb-4 text-nefacblue">
             {imageBlue}
           </div>
           {caption && (
-            <p className="text-md font-semibold text-center text-nefacblue">
+            <p className="text-xl font-semibold text-center text-nefacblue">
               {caption}
             </p>
           )}

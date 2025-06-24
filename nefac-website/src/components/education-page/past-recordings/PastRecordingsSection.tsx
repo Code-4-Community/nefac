@@ -1,7 +1,8 @@
 import { PastRecording } from "./PastRecordingInterface";
 import PastRecordingCard from "./PastRecordingCard";
 import { useState } from "react";
-import { ExpandMore, ExpandLess } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 interface PastRecordingProps {
     recordings: PastRecording[];
@@ -36,7 +37,11 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                         className="flex flex-row mt-4 px-4 py-2 text-[#565353] gap-6 items-center"
                     >
                         <p className="underline italic font-bold text-[#565353] text-xl group-hover:text-black">VIEW MORE</p>
-                        <ExpandMore fontSize="large" className="group-hover:brightness-0" />
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            className="group-hover:brightness-0"
+                            style={{ fontSize: "24px" }}
+                        />
                     </button>
                 </div>
             )}
@@ -50,7 +55,11 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                         className="flex flex-row mt-4 px-4 py-2 text-[#565353] gap-6 items-center"
                     >
                         <p className="underline italic font-bold text-[#565353] text-xl group-hover:text-black">VIEW LESS</p>
-                        <ExpandLess fontSize="large" className="group-hover:brightness-0" />
+                        <FontAwesomeIcon
+                            icon={faChevronUp}
+                            className="group-hover:brightness-0"
+                            style={{ fontSize: "24px" }}
+                        />
                     </button>
                 </div>
             )}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { ChevronRight, Close } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 interface SidebarItem {
   title: string;
@@ -42,7 +43,7 @@ export default function Sidebar({ items }: SidebarProps) {
             onClick={() => setIsOpen(true)}
             className="text-2xl font-bold p-2"
           >
-            <ChevronRight />
+            <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4"/>
           </button>
           <div className="w-[3px] h-[300px] bg-gray-200" />
         </div>
@@ -54,7 +55,7 @@ export default function Sidebar({ items }: SidebarProps) {
             onClick={() => setIsOpen(false)}
             className="flex justify-end text-6xl font-bold text-black pr-5"
           >
-            <Close />
+            <FontAwesomeIcon icon={faXmark} className="w-6 h-6" />
           </button>
 
           <div className="flex flex-col gap-5 mt-20">

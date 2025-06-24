@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useRef } from "react";
 import SearchBar from "./header/search-bar";
-import { KeyboardArrowDown } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export interface HeaderProps {
   nefacLogo?: string;
@@ -70,9 +71,9 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               onMouseEnter={handleMouseEnterAbout}
               onMouseLeave={handleMouseLeaveAbout}
             >
-              <button className="flex items-center gap-1 py-2 rounded-md hover:bg-gray-200">
+              <button className="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200">
                 About
-                <KeyboardArrowDown className="w-2.5 h-2.5 text-nefacblue" />
+                <FontAwesomeIcon icon={faChevronDown} className="w-3 h-3 text-nefacblue" />
               </button>
               {isDropdownOpenAbout && (
                 <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
@@ -103,9 +104,9 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               onMouseEnter={handleMouseEnterWWD}
               onMouseLeave={handleMouseLeaveWWD}
             >
-              <button className="flex items-center gap-1 py-2 rounded-md hover:bg-gray-200">
+              <button className="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200">
                 <a href="/mission">What We Do</a>
-                <KeyboardArrowDown className="w-2.5 h-2.5 text-nefacblue" />
+                <FontAwesomeIcon icon={faChevronDown} className="w-3 h-3 text-nefacblue" />
               </button>
               {isDropdownOpenWWD && (
                 <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
@@ -138,9 +139,9 @@ const Header = ({ nefacLogo }: HeaderProps) => {
               onMouseEnter={handleMouseEnterJoin}
               onMouseLeave={handleMouseLeaveJoin}
             >
-              <button className="flex items-center gap-1 py-2 rounded-md hover:bg-gray-200">
+              <button className="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200">
                 Join
-                <KeyboardArrowDown className="w-2.5 h-2.5 text-nefacblue" />
+                <FontAwesomeIcon icon={faChevronDown} className="w-3 h-3 text-nefacblue" />
               </button>
               {isDropdownOpenJoin && (
                 <div className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-44 z-50">
