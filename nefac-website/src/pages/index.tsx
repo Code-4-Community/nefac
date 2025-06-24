@@ -1,4 +1,3 @@
-
 import AdvocacySection from "../components/home-page/AdvocacySection";
 import CommentarySection from "../components/home-page/CommentarySection";
 import CommunitySection from "../components/home-page/CommunitySection";
