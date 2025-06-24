@@ -6,9 +6,12 @@ export default function save({ attributes }: { attributes: LeadershipPersonAttri
   
   return (
     <div {...useBlockProps.save()}>
-      <div className="leadership-person-card" data-section={section}>
-        <h3>{name}</h3>
-        <p>{description}</p>
+      <div data-section={section}>
+        <p style={{ textAlign: 'center' }}>
+          <strong>{name}</strong>
+          <br />
+          {description}
+        </p>
         <span style={{ display: 'none' }}>{section}</span>
       </div>
     </div>

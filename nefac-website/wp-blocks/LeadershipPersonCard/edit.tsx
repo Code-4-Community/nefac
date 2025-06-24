@@ -17,7 +17,7 @@ function Edit(props: BlockEditProps<LeadershipPersonAttributes>) {
         onChange={(value) => setAttributes({ name: value })}
       />
 
-      <TextareaControl
+      <TextControl
         label="Description"
         value={description}
         onChange={(value) => setAttributes({ description: value })}
