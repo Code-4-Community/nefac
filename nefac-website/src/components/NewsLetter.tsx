@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { states } from "../lib/constants/subscribe/states";
 interface NewsLetterProps {
   title: string;
