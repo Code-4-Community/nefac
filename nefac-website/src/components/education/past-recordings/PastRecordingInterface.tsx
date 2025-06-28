@@ -17,4 +17,7 @@ export interface PastRecording {
 
 	// a URL pointing to a page with notes and other info (optional)
 	notesUrl?: string;
+
+	// author of the recording (optional)
+	author?: string;
 }
