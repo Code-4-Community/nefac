@@ -1,9 +1,10 @@
-import NewsBubble from '@/components/news-page/news-bubble';
+import NewsBubble from '@/components/news-page/NewsBubble';
+import { NewsPost, NewsPostEdge } from '@/components/news-page/NewsInterfaces';
 
 import { useQuery, gql } from '@apollo/client';
 
 const GET_NEWS = gql`
-  query getNewsIds($first: Int!, $after: String) {
+  query getNewsPosts($first: Int!, $after: String) {
 	newsPosts(first: $first, after: $after) {
         pageInfo {
             hasNextPage
@@ -13,7 +14,6 @@ const GET_NEWS = gql`
             node {
                 id
                 title
-                slug
                 date
                 content
                 link
@@ -26,6 +26,15 @@ const GET_NEWS = gql`
 const INITIAL_BATCH_SIZE = 7;
 const SUBSEQUENT_BATCH_SIZE = 6;
 
+function NewsStatusMessage(message: string) {
+  return (
+    <div className="mx-20 pt-12">
+      <h1 className="text-nefacblue font-semibold text-5xl">NEFAC News</h1>
+      <div className="mt-8">{message}</div>
+    </div>
+  );
+}
+
 export default function LoadNews() {
   const { data, loading, error, fetchMore } = useQuery(GET_NEWS, {
     variables: { first: INITIAL_BATCH_SIZE, after: null },
@@ -33,33 +42,18 @@ export default function LoadNews() {
   });
 
   if (error) {
-    return (
-      <div className="mx-20 pt-12">
-        <h1 className="text-nefacblue font-semibold text-5xl">NEFAC News</h1>
-        <div className="mt-8">Sorry, an error happened. Please reload.</div>
-      </div>
-    )
+    return NewsStatusMessage("Sorry, an error happened. Please reload.");
   }
 
   if (!data && loading) {
-    return (
-      <div className="mx-20 pt-12">
-        <h1 className="text-nefacblue font-semibold text-5xl">NEFAC News</h1>
-        <div className="mt-8">Loading news articles...</div>
-      </div>
-    );
+    return NewsStatusMessage("Loading news articles...");
   }
 
   if (!data?.newsPosts.edges.length) {
-    return (
-      <div className="mx-20 pt-12">
-        <h1 className="text-nefacblue font-semibold text-5xl">NEFAC News</h1>
-        <div className="mt-8">There is no news to display.</div>
-      </div>
-    );
+    return NewsStatusMessage("There is no news to display.");
   }
 
-  const posts = data.newsPosts.edges.map(edge => edge.node);
+  const posts = data.newsPosts.edges.map((edge: NewsPostEdge) => edge.node);
   const haveMorePosts = Boolean(data?.newsPosts?.pageInfo?.hasNextPage);
 
   const featuredArticle = posts[0] || null;
@@ -70,6 +64,7 @@ export default function LoadNews() {
         <h1 className="text-nefacblue font-semibold text-5xl mb-4">NEFAC News</h1>
         {featuredArticle && (
           <NewsBubble
+          key={featuredArticle.id}
           header={true}
           title={featuredArticle.title}
           date={featuredArticle.date}
@@ -80,10 +75,11 @@ export default function LoadNews() {
         
         <h2 className="text-nefacblue font-semibold text-3xl mb-4">Latest News</h2>
         <div className="grid grid-flow-row grid-cols-3 gap-x-16 gap-y-6 mb-6">
-          {latestPosts.map((post) => {
-            const { title, date, content, link } = post;
+          {latestPosts.map((post: NewsPost) => {
+            const { id, title, date, content, link } = post;
             return (
               <NewsBubble
+                key={id}
                 header={false} 
                 title={title}
                 date={date}
