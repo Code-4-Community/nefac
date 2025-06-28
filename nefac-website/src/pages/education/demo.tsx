@@ -198,6 +198,7 @@ const EducationPage: React.FC = () => {
             />
             <UpcomingEventCalendar events={mockFiveUpcomingEvents} />
             <PastRecordingDisplay recordings={mockRecordings} />
+            <PastRecordingDisplay recordings={mockRecordings} variant="grid" />
         </EducationInitiativeWrapper>
     )
 };
