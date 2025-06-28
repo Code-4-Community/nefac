@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PastRecording } from "./PastRecordingInterface";
+import { PastRecording } from "@/components/education/past-recordings/PastRecordingInterface";
 
 export function usePaginatedRecordings(recordings: PastRecording[], initialCount: number, step: number) {
   const sorted = recordings

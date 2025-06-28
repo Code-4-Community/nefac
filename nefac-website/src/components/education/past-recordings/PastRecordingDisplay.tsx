@@ -1,6 +1,6 @@
 import { PastRecording } from "./PastRecordingInterface";
 import PastRecordingCard from "./PastRecordingCard";
-import { usePaginatedRecordings } from "./usePaginatedRecordings";
+import { usePaginatedRecordings } from "@/lib/usePaginatedRecordings";
 
 interface PastRecordingsDisplayProps {
   recordings: PastRecording[];
