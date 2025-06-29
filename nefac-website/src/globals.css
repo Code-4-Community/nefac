@@ -81,3 +81,79 @@ body {
     --foreground: #0a0a0a;
   }
 }
+
+
+/* singular template css */
+
+.alignright {
+  float: right;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  height: auto;
+  max-width: 40%;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 3.6rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.page-content-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #ededed;
+  padding: 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.custom-html-content {
+  max-width: 28%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .custom-html-content {
+    max-width: 50%;
+  }
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+  .custom-html-content {
+    max-width: 90%;
+  }
+}
+
+/* HTML Inside dangerouslySetInnerHTML for singular template */
+
+.custom-html-content h5 {
+  font-weight: bold;
+  font-size: 18px;
+  overflow: hidden; 
+}
+
+.custom-html-content h5 img.alignright {
+  float: right;
+  height: auto;
+  max-width: 40%; /* prevents image from being too large */
+}
+
+.custom-html-content a {
+  text-decoration: underline;
+}
