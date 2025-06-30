@@ -1,4 +1,4 @@
-import NewsLetter from "@/components/NewsLetter";
+import NewsLetter from "@/components/subscribe-page/NewsLetter";
 import React from "react";
 import { newsletters } from "../../lib/constants/subscribe/newsletters";
 
