@@ -1,5 +1,5 @@
 import React from "react";
-import { states } from "../lib/constants/subscribe/states";
+import { states } from "../../lib/constants/subscribe/states";
 interface NewsLetterProps {
   title: string;
   description: string;
