@@ -32,6 +32,7 @@ const SingularTemplate: FaustTemplate<SingularData> = ({ data }) => {
   );
 };
 
+// Kept for pages and posts as catch alls for both their titles and content
 SingularTemplate.query = gql`
   query GetNodeByUri($uri: String!) {
     nodeByUri(uri: $uri) {
