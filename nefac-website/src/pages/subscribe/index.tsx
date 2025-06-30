@@ -4,7 +4,7 @@ import { newsletters } from "../../lib/constants/subscribe/newsletters";
 
 export const SubscribePage: React.FC = () => {
   return (
-    <div className="px-24 pt-12 flex flex-row flex-wrap gap-4">
+    <div className="px-5 md:px-24 pt-12 flex flex-row flex-wrap gap-4">
       <div className="hidden md:flex flex-row gap-12 items-center mb-12">
         <div className="flex flex-col w-2/3">
           <h1 className="text-nefacblue font-bold text-5xl my-8">Subscribe</h1>
