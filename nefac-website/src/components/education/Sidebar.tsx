@@ -39,14 +39,13 @@ export default function Sidebar({ items }: SidebarProps) {
       </div>
 
       {!isOpen && (
-        <div className="sticky top-4 h-fit self-start flex md:hidden items-start gap-2 z-40 bg-white">
+        <div className="sticky top-4 self-start flex md:hidden items-start z-40 bg-white">
           <button
             onClick={() => setIsOpen(true)}
-            className="text-2xl font-bold p-2"
+            className="fixed bottom-20 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center"
           >
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
-          <div className="w-[3px] h-[300px] bg-gray-200" />
         </div>
       )}
 
