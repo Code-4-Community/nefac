@@ -35,7 +35,7 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
     >
       <Link
         href={state.url}
-        className="relative w-full h-full flex justify-between px-4 items-start min-w-0"
+        className="relative w-full h-full flex justify-between overflow-hidden px-4 items-start min-w-0"
       >
         {/* Text */}
         <span
