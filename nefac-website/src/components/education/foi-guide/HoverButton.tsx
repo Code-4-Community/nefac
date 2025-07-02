@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   state: { id?: string; name: string; url: string };
@@ -13,14 +15,14 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
   const isWide = state.id === "FOIA";
   const scale = isHovered
     ? isWide
-      ? "scale-x-[0.935]"
-      : "scale-x-[0.86]"
+      ? "w-[93.5%]"
+      : "w-[86%]"
     : isWide
-    ? "scale-x-[0.984]"
-    : "scale-x-[0.97]";
+    ? "w-[98.4%]"
+    : "w-[97%]";
   const bg = isHovered ? "bg-nefacblue" : "bg-white";
-  const arrowFill = isHovered ? "bg-black" : "bg-nefacblue";
-  const arrowLoc = isHovered ? "fill-white right-[0.375rem]" : "fill-black";
+  const arrowBg = isHovered ? "bg-black" : "bg-nefacblue";
+  const arrowHover = isHovered ? "text-white right-[0.375rem]" : "text-black";
   const textColor = isHovered ? "text-white" : "text-black";
 
   return (
@@ -33,20 +35,19 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
     >
       <Link
         href={state.url}
-        className="relative w-full h-full flex justify-between px-4 items-start"
+        className="relative w-full h-full flex justify-between px-4 items-start min-w-0"
       >
         {/* Text */}
         <span
-          className={`z-30 font-semibold font-poppins text-lg pr-10
-              ${textColor}
-            `}
+          className={`z-30 font-semibold font-poppins pr-10 leading-tight text-base sm:text-lg
+    ${textColor}`}
         >
           {state.name}
         </span>
-        {/* Background Hover Fill */}
+        {/* Hover Fill Background */}
         <div
-          className={`absolute inset-0 h-full duration-200 rounded-[10px] z-10 origin-left transition-transform
-            ${scale} ${bg}
+          className={`absolute inset-0 h-full w-full z-10 rounded-[10px] transition-all duration-300
+            ${bg} ${scale}
           `}
         />
         {/* Arrow */}
@@ -54,16 +55,13 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
           className={`absolute right-0 h-full w-12
             transition-all duration-300
             flex items-center 
-            ${arrowFill}`}
+            ${arrowBg}`}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="39.6 49.5 202 424.2"
-            className={`z-20 transition-all duration-300 absolute right-4
-              ${arrowLoc}`}
-          >
-            <path d="M281.4 235.7c12.6 12.6 12.6 33.1 0 45.7l-161.6 161.6c-12.6 12.6-33.1 12.6-45.7 0s-12.6-33.1 0-45.7L212.8 258.6 74.1 119.8c-12.6-12.6-12.6-33.1 0-45.7s33.1-12.6 45.7 0l161.6 161.6z" />
-          </svg>
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            className={`z-20 transition-all duration-300 absolute w-4 h-4 right-4
+              ${arrowHover}`}
+          />
         </div>
       </Link>
     </Button>
