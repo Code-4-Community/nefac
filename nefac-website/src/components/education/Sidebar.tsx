@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,16 @@ export default function Sidebar({ items }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (animate && !isOpen) {
+      const timer = setTimeout(() => {
+        setAnimate(false);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [animate, isOpen]);
 
   return (
     <>
@@ -38,22 +48,32 @@ export default function Sidebar({ items }: SidebarProps) {
         <div className="w-[3px] h-[300px] bg-gray-200" />
       </div>
 
-      {!isOpen && (
+      {!isOpen && !animate && (
         <div className="sticky top-4 self-start flex md:hidden items-start z-40 bg-white">
           <button
-            onClick={() => setIsOpen(true)}
-            className="fixed bottom-20 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center"
+            onClick={() => {
+              setIsOpen(true);
+              setAnimate(true);
+            }}
+            className="fixed bottom-20 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center animate-[slideInLeft_0.4s_ease-out_forwards]"
           >
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
       )}
 
-      {isOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col px-4 py-4">
+      {(isOpen || animate) && (
+        <div
+          className={`fixed inset-0 bg-white z-50 flex flex-col px-4 py-4 md:hidden
+            ${isOpen ? "sidebar-slide-in" : "sidebar-slide-out"}`}
+        >
           <button
-            onClick={() => setIsOpen(false)}
-            className="flex justify-end text-6xl font-bold text-black pr-5"
+            onClick={() => {
+              setIsOpen(false);
+              setAnimate(true);
+            }}
+            className="fixed top-5 right-5 w-[60px] h-[60px] 
+              text-2xl font-bold flex items-center justify-center"
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
@@ -67,6 +87,7 @@ export default function Sidebar({ items }: SidebarProps) {
                   onClick={() => {
                     router.push(item.link);
                     setIsOpen(false);
+                    setAnimate(true);
                   }}
                   className={`cursor-pointer px-4 py-2 rounded-r-3xl text-3xl 
                     ${isActive ? "bg-gray-100 border-l-4 border-blue-600" : "bg-white"}`}

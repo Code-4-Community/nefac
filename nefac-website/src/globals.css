@@ -81,3 +81,22 @@ body {
     --foreground: #0a0a0a;
   }
 }
+
+@keyframes slideInLeft {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.sidebar-slide-in {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.sidebar-slide-out {
+  animation: slideOutLeft 0.4s ease-in forwards;
+}
+
