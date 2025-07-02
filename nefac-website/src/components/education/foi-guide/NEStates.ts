@@ -5,6 +5,7 @@ type StatePath = {
   labelPath: string;
 };
 
+// SVG Paths from NEFAC Figma 
 export const NEStates: StatePath[] = [
   {
     id: "ME",
