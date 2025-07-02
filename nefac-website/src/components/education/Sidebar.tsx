@@ -22,7 +22,7 @@ export default function Sidebar({ items }: SidebarProps) {
     if (animate && !isOpen) {
       const timer = setTimeout(() => {
         setAnimate(false);
-      }, 400);
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [animate, isOpen]);
@@ -64,7 +64,7 @@ export default function Sidebar({ items }: SidebarProps) {
 
       {(isOpen || animate) && (
         <div
-          className={`bg-transparent fixed inset-0 z-50 flex flex-col px-4 py-4 md:hidden
+          className={`bg-white fixed inset-0 z-50 flex flex-col py-4 md:hidden
             ${isOpen ? "sidebar-slide-in" : "sidebar-slide-out"}`}
         >
           <button
