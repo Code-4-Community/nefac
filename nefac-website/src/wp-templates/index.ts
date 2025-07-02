@@ -1,7 +1,7 @@
-import SingleTemplate from "./single";
+import SingularTemplate from "./singular";
  
 const templates = {
-	single: SingleTemplate,
+	singular: SingularTemplate,
 };
  
 export default templates;
