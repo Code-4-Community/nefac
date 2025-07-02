@@ -26,8 +26,8 @@ export default function WhatIsNefacSection() {
         <div className="flex flex-col sm:flex-row flex-wrap justify-between gap-6">
           <NefacFlipCard
             caption="Education"
-            imageBlue={<FontAwesomeIcon icon={faGraduationCap} style={{fontSize:"60px"}}/>}
-            imageWhite={<FontAwesomeIcon icon={faGraduationCap} style={{fontSize:"24px", color:"white"}}/>}
+            imageBlue={<FontAwesomeIcon className="text-[70px]" icon={faGraduationCap}/>}
+            imageWhite={<FontAwesomeIcon className="text-[24px] text-white" icon={faGraduationCap}/>}
             links={[
               { text: "Amicus Briefs", url: "/" },
               { text: "Legal Referrals", url: "/" },
@@ -36,8 +36,8 @@ export default function WhatIsNefacSection() {
           />
           <NefacFlipCard
             caption="Advocacy"
-            imageBlue={<FontAwesomeIcon icon={faBullhorn} style={{fontSize:"60px"}}/>}
-            imageWhite={<FontAwesomeIcon icon={faBullhorn} style={{fontSize:"24px", color:"white"}}/>}
+            imageBlue={<FontAwesomeIcon className="text-[70px]" icon={faBullhorn}/>}
+            imageWhite={<FontAwesomeIcon className="text-[24px] text-white" icon={faBullhorn}/>}
             links={[
               { text: "Commentary & Coverage", url: "/" },
               { text: "Statements & Letters", url: "/" },
@@ -46,8 +46,8 @@ export default function WhatIsNefacSection() {
           />
           <NefacFlipCard
             caption="Defense"
-            imageBlue={<FontAwesomeIcon icon={faGavel} style={{fontSize:"60px"}}/>}
-            imageWhite={<FontAwesomeIcon icon={faGavel} style={{fontSize:"24px", color:"white"}}/>}
+            imageBlue={<FontAwesomeIcon className="text-[70px]" icon={faGavel} style={{fontSize:"60px"}}/>}
+            imageWhite={<FontAwesomeIcon className="text-[24px] text-white" icon={faGavel}/>}
             links={[
               { text: "30-Minute Skills", url: "/" },
               { text: "First Amendment & Free Press", url: "/" },

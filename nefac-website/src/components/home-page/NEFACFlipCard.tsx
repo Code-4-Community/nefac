@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faRetweet} from "@fortawesome/free-solid-svg-icons";
 
 interface NefacFlipCardProps {
   caption?: string;
@@ -36,9 +36,8 @@ const NefacFlipCard = ({
               <h1 className="pr-13">{caption}</h1>
             </div>
             <FontAwesomeIcon
-              icon={faRepeat}
-              className="absolute top-4 right-2 pr-2 text-white"
-              style={{ fontSize: "28px" }}
+              icon={faChevronRight}
+              className="absolute top-4 right-2 pr-2 text-white text-[28px]"
             />
           </div>
           {links && links.length > 0 && (
@@ -53,9 +52,8 @@ const NefacFlipCard = ({
                   >
                     <span>{link.text}</span>
                     <FontAwesomeIcon
-                      icon={faChevronRight}
-                      className="ml-auto text-white"
-                      style={{ fontSize: "16px" }}
+                      icon={faRetweet}
+                      className="ml-auto text-white text-[16px]"
                     />
                   </a>
                 </li>
@@ -66,11 +64,10 @@ const NefacFlipCard = ({
       ) : (
         <div className="flex flex-col items-center justify-center h-full">
           <FontAwesomeIcon
-              icon={faRepeat}
-              className="absolute top-4 right-2 pr-2 text-nefacblue"
-              style={{ fontSize: "28px" }}
+              icon={faRetweet}
+              className="absolute top-4 right-2 pr-2 text-nefacblue text-[28px]"
             />
-          <div className="mb-4 text-nefacblue">
+          <div className="mb-3 text-nefacblue">
             {imageBlue}
           </div>
           {caption && (

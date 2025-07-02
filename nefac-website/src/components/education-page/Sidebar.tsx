@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 interface SidebarItem {
   title: string;
@@ -55,7 +55,7 @@ export default function Sidebar({ items }: SidebarProps) {
             onClick={() => setIsOpen(false)}
             className="flex justify-end text-6xl font-bold text-black pr-5"
           >
-            <FontAwesomeIcon icon={faXmark} className="w-6 h-6" />
+            <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
           </button>
 
           <div className="flex flex-col gap-5 mt-20">

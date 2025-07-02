@@ -39,8 +39,7 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                         <p className="underline italic font-bold text-[#565353] text-xl group-hover:text-black">VIEW MORE</p>
                         <FontAwesomeIcon
                             icon={faChevronDown}
-                            className="group-hover:brightness-0"
-                            style={{ fontSize: "24px" }}
+                            className="group-hover:brightness-0 text-[24px]"
                         />
                     </button>
                 </div>
@@ -57,8 +56,7 @@ const PastRecordingsSection: React.FC<PastRecordingProps> = ({ recordings }) => 
                         <p className="underline italic font-bold text-[#565353] text-xl group-hover:text-black">VIEW LESS</p>
                         <FontAwesomeIcon
                             icon={faChevronUp}
-                            className="group-hover:brightness-0"
-                            style={{ fontSize: "24px" }}
+                            className="group-hover:brightness-0 text-[24px]"
                         />
                     </button>
                 </div>

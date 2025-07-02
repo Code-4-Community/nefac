@@ -20,10 +20,13 @@ const PastRecordingCard: React.FC<PastRecordingCardProps> = ({ recording }) => {
                     className="rounded-lg w-full aspect-video object-cover border-[3px] border-[#D8DADD]" 
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <FontAwesomeIcon 
+                  <div className="bg-white opacity-80 rounded-md w-[50px] h-[20px] flex items-center justify-center">
+                    <FontAwesomeIcon
                         icon={faYoutube} 
-                        style={{ fontSize: "50px", color: "red", opacity: 0.8 }}
+                        className="text-[50px]"
+                        style={{ color: "red" }}
                     />
+                  </div>
                 </div>
             </a>
         </div>
