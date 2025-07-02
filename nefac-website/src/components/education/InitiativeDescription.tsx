@@ -15,7 +15,7 @@ export default function InitiativeDescription({
         <div className="text-[#3C3F60] text-2xl sm:text-3xl font-semibold mb-2">
           {header}
         </div>
-        <div className="text-sm sm:text-base md:text-lg lg:text-xl">
+        <div className="text-base md:text-xl leading-relaxed">
           {description}
         </div>
       </div>
