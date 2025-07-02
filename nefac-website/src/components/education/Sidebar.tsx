@@ -64,7 +64,7 @@ export default function Sidebar({ items }: SidebarProps) {
 
       {(isOpen || animate) && (
         <div
-          className={`fixed inset-0 bg-white z-50 flex flex-col px-4 py-4 md:hidden
+          className={`bg-transparent fixed inset-0 z-50 flex flex-col px-4 py-4 md:hidden
             ${isOpen ? "sidebar-slide-in" : "sidebar-slide-out"}`}
         >
           <button
