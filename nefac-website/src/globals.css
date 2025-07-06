@@ -97,14 +97,6 @@ body {
   align-items: center;
 }
 
-.page-title {
-  font-size: 64px;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
 .page-content-wrapper {
   display: flex;
   justify-content: center;
@@ -114,7 +106,7 @@ body {
 }
 
 .custom-html-content {
-  max-width: 35%;
+  max-width: 50%;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -137,12 +129,6 @@ body {
 
 .custom-html-content a {
   text-decoration: underline;
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .custom-html-content {
-    max-width: 50%;
-  }
 }
 
 @media (max-width: 767px) {

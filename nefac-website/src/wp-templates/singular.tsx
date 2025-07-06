@@ -20,7 +20,7 @@ const SingularTemplate: FaustTemplate<SingularData> = ({ data }) => {
 
   return (
     <div className="page-wrapper">
-      <h1 className="page-title">{nodeByUri?.title}</h1>
+      <h1 className="text-2xl lg:text-6xl max-w-[90%] lg:max-w-[70%] font-bold text-center py-10">{nodeByUri?.title}</h1>
 
       <div className="page-content-wrapper">
         <div
