@@ -32,7 +32,8 @@ const NewEnglandMap = React.memo(function NewEnglandMap({
           >
             <path
               d={state.shapePath}
-              stroke="#2C4E91"
+              // #2F5C9F = nefacblue
+              stroke="#2F5C9F"
               strokeWidth="2"
               strokeLinejoin="round"
               className={`transition-colors ${

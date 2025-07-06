@@ -12,6 +12,7 @@ export default function InitiativeDescription({
   return (
     <div className="flex flex-col sm:flex-row w-full">
       <div className="w-full">
+        {/* ambiguous blue color here for the initiative header */}
         <div className="text-[#3C3F60] text-2xl sm:text-3xl font-semibold mb-2">
           {header}
         </div>

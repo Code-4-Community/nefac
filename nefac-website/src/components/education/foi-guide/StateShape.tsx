@@ -26,9 +26,7 @@ const StateShape = React.memo(
         {children}
       </g>
     );
-    //re-render only when hover flips
-  },
-  (prev, next) => prev.isHovered === next.isHovered
+  }
 );
 
 export default StateShape;
