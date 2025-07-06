@@ -36,13 +36,11 @@ const SingularTemplate: FaustTemplate<SingularData> = ({ data }) => {
 SingularTemplate.query = gql`
   query GetNodeByUri($uri: String!) {
     nodeByUri(uri: $uri) {
-      ... on Post {
-        title
+      ... on NodeWithContentEditor {
         content
       }
-      ... on Page {
+      ... on NodeWithTitle {
         title
-        content
       }
     }
   }
