@@ -19,7 +19,7 @@ export default function EducationInitiativeWrapper(props: EducationInitiativeWra
                     items={[
                         { title: "30 Minute Skills", link: "/education-initiative" },
                         { title: "First Amendment and the Free Press", link: "/education-initiative-abc" },
-                        { title: "FOI Guide", link: "/education-initiative-def" },
+                        { title: "FOI Guide", link: "/education/foi-guide" },
                         { title: "NEFAC Mentors", link: "/education/nefac-mentors" },
                         { title: "Negri Institute", link: "/education-initiative-jkl" },
                     ]}
