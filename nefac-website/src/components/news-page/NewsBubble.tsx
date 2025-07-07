@@ -2,14 +2,14 @@ import React from "react";
 
 export interface NewsBubbleProps {
     id?: string;
-    header?: boolean;
+    featured?: boolean;
     title?: string;
     date?: string;
     content?: string;
     link?: string;
 }
 
-export const NewsBubble = ({ header, title, date, content, link }: NewsBubbleProps) => {
+export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleProps) => {
     const formatDate = (dateString: string) => {
         const options = { year: "numeric" as const, month: "long" as const, day: "numeric" as const};
         return new Date(dateString).toLocaleDateString('en-US', options);
@@ -42,7 +42,7 @@ export const NewsBubble = ({ header, title, date, content, link }: NewsBubblePro
         return null;
     };
 
-    if (header) {
+    if (featured) {
         return (
             <div className="flex flex-col mb-6 border border-4 border-nefacblue rounded-xl px-4 py-5 bg-white">
                 <div className="flex flex-col text-black">

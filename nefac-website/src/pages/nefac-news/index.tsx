@@ -68,7 +68,7 @@ export default function LoadNews() {
         {featuredArticle && (
           <NewsBubble
           key={featuredArticle.id}
-          header={true}
+          featured={true}
           title={featuredArticle.title}
           date={featuredArticle.date}
           link={featuredArticle.link}
@@ -83,7 +83,7 @@ export default function LoadNews() {
             return (
               <NewsBubble
                 key={id}
-                header={false} 
+                featured={false} 
                 title={title}
                 date={date}
                 content={content}
