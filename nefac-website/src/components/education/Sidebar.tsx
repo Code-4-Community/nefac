@@ -66,7 +66,7 @@ export default function Sidebar({ items }: SidebarProps) {
       {!visible && (
         <button
           onClick={openSidebar}
-          className="fixed bottom-20 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center md:hidden"
+          className="fixed bottom-5 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center md:hidden"
         >
           <FontAwesomeIcon icon={faAngleRight} />
         </button>
