@@ -68,7 +68,7 @@ export default function WhatIsNefacSection() {
 
         {/* Video */}
         <div className="pb-6">
-          <video className="w-full max-h-[300px] rounded-lg" controls>
+          <video className="w-full max-h-[300px] object-cover rounded-lg" playsInline autoPlay loop muted>
             <source src="/videos/what-is-nefac.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
