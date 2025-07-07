@@ -3,6 +3,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons';
 import SquareXIcon from '@/components/icons/SquareXIcon';
 
+// Reusable social icon component
+const SocialIcon = ({ 
+  href, 
+  children, 
+  className = "text-[27px] hover:text-nefacblue transition-colors"
+}: {
+  href?: string;
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const iconElement = React.cloneElement(children as React.ReactElement<any>, { className });
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {iconElement}
+      </a>
+    );
+  }
+
+  return iconElement;
+};
+
 const HomePage = () => {
   return (
     <div className="h-fit items-center px-20 relative">
@@ -34,31 +57,21 @@ const HomePage = () => {
             </a>
           </div>
           <div className="flex gap-4 items-start text-gray-800">
-            <a href="https://www.facebook.com/nefac.org/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon 
-              icon={faFacebookSquare} 
-              className="text-[27px] hover:text-nefacblue transition-colors"
-            />
-            </a>
-            <SquareXIcon className="w-[27px] h-[27px] hover:fill-nefacblue transition-colors" />
-            <a href="https://www.instagram.com/nefirstamendmentcoalition/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon 
-              icon={faInstagramSquare} 
-              className="text-[27px] hover:text-nefacblue transition-colors"
-            />
-            </a>
-            <a href="https://www.linkedin.com/company/nefac/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon 
-              icon={faLinkedin} 
-              className="text-[27px] hover:text-nefacblue transition-colors"
-            />
-            </a>
-            <a href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon 
-              icon={faSpotify} 
-              className="text-[27px] hover:text-nefacblue transition-colors"
-            />
-            </a>
+            <SocialIcon href="https://www.facebook.com/nefac.org/">
+              <FontAwesomeIcon icon={faFacebookSquare} />
+            </SocialIcon>
+            <SocialIcon href="http://www.twitter.com/fivefreedoms" className="w-[27px] h-[27px] hover:fill-nefacblue transition-colors">
+              <SquareXIcon />
+            </SocialIcon>
+            <SocialIcon href="https://www.instagram.com/nefirstamendmentcoalition/">
+              <FontAwesomeIcon icon={faInstagramSquare} />
+            </SocialIcon>
+            <SocialIcon href="https://www.linkedin.com/company/nefac/">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </SocialIcon>
+            <SocialIcon href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm">
+              <FontAwesomeIcon icon={faSpotify} />
+            </SocialIcon>
           </div>
         </div>
         

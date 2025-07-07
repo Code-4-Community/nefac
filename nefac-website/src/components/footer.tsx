@@ -125,7 +125,9 @@ const Footer = ({ nefacLogo }: FooterProps) => {
             <SectionHeader className="pb-4">Follow Us</SectionHeader>
             <div className="flex flex-wrap gap-4">
               <div className="flex flex-row gap-3 items-start text-gray-100">
-                <SquareXIcon className={styles.socialIconContainer} />
+                <a href="http://www.twitter.com/fivefreedoms" target="_blank">
+                  <SquareXIcon className={styles.socialIconContainer} />
+                </a>
                 
                 <SocialIcon 
                   icon={faFacebookSquare} 
