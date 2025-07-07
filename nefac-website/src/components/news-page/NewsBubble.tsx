@@ -1,12 +1,13 @@
 import React from "react";
-import { NewsPostBase } from "./NewsInterfaces";
+import { NewsPostData } from "./NewsInterfaces";
+import { gql, useQuery } from "@apollo/client";
 
 // props for a NewsBubble component
-export interface NewsBubbleProps extends NewsPostBase {
+export interface NewsBubbleProps extends NewsPostData {
     featured?: boolean;
 }
 
-export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleProps) => {
+export const NewsBubble = ({ id, featured, title, date, content, link }: NewsBubbleProps) => {
     const formatDate = (dateString: string) => {
         const options = { year: "numeric" as const, month: "long" as const, day: "numeric" as const};
         return new Date(dateString).toLocaleDateString('en-US', options);
@@ -39,6 +40,24 @@ export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleP
         return null;
     };
 
+    const GET_POST_CONTENT = gql`
+        query GetNewsPostContent($id: ID!) {
+            newsPost(id: $id) {
+                content
+            }
+        }
+    `;
+
+    const { data: postData, loading, error } = useQuery(GET_POST_CONTENT, {
+        variables: { id },
+        skip: !featured,
+    });
+
+    // Use fetched content for featured posts, fallback to prop content
+    const displayContent = featured && postData?.newsPost?.content 
+        ? postData.newsPost.content 
+        : content;
+
     if (featured) {
         return (
             <div className="flex flex-col mb-6 border border-4 border-nefacblue rounded-xl px-4 py-5 bg-white">
@@ -53,9 +72,15 @@ export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleP
                     {date && (
                         <p className="font-medium text-black text-lg mb-3">{formatDate(date)}</p>
                     )}
-                    {content && (
+                    {loading && (
+                        <p className="text-md mb-3 text-gray-500">Loading preview...</p>
+                    )}
+                    {error && (
+                        <p className="text-md mb-3 text-gray-500">Error loading preview, please refresh</p>
+                    )}
+                    {!loading && !error && displayContent && (
                         <p className="text-md mb-3 text-gray-700 leading-7">
-                            {extractFirstSentenceFromHtml(content)}
+                            {extractFirstSentenceFromHtml(displayContent)}
                         </p>
                     )}  
                 </div>

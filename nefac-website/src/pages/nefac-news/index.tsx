@@ -4,7 +4,7 @@ import { NewsPostData, NewsPostEdge } from '@/components/news-page/NewsInterface
 import { useQuery, gql } from '@apollo/client';
 
 const GET_NEWS = gql`
-  query getNewsPosts($first: Int!, $after: String) {
+  query GetNewsPosts($first: Int!, $after: String) {
 	  newsPosts(first: $first, after: $after) {
         pageInfo {
             hasNextPage
@@ -15,7 +15,6 @@ const GET_NEWS = gql`
                 id
                 title
                 date
-                content
                 link
             }
         }
@@ -67,6 +66,7 @@ export default function LoadNews() {
         <h1 className="text-nefacblue font-semibold text-5xl mb-4">NEFAC News</h1>
         {featuredArticle && (
           <NewsBubble
+          id={featuredArticle.id}
           key={featuredArticle.id}
           featured={true}
           title={featuredArticle.title}
@@ -82,6 +82,7 @@ export default function LoadNews() {
             const { id, title, date, content, link } = post;
             return (
               <NewsBubble
+                id={featuredArticle.id}
                 key={id}
                 featured={false} 
                 title={title}
