@@ -1,5 +1,5 @@
 import NewsBubble from '@/components/news-page/NewsBubble';
-import { NewsPost, NewsPostEdge } from '@/components/news-page/NewsInterfaces';
+import { NewsPostData, NewsPostEdge } from '@/components/news-page/NewsInterfaces';
 
 import { useQuery, gql } from '@apollo/client';
 
@@ -78,7 +78,7 @@ export default function LoadNews() {
         
         <h2 className="text-nefacblue font-semibold text-3xl mb-4">Latest News</h2>
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-6 mb-6">
-          {latestPosts.map((post: NewsPost) => {
+          {latestPosts.map((post: NewsPostData) => {
             const { id, title, date, content, link } = post;
             return (
               <NewsBubble

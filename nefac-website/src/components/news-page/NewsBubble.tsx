@@ -1,7 +1,8 @@
 import React from "react";
-import { NewsPost } from "./NewsInterfaces";
+import { NewsPostBase } from "./NewsInterfaces";
 
-export interface NewsBubbleProps extends NewsPost {
+// props for a NewsBubble component
+export interface NewsBubbleProps extends NewsPostBase {
     featured?: boolean;
 }
 
