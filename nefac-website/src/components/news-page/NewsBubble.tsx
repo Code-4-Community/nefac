@@ -1,12 +1,8 @@
 import React from "react";
+import { NewsPost } from "./NewsInterfaces";
 
-export interface NewsBubbleProps {
-    id?: string;
+export interface NewsBubbleProps extends NewsPost {
     featured?: boolean;
-    title?: string;
-    date?: string;
-    content?: string;
-    link?: string;
 }
 
 export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleProps) => {
