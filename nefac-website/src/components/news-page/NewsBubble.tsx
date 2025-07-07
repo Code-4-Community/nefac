@@ -70,17 +70,11 @@ export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleP
         )
     } else {
         return (
-            <a href={link} className="">
+            <a href={link}>
                 <div className="relative rounded-xl">
-                    <div className="">
-                        {title && (
-                            <h2 
-                                className="mb-2 font-semibold mb-6 leading-7">{title ?? "Title"}
-                            </h2>
-                        )}
-                        {date && (
-                            <p className="font-normal text-[#949494] text-xs">{formatDate(date)}</p>
-                        )}
+                    <div>
+                        <h2 className="mb-2 font-semibold mb-6 leading-7 hover:underline">{title}</h2>
+                        <p className="font-normal text-[#949494] text-xs">{formatDate(date)}</p>
                     </div>
                 </div>
             </a>
