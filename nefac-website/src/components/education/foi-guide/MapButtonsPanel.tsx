@@ -3,13 +3,13 @@ import HoverButton from "./HoverButton";
 
 // stub urls
 const states = [
-  { id: "ME", name: "Maine", url: "/education/maine" },
-  { id: "MA", name: "Massachusetts", url: "/education/massachusetts" },
-  { id: "VT", name: "Vermont", url: "/education/vermont" },
-  { id: "RI", name: "Rhode Island", url: "/education/rhode-island" },
-  { id: "NH", name: "New Hampshire", url: "/education/new-hampshire" },
-  { id: "CN", name: "Connecticut", url: "/education/connecticut" },
-  { id: "FOIA", name: "Federal FOIA", url: "/education/federal-foia" },
+  { id: "ME", name: "Maine", url: "/education/foi-guide/maine" },
+  { id: "MA", name: "Massachusetts", url: "/education/foi-guide/massachusetts" },
+  { id: "VT", name: "Vermont", url: "/education/foi-guide/vermont" },
+  { id: "RI", name: "Rhode Island", url: "/education/foi-guide/rhode-island" },
+  { id: "NH", name: "New Hampshire", url: "/education/foi-guide/new-hampshire" },
+  { id: "CN", name: "Connecticut", url: "/education/foi-guide/connecticut" },
+  { id: "FOIA", name: "Federal FOIA", url: "/education/foi-guide/federal-foia" },
 ];
 
 type Props = {
