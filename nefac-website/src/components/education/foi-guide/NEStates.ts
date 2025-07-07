@@ -5,7 +5,8 @@ type StatePath = {
   labelPath: string;
 };
 
-// Copyright [Rohan/C4C] & Source: [NEFAC Figma]
+// New England map vector graphics authored by Rohan Biju / Code4Community for use by the New England First Amendment Coalition.
+// Exported from Figma project.
 export const NEStates: StatePath[] = [
   {
     id: "ME",
