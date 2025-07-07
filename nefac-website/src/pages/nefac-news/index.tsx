@@ -5,7 +5,7 @@ import { useQuery, gql } from '@apollo/client';
 
 const GET_NEWS = gql`
   query getNewsPosts($first: Int!, $after: String) {
-	newsPosts(first: $first, after: $after) {
+	  newsPosts(first: $first, after: $after) {
         pageInfo {
             hasNextPage
             endCursor
@@ -23,7 +23,10 @@ const GET_NEWS = gql`
   }
 `;
 
+// how many results to return in the first query (i.e., includes the featured post)
 const INITIAL_BATCH_SIZE = 7;
+
+// how many results to return in subsequent queries
 const SUBSEQUENT_BATCH_SIZE = 6;
 
 function NewsStatusMessage(message: string) {
@@ -42,7 +45,7 @@ export default function LoadNews() {
   });
 
   if (error) {
-    return NewsStatusMessage("Sorry, an error happened. Please reload.");
+    return NewsStatusMessage("Sorry, an error occurred. Please reload.");
   }
 
   if (!data && loading) {
@@ -74,7 +77,7 @@ export default function LoadNews() {
         )}
         
         <h2 className="text-nefacblue font-semibold text-3xl mb-4">Latest News</h2>
-        <div className="grid grid-flow-row grid-cols-3 gap-x-16 gap-y-6 mb-6">
+        <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-6 mb-6">
           {latestPosts.map((post: NewsPost) => {
             const { id, title, date, content, link } = post;
             return (
