@@ -16,8 +16,8 @@ import EmailForm from "./footer/email-form"
 // Style constants to reduce duplication
 const styles = {
   // Social media icons
-  socialIcon: "text-[25px] hover:opacity-50 transition-opacity",
-  socialIconContainer: "w-[25px] h-[25px] hover:opacity-50 transition-opacity",
+  socialIcon: "text-[25px] hover:opacity-75 transition-opacity",
+  socialIconContainer: "w-[25px] h-[25px] hover:opacity-75 transition-opacity",
   
   // Section headers
   sectionHeader: "text-white font-bold",
@@ -30,7 +30,7 @@ const styles = {
   bottomLinkUnderlined: "text-white pr-8 underline",
   
   // Icon containers
-  iconContainer: "bg-gray-100 rounded-md w-[23px] h-[23px] flex items-center justify-center hover:opacity-50 transition-opacity",
+  iconContainer: "bg-gray-100 rounded-md w-[23px] h-[23px] flex items-center justify-center hover:opacity-75 transition-opacity",
   smallIcon: "w-[15px] h-[15px]",
   
   // Layout
