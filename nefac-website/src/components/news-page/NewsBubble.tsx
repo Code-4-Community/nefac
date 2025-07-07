@@ -46,8 +46,9 @@ export const NewsBubble = ({ featured, title, date, content, link }: NewsBubbleP
                     {title && (
                         <h2 
                             className="mb-2 font-bold text-nefacblue text-2xl"
-                            dangerouslySetInnerHTML={{ __html: title ?? "Title" }}
-                        />
+                        >
+                            <a href={link}>{title}</a>
+                        </h2>
                     )}
                     {date && (
                         <p className="font-medium text-black text-lg mb-3">{formatDate(date)}</p>
