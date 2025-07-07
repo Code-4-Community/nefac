@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 interface SidebarItem {
   title: string;

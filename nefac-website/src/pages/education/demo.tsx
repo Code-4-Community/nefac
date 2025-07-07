@@ -1,4 +1,4 @@
-import PastRecordingsSection from "@/components/education/past-recordings/PastRecordingsSection";
+import PastRecordingDisplay from "@/components/education/past-recordings/PastRecordingDisplay";
 import { PastRecording } from "@/components/education/past-recordings/PastRecordingInterface";
 import EducationInitiativeWrapper from "@/components/education/EducationInitiativeWrapper";
 import InitiativeDescription from "@/components/education/InitiativeDescription";
@@ -197,7 +197,8 @@ const EducationPage: React.FC = () => {
                 thumbnailUrl="/images/nefac-conference.png"
             />
             <UpcomingEventCalendar events={mockFiveUpcomingEvents} />
-            <PastRecordingsSection recordings={mockRecordings} />
+            <PastRecordingDisplay recordings={mockRecordings} />
+            <PastRecordingDisplay recordings={mockRecordings} variant="grid" />
         </EducationInitiativeWrapper>
     )
 };
