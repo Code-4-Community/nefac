@@ -1,7 +1,7 @@
 import SidebarWrapper from "../sidebar/SidebarWrapper";
 
 interface AdvocacyeInitiativeWrapperProps {
-  children?: React.ReactNode;
+  children?: any;
 }
 
 export default function AdvocacyInitiativeWrapper({ children }: AdvocacyeInitiativeWrapperProps) {

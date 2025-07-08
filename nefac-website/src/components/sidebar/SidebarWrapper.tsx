@@ -8,7 +8,7 @@ export interface SidebarItem {
 interface EducationInitiativeWrapperProps {
   title: string;
   items: SidebarItem[];
-  children?: React.ReactNode;
+  children?: any;
 }
 
 // Generic reusable wrapper for Education Initiative pages

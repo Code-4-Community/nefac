@@ -1,7 +1,7 @@
 import SidebarWrapper from "../sidebar/SidebarWrapper";
 
 interface EducationInitiativeWrapperProps {
-  children?: React.ReactNode;
+  children?: any;
 }
 
 export default function EducationInitiativeWrapper({ children }: EducationInitiativeWrapperProps) {
