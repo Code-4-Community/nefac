@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -15,12 +15,37 @@ interface SidebarProps {
 export default function Sidebar({ items }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
+  // Used to control sliding in and out
   const [isOpen, setIsOpen] = useState(false);
+  // Use to mount sidebar
+  const [visible, setVisible] = useState(false);
+
+  const openSidebar = () => {
+    setVisible(true);
+    requestAnimationFrame(() => setIsOpen(true));
+  };
+
+  const closeSidebar = () => {
+    setIsOpen(false);
+    setTimeout(() => setVisible(false), 500);
+  };
+
+  // Locks the scroll when the navbar is open
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [visible]);
 
   return (
     <>
-      <div className="hidden md:flex sticky top-4 h-fit self-start">
-        <div className="flex flex-col px-4 py-4 gap-2 w-[300px]">
+      <div className="flex flex-row invisible w-0 md:visible md:w-[300px] sticky top-4 h-fit self-start">
+        <div className="flex flex-col px-4 py-4 gap-2 w-[225px]">
           {items.map((item, i) => {
             const isActive = pathname === item.link;
             return (
@@ -38,23 +63,27 @@ export default function Sidebar({ items }: SidebarProps) {
         <div className="w-[3px] h-[300px] bg-gray-200" />
       </div>
 
-      {!isOpen && (
-        <div className="sticky top-4 h-fit self-start flex md:hidden items-start gap-2 z-40 bg-white">
-          <button
-            onClick={() => setIsOpen(true)}
-            className="text-2xl font-bold p-2"
-          >
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
-          <div className="w-[3px] h-[300px] bg-gray-200" />
-        </div>
+      {!visible && (
+        <button
+          onClick={openSidebar}
+          className="fixed bottom-5 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center md:hidden"
+        >
+          <FontAwesomeIcon icon={faAngleRight} />
+        </button>
       )}
 
-      {isOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col px-4 py-4">
+      {visible && (
+        <div
+          className={`fixed top-0 left-0 w-full h-full bg-white px-4 py-4 flex flex-col z-50 md:hidden
+            transform transition-transform duration-500 ease-in-out
+            ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          `}
+          style={{ pointerEvents: isOpen ? "auto" : "none" }}
+        >
           <button
-            onClick={() => setIsOpen(false)}
-            className="flex justify-end text-6xl font-bold text-black pr-5"
+            onClick={closeSidebar}
+            className="fixed top-5 right-5 w-[60px] h-[60px] 
+              text-2xl font-bold flex items-center justify-center"
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
@@ -67,7 +96,7 @@ export default function Sidebar({ items }: SidebarProps) {
                   key={i}
                   onClick={() => {
                     router.push(item.link);
-                    setIsOpen(false);
+                    closeSidebar();
                   }}
                   className={`cursor-pointer px-4 py-2 rounded-r-3xl text-3xl 
                     ${isActive ? "bg-gray-100 border-l-4 border-blue-600" : "bg-white"}`}
