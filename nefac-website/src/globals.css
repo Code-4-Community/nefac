@@ -81,3 +81,76 @@ body {
     --foreground: #0a0a0a;
   }
 }
+
+@keyframes slideInLeft {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.sidebar-slide-in {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.sidebar-slide-out {
+  animation: slideOutLeft 0.4s ease-in forwards;
+}
+
+
+/* singular template css */
+
+.alignright {
+  float: right;
+  height: auto;
+  max-width: 40%;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-content-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #ededed;
+  padding: 50px;
+  width: 100%;
+}
+
+.custom-html-content {
+  max-width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.custom-html-content h5 {
+  font-weight: bold;
+  font-size: 18px;
+  overflow: hidden; 
+}
+
+.custom-html-content h5 img.alignright {
+  float: right;
+  height: auto;
+  max-width: 40%;
+}
+
+.custom-html-content a {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .custom-html-content {
+    max-width: 90%;
+  }
+}
