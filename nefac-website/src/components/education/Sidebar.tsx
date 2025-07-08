@@ -44,8 +44,8 @@ export default function Sidebar({ items }: SidebarProps) {
 
   return (
     <>
-      <div className="invisible w-0 md:visible md:w-[300px] sticky top-4 h-fit self-start">
-        <div className="flex flex-col px-4 py-4 gap-2 w-[300px]">
+      <div className="flex flex-row invisible w-0 md:visible md:w-[300px] sticky top-4 h-fit self-start">
+        <div className="flex flex-col px-4 py-4 gap-2 w-[225px]">
           {items.map((item, i) => {
             const isActive = pathname === item.link;
             return (
