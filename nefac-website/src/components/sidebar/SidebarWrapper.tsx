@@ -5,7 +5,7 @@ export interface SidebarItem {
   link: string;
 }
 
-interface EducationInitiativeWrapperProps {
+interface SidebarWrapper {
   title: string;
   items: SidebarItem[];
   children?: any;
@@ -16,7 +16,7 @@ export default function SidebarWrapper({
   title,
   items,
   children,
-}: EducationInitiativeWrapperProps) {
+}: SidebarWrapper) {
     return (
         <div className="min-h-screen">
             <div className="text-nefacblue text-[36px] font-bold px-8">

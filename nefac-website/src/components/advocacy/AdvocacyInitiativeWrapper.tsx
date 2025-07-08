@@ -9,7 +9,7 @@ export default function AdvocacyInitiativeWrapper({ children }: AdvocacyeInitiat
     <SidebarWrapper
       title="Advocacy"
       items={[
-        { title: "NEFAC Report (spotify link)", link: "https://rss.com/podcasts/nefacreport/" },
+        { title: "NEFAC Report", link: "https://rss.com/podcasts/nefacreport/" },
         { title: "Commentary and Coverage", link: "/advocacy/commentary-and-coverage" },
         { title: "Statements and Letters", link: "/advocacy/statements-and-letters" },
         { title: "New England First Amendment Awards", link: "/advocacy/new-england-first-amendment-awards" },
