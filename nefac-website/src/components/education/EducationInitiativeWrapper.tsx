@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
 
 interface EducationInitiativeWrapperProps {
