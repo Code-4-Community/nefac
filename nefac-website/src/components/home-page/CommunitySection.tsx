@@ -27,7 +27,7 @@ export default function CommunitySection() {
   return (
     <div className="flex flex-col gap-4 pt-12 mb-24 h-100 bg-nefacblue ml-12 pr-16 relative rounded-l-3xl">
       <div className="flex items-center pl-12">
-        <h2 className="text-white font-bold text-3xl">Community</h2>
+        <h2 className="text-white font-bold text-3xl">Past Events</h2>
       </div>
 
       <div className="pr-6 flex justify-end -mt-4 -mb-6 mr-4">

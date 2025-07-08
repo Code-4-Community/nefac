@@ -1,9 +1,9 @@
-import PastRecordingsSection from "@/components/education-page/past-recordings/PastRecordingsSection";
-import { PastRecording } from "@/components/education-page/past-recordings/PastRecordingInterface";
-import EducationInitiativeWrapper from "@/components/education-page/EducationInitiativeWrapper";
-import InitiativeDescription from "@/components/education-page/InitiativeDescription";
-import { UpcomingEvent } from "@/components/education-page/upcoming-events/UpcomingEventInterface";
-import UpcomingEventCalendar from "@/components/education-page/upcoming-events/UpcomingEventCalendar";
+import PastRecordingDisplay from "@/components/education/past-recordings/PastRecordingDisplay";
+import { PastRecording } from "@/components/education/past-recordings/PastRecordingInterface";
+import EducationInitiativeWrapper from "@/components/education/EducationInitiativeWrapper";
+import InitiativeDescription from "@/components/education/InitiativeDescription";
+import { UpcomingEvent } from "@/components/education/upcoming-events/UpcomingEventInterface";
+import UpcomingEventCalendar from "@/components/education/upcoming-events/UpcomingEventCalendar";
 
 // mock data for a properly filled calendar of events
 const mockFiveUpcomingEvents: UpcomingEvent[] = [
@@ -197,7 +197,8 @@ const EducationPage: React.FC = () => {
                 thumbnailUrl="/images/nefac-conference.png"
             />
             <UpcomingEventCalendar events={mockFiveUpcomingEvents} />
-            <PastRecordingsSection recordings={mockRecordings} />
+            <PastRecordingDisplay recordings={mockRecordings} />
+            <PastRecordingDisplay recordings={mockRecordings} variant="grid" />
         </EducationInitiativeWrapper>
     )
 };

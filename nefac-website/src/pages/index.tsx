@@ -3,7 +3,7 @@ import CommentarySection from "../components/home-page/CommentarySection";
 import CommunitySection from "../components/home-page/CommunitySection";
 import { NewsSection } from "../components/home-page/NewsSection";
 import EventsSection from "../components/home-page/EventsSection";
-import HomePage from "./home";
+import LandingSection from "../components/home-page/LandingSection";
 import WhatIsNefacSection from "../components/home-page/WhatIsNefacSection";
 
 {
@@ -13,8 +13,8 @@ import WhatIsNefacSection from "../components/home-page/WhatIsNefacSection";
 export default function Home() {
   return (
     <div className="pt-24 flex flex-row flex-wrap gap-4 overflow-x-hidden">
-      <div className="z-0 mb-32 w-full">
-        <HomePage />
+      <div className="z-0 mb-32">
+        <LandingSection />
         <WhatIsNefacSection />
         <NewsSection />
         <CommentarySection />

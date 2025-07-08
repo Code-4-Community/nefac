@@ -14,13 +14,19 @@ const SingleTemplate: FaustTemplate<GetPostQuery> = (props) => {
 	);
 }
 
-export default SingleTemplate;
-
+// Replaced blocks instead of content??
 SingleTemplate.query = gql(`
 	query GetPost($uri: ID!) {
 		post(id: $uri, idType: URI) {
 			title
-			content
+			blocks {
+                name
+                attributes
+                innerBlocks {
+                    name
+                    attributes
+                }
+            }
 		}
 	}
 `);
@@ -30,3 +36,5 @@ SingleTemplate.variables = (seedQuery: { uri?: string }, ctx: any) => {
 		uri: seedQuery?.uri,
 	};
 };
+
+export default SingleTemplate;

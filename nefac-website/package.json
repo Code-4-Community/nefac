@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node whitelist.js && next dev",
     "build": "next build",
     "generate": "faust generatePossibleTypes",
     "generate:types": "graphql-codegen",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "graphql-codegen"
+    "postinstall": "graphql-codegen",
+    "whitelist": "node whitelist.js"
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
@@ -21,7 +22,13 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.19",
     "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-slot": "^1.2.3",
+    "@types/wordpress__block-editor": "^11.5.16",
+    "@types/wordpress__blocks": "^12.5.17",
+    "@wordpress/block-editor": "^14.19.0",
+    "@wordpress/blocks": "^14.13.0",
+    "@wordpress/components": "^29.10.0",
     "@wordpress/style-engine": "^2.24.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -31,19 +38,30 @@
     "next": "^15.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.475.0",
+    "react-icons": "^5.5.0",
+    "react-player": "^2.16.0",
     "react-router-dom": "^7.2.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@faustwp/block-editor-utils": "^0.3.3",
     "@graphql-codegen/cli": "^5.0.6",
     "@tailwindcss/postcss": "^4.0.6",
+    "@types/estree": "^1.0.8",
+    "@types/lodash": "^4.17.17",
     "@types/node": "20.17.17",
     "@types/react": "19.0.8",
     "@types/react-dom": "^19",
+    "@wordpress/browserslist-config": "^6.24.0",
     "autoprefixer": "^10.4.20",
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
     "postcss": "^8.5.2",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "webpack": "^5.99.9"
   }
 }

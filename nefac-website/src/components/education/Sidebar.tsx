@@ -1,7 +1,13 @@
 import { useState } from "react";
+<<<<<<< HEAD:nefac-website/src/components/education-page/Sidebar.tsx
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+=======
+import { useRouter, usePathname } from "next/navigation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+>>>>>>> main:nefac-website/src/components/education/Sidebar.tsx
 
 interface SidebarItem {
   title: string;
@@ -14,6 +20,10 @@ interface SidebarProps {
 
 export default function Sidebar({ items }: SidebarProps) {
   const router = useRouter();
+<<<<<<< HEAD:nefac-website/src/components/education-page/Sidebar.tsx
+=======
+  const pathname = usePathname();
+>>>>>>> main:nefac-website/src/components/education/Sidebar.tsx
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -21,7 +31,11 @@ export default function Sidebar({ items }: SidebarProps) {
       <div className="hidden md:flex sticky top-4 h-fit self-start">
         <div className="flex flex-col px-4 py-4 gap-2 w-[300px]">
           {items.map((item, i) => {
+<<<<<<< HEAD:nefac-website/src/components/education-page/Sidebar.tsx
             const isActive = router.pathname === item.link;
+=======
+            const isActive = pathname === item.link;
+>>>>>>> main:nefac-website/src/components/education/Sidebar.tsx
             return (
               <div
                 key={i}
@@ -60,7 +74,11 @@ export default function Sidebar({ items }: SidebarProps) {
 
           <div className="flex flex-col gap-5 mt-20">
             {items.map((item, i) => {
+<<<<<<< HEAD:nefac-website/src/components/education-page/Sidebar.tsx
               const isActive = router.pathname === item.link;
+=======
+              const isActive = pathname === item.link;
+>>>>>>> main:nefac-website/src/components/education/Sidebar.tsx
               return (
                 <div
                   key={i}
