@@ -1,7 +1,7 @@
 import PastRecordingDisplay from "@/components/education/past-recordings/PastRecordingDisplay";
 import { PastRecording } from "@/components/education/past-recordings/PastRecordingInterface";
 import EducationInitiativeWrapper from "@/components/education/EducationInitiativeWrapper";
-import InitiativeDescription from "@/components/education/InitiativeDescription";
+import InitiativeDescription from "@/components/sidebar/InitiativeDescription";
 import { UpcomingEvent } from "@/components/education/upcoming-events/UpcomingEventInterface";
 import UpcomingEventCalendar from "@/components/education/upcoming-events/UpcomingEventCalendar";
 

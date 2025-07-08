@@ -1,56 +1,57 @@
-import NewsLetter from '@/components/subscribe-page/NewsLetter';
-import React from 'react';
+import NewsLetter from "@/components/subscribe-page/NewsLetter";
+import React from "react";
+import { newsletters } from "../../lib/constants/subscribe/newsletters";
 
 export const SubscribePage: React.FC = () => {
-    return (
-        <>
-            <div className="px-24 pt-12 flex flex-row flex-wrap gap-4">   
-                <div className="flex flex-row gap-12 items-center mb-12">
-                    <div className="flex flex-col w-2/3">
-                        <h1 className="text-nefacblue font-bold text-5xl my-8">Subscribe</h1>
-                        <p className="font-poppins font-bold text-[20px] leading-[150%] tracking-[0%]">
-                            Thank you for your help protecting First Amendment freedoms and the public’s right to know about government. We want to keep you informed about NEFAC advocacy and events in a way that’s most convenient for you.
-                        </p>
-                        <p className="font-poppins text-[20px] leading-[150%] tracking-[0%] mt-5">
-                            Already a subscriber but want to change your newsletter preferences? Just click the “Change Profile” link at the bottom of any recent NEFAC email. You can also view all previous newsletters here.
-                        </p>
-                    </div>
-                    <div className="flex w-1/2">
-                        <img src="/images/subscribe.png" alt='subscribe image' className='rounded-lg'/>
-                    </div>
-                </div>
-                <h1 className="text-nefacblue font-bold text-3xl mb-4">Newsletters</h1>
-                <div className="grid grid-cols-3 gap-4 mb-32">
-                    <NewsLetter
-                        title="All NEFAC Mailings"
-                        description="Receive all NEFAC news and programming updates including our commentary and news coverage, monthly NEFAC Advocacy report, state bulletins and our First Amendment and Sunshine News briefing."
-                        url="https://lp.constantcontactpages.com/sl/YlNDCRU/allnefacmailings"
-                    />
-                    <NewsLetter
-                        title="NEFAC Advocacy"
-                        description="Our monthly roundup of coalition advocacy throughout the region. Stay on top of the issues leading NEFAC’s agenda in New England and how we’re moving the needle in each state."
-                        url="https://lp.constantcontactpages.com/sl/MrulG8H/nefacadvocacy"
-                    />
-                    <NewsLetter
-                        title="NEFAC Commentary and Coverage"
-                        description="Our expert commentary appears across the country. This is a monthly summary of where our advocacy is appearing and an easy way for you to keep in tune with current First Amendment and open government concerns."
-                        url="https://lp.constantcontactpages.com/sl/EH0YjCf/commentaryandcoverage"
-                    />
-                    <NewsLetter
-                        title="NEFAC Community"
-                        description="Join our growing community of journalists, attorneys, academics and other curious, democracy-minded folks. Each month, we’ll let you know how you can attend the coalition’s many events, classes and presentations."
-                        url="https://lp.constantcontactpages.com/sl/SaSzTzC/nefaccommunity"
-                    />
-
-                    <NewsLetter
-                        title="First Amendment and Sunshine News"
-                        description="Receive our monthly roundup of all First Amendment and open government news within New England and across the country."
-                        url="https://lp.constantcontactpages.com/sl/Ymsk67y/firstamendmentandsunshine"
-                    />
-                </div>
-            </div>
-        </>
-    );
-}
+  return (
+    <div className="px-5 md:px-24 pt-12 flex flex-row flex-wrap gap-4">
+      <div className="hidden md:flex flex-row gap-12 items-center mb-12">
+        <div className="flex flex-col w-2/3">
+          <h1 className="text-nefacblue font-bold text-5xl my-8">Subscribe</h1>
+          <p className="font-poppins font-bold text-[20px] leading-[150%] tracking-[0%]">
+            Thank you for your help protecting First Amendment freedoms and the
+            public’s right to know about government. We want to keep you
+            informed about NEFAC advocacy and events in a way that’s most
+            convenient for you.
+          </p>
+          <p className="font-poppins text-[20px] leading-[150%] tracking-[0%] mt-5">
+            Already a subscriber but want to change your newsletter preferences?
+            Just click the “Change Profile” link at the bottom of any recent
+            NEFAC email. You can also view all previous newsletters here.
+          </p>
+        </div>
+        <div className="flex w-1/2">
+          <img
+            src="/images/subscribe.png"
+            alt="subscribe image"
+            className="rounded-lg"
+          />
+        </div>
+      </div>
+      <div>
+        <h1 className="text-nefacblue font-bold text-3xl w-full">
+          Newsletters
+        </h1>
+        <p className="p-0 m-0">
+          Below are several newsletter options based on your personal interests:
+        </p>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32">
+        {newsletters.map(
+          ({ title, description, url, extraStyles, variant }, index) => (
+            <NewsLetter
+              key={index}
+              title={title}
+              description={description}
+              url={url}
+              extraStyles={extraStyles}
+              variant={variant}
+            />
+          )
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default SubscribePage;
