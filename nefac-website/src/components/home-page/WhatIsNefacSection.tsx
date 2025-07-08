@@ -4,6 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGraduationCap, faBullhorn, faGavel, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import NefacFlipCard from "./NefacFlipCard";
 
@@ -39,14 +41,13 @@ export function mapLinks(links: Link[]) {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center text-white hover:text-nefacgray hover:underline transition-colors"
+          className="flex items-center text-white hover:underline transition-colors"
         >
           <span className="mr-2 text-lg sm:text-4xl md:text-lg">{link.text}</span>
-          <img
-            src="/icons/white-arrow.svg"
-            alt="arrow icon"
-            className="w-[12px] h-[12px] ml-auto"
-          />
+          <FontAwesomeIcon
+              icon={faChevronRight}
+              className="text-[12px] ml-auto"
+            />
         </a>
       </li>
     ))}
@@ -56,7 +57,7 @@ export function mapLinks(links: Link[]) {
 // Main Section Component
 export default function WhatIsNefacSection() {
   return (
-    <section className="overflow-x-hidden mb-16 px-20">
+    <section className="overflow-hidden mb-16 px-6 md:px-20">
       <div className="max-w-[1300px] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center pb-6 gap-3">
@@ -80,11 +81,10 @@ export default function WhatIsNefacSection() {
           <AccordionItem value="item-1" className="ml-4 mr-4">
             <AccordionTrigger>
               <div className="flex justify-start gap-2">
-                <img
-                src={"/icons/grad-cap-white.svg"}
-                alt="card icon"
-                className="w-[25px] h-[25px]"
-              />
+                <FontAwesomeIcon 
+                  icon={faGraduationCap}
+                  className="w-[25px] h-[25px] text-white"
+                />
               <span className="text-xl">Education</span>
               </div>
               </AccordionTrigger>
@@ -95,11 +95,10 @@ export default function WhatIsNefacSection() {
           <AccordionItem value="item-2" className="ml-4 mr-4">
             <AccordionTrigger>
               <div className="flex justify-start gap-2">
-                <img
-                src={"/icons/megaphone-white.svg"}
-                alt="card icon"
-                className="w-[22px] h-[22px]"
-              />
+                <FontAwesomeIcon 
+                  icon={faBullhorn}
+                  className="w-[25px] h-[25px] text-white"
+                />
               <span className="text-xl">Advocacy</span>
               </div>
             </AccordionTrigger>
@@ -110,11 +109,10 @@ export default function WhatIsNefacSection() {
           <AccordionItem value="item-3" className="ml-4 mr-4 border-b-0">
             <AccordionTrigger>
               <div className="flex justify-start gap-2">
-                <img
-                src={"/icons/gavel-white.svg"}
-                alt="card icon"
-                className="w-[22px] h-[22px]"
-              />
+                <FontAwesomeIcon 
+                  icon={faGavel}
+                  className="w-[25px] h-[25px] text-white"
+                />
               <span className="text-xl">Defense</span>
               </div>
             </AccordionTrigger>
@@ -129,24 +127,25 @@ export default function WhatIsNefacSection() {
         <div className="flex flex-col sm:flex-row flex-wrap justify-between w-full">
           <NefacFlipCard
             caption="Education"
-            imageBlue="/icons/grad-cap.svg"
-            imageWhite="/icons/grad-cap-white.svg"
-            links= {educationLinks}
+            imageBlue={<FontAwesomeIcon className="text-[70px]" icon={faGraduationCap}/>}
+            imageWhite={<FontAwesomeIcon className="text-[30px] text-white" icon={faGraduationCap}/>}
+            links={educationLinks}
           />
           <NefacFlipCard
             caption="Advocacy"
-            imageBlue="/icons/megaphone.svg"
-            imageWhite="/icons/megaphone-white.svg"
+            imageBlue={<FontAwesomeIcon className="text-[70px]" icon={faBullhorn}/>}
+            imageWhite={<FontAwesomeIcon className="text-[30px] text-white" icon={faBullhorn}/>}
             links={advocacyLinks}
           />
           <NefacFlipCard
             caption="Defense"
-            imageBlue="/icons/gavel.svg"
-            imageWhite="/icons/gavel-white.svg"
+            imageBlue={<FontAwesomeIcon className="text-[70px]" icon={faGavel} style={{fontSize:"60px"}}/>}
+            imageWhite={<FontAwesomeIcon className="text-[30px] text-white" icon={faGavel}/>}
             links={defenselinks}
           />
         </div>
       </div>
       </div>
     </section>
-  );}
+  );
+}

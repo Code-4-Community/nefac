@@ -1,11 +1,34 @@
 import React from 'react';
-import {FaLinkedin, FaSpotify} from 'react-icons/fa';
-import { FaSquareFacebook,FaSquareXTwitter, FaSquareInstagram } from "react-icons/fa6";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare, faInstagramSquare, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons';
+import SquareXIcon from '@/components/icons/SquareXIcon';
+
+// Reusable social icon component
+const SocialIcon = ({ 
+  href, 
+  children, 
+  className = "text-[27px] hover:text-nefacblue transition-colors"
+}: {
+  href?: string;
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const iconElement = React.cloneElement(children as React.ReactElement<any>, { className });
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {iconElement}
+      </a>
+    );
+  }
+
+  return iconElement;
+};
 
 const HomePage = () => {
   return (
     <div className="h-fit items-center px-20 relative">
-
       <div className="flex gap-10">
         <div className="w-1/2 z-10 items-center">
           <h1 className="text-6xl font-black mb-5 mt-16 font-inter leading-snug">
@@ -22,35 +45,33 @@ const HomePage = () => {
           <div className="flex gap-3 mb-6">
             <a 
               href="/about" 
-              className="inline-block px-6 py-3 border-4 border-[#2F5C9F] text-[#2F5C9F] rounded-xl font-roboto font-medium hover:bg-gray-50 transition-colors"
+              className="inline-block px-6 py-3 border-4 border-nefacblue text-nefacblue rounded-xl font-roboto font-medium hover:bg-gray-50 transition-colors"
             >
               Learn More
             </a>
             <a 
               href="/sustaining-memberships" 
-              className="inline-block px-6 py-4 bg-[#2F5C9F] text-white rounded-xl font-roboto font-medium hover:bg-[#254a80] transition-colors"
+              className="inline-block px-6 py-4 bg-nefacblue text-white rounded-xl font-roboto font-medium hover:bg-[#254a80] transition-colors"
             >
               Donate
             </a>
           </div>
-          
-          <div className="flex gap-4">
-            <a href="https://www.facebook.com/nefac.org/" target="_blank" rel="noopener noreferrer">
-             {/* FaSquareFacebook is bigger somehow, so decrease size by 1*/}
-              <FaSquareFacebook size={24} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
-            </a>
-            <a href="http://www.twitter.com/fivefreedoms" target="_blank" rel="noopener noreferrer">
-              <FaSquareXTwitter size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
-            </a>
-            <a href="https://www.instagram.com/nefirstamendmentcoalition/" target="_blank" rel="noopener noreferrer">
-              <FaSquareInstagram size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
-            </a>
-            <a href="https://www.linkedin.com/company/nefac/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
-            </a>
-            <a href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm" target="_blank" rel="noopener noreferrer">
-              <FaSpotify size={25} className="text-gray-800 hover:text-[#2F5C9F] transition-colors" />
-            </a>
+          <div className="flex gap-4 items-start text-gray-800">
+            <SocialIcon href="https://www.facebook.com/nefac.org/">
+              <FontAwesomeIcon icon={faFacebookSquare} />
+            </SocialIcon>
+            <SocialIcon href="http://www.twitter.com/fivefreedoms" className="w-[27px] h-[27px] hover:fill-nefacblue transition-colors">
+              <SquareXIcon />
+            </SocialIcon>
+            <SocialIcon href="https://www.instagram.com/nefirstamendmentcoalition/">
+              <FontAwesomeIcon icon={faInstagramSquare} />
+            </SocialIcon>
+            <SocialIcon href="https://www.linkedin.com/company/nefac/">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </SocialIcon>
+            <SocialIcon href="https://open.spotify.com/show/7clTBFLosxgZMnMtV4pbrm">
+              <FontAwesomeIcon icon={faSpotify} />
+            </SocialIcon>
           </div>
         </div>
         

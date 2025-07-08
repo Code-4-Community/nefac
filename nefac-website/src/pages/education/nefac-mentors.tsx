@@ -1,5 +1,5 @@
-import ApplicationStep from '@/components/education/education-initatives/ApplicationStep'
-import Testimonial from '@/components/education/education-initatives/Testimonial'
+import ApplicationStep from '@/components/education/ApplicationStep'
+import Testimonial from '@/components/education/Testimonial'
 import EducationInitiativeWrapper from '@/components/education/EducationInitiativeWrapper'
 import React from 'react'
 
