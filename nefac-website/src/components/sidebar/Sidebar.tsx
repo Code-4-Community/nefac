@@ -68,7 +68,7 @@ export default function Sidebar({ items }: SidebarProps) {
           onClick={openSidebar}
           className="fixed bottom-5 left-0 z-50 bg-gray-200 w-[60px] h-[60px] text-2xl font-bold rounded-r-md shadow-md flex items-center justify-center md:hidden"
         >
-          <FontAwesomeIcon icon={faAngleRight} />
+          <FontAwesomeIcon icon={faAngleRight} className="" />
         </button>
       )}
 
@@ -85,7 +85,7 @@ export default function Sidebar({ items }: SidebarProps) {
             className="fixed top-5 right-5 w-[60px] h-[60px] 
               text-2xl font-bold flex items-center justify-center"
           >
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon icon={faTimes} className="" />
           </button>
 
           <div className="flex flex-col gap-5 mt-20">
