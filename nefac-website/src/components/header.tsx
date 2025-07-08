@@ -137,7 +137,7 @@ const Header = ({ nefacLogo }: HeaderProps) => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="block px-4 py-2 hover:text-black">
+                      <a href="/education/foi-guide" className="block px-4 py-2 hover:text-black">
                         FOI Guide
                       </a>
                     </li>

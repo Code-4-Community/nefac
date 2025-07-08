@@ -49,7 +49,11 @@ export default function Sidebar({ items }: SidebarProps) {
                 key={i}
                 onClick={() => router.push(item.link)}
                 className={`cursor-pointer px-4 py-2 rounded-r-3xl 
-                  ${isActive ? "bg-gray-100 border-l-4 border-blue-600" : "bg-white"}`}
+                  ${
+                    isActive
+                      ? "bg-gray-100 border-l-4 border-nefacblue"
+                      : "bg-white"
+                  }`}
               >
                 {item.title}
               </div>
@@ -94,8 +98,13 @@ export default function Sidebar({ items }: SidebarProps) {
                     router.push(item.link);
                     closeSidebar();
                   }}
+                  // ambiguous blue color here for the sidebar
                   className={`cursor-pointer px-4 py-2 rounded-r-3xl text-3xl 
-                    ${isActive ? "bg-gray-100 border-l-4 border-blue-600" : "bg-white"}`}
+                    ${
+                      isActive
+                        ? "bg-gray-100 border-l-4 border-blue-600"
+                        : "bg-white"
+                    }`}
                 >
                   {item.title}
                 </div>
