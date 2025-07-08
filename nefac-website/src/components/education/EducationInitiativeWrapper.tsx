@@ -13,7 +13,7 @@ export default function EducationInitiativeWrapper(props: EducationInitiativeWra
             <div className="text-nefacblue text-[36px] font-bold px-8">
                 Education Initiatives
             </div>
-            <div className="w-full flex flex-row gap-10">
+            <div className="w-full flex flex-row px-8">
                 {/* Sidebar component (kept here because the Sidebar is present in every EducationInitiative) */}
                 <Sidebar
                     items={[
