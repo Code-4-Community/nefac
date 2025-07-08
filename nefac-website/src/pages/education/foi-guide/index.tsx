@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EducationInitiativeWrapper from "@/components/education/EducationInitiativeWrapper";
-import InitiativeDescription from "@/components/education/InitiativeDescription";
+import InitiativeDescription from "@/components/sidebar/InitiativeDescription";
 import MapButtonsPanel from "@/components/education/foi-guide/MapButtonsPanel";
 import NewEnglandMap from "@/components/education/foi-guide/NewEnglandMap";
 
