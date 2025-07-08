@@ -36,6 +36,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -62,9 +63,11 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
   * {
     border-color: var(--border);
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -83,13 +86,23 @@ body {
 }
 
 @keyframes slideInLeft {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideOutLeft {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .sidebar-slide-in {
@@ -136,7 +149,7 @@ body {
 .custom-html-content h5 {
   font-weight: bold;
   font-size: 18px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .custom-html-content h5 img.alignright {

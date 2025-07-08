@@ -1,5 +1,6 @@
 import React from "react";
 import { states } from "../../lib/constants/subscribe/states";
+import { cn } from "../../lib/utils";
 interface NewsLetterProps {
   title: string;
   description: string;
@@ -19,7 +20,7 @@ const styles = {
   generalButton: `w-fit bg-nefacblue text-white px-5 py-2 mx-4 my-4 rounded-[10px] hover:bg-[rgba(37,73,127,1)] transition-colors text-center text-m font-semibold text-[14px] no-underline font-inter`,
 
   // State Newsletter
-  statesTitle: `font-bold text-[#2F5C9F] text-[36px] leading-[100%] tracking-[0%] font-[Roboto] md:whitespace-pre-line`,
+  statesTitle: `font-bold text-[#2F5C9F] text-[36px] leading-[100%] tracking-[0%] font-[Poppins] md:whitespace-pre-line`,
   statesButton: `bg-nefacblue text-[14px] md:text-[16px] text-white px-5 py-2 rounded-[10px] hover:bg-[rgba(37,73,127,1)] transition-colors text-center md:text-[24px] font-semibold no-underline self-center w-[220px]] text-nowrap`,
 
   // Generic Description
@@ -36,11 +37,13 @@ const NewsLetter: React.FC<NewsLetterProps> = ({
 }) => {
   return (
     <div
-      className={`${
+      className={cn(
+        styles.generalContainer,
         variant === "stateNewsletter"
           ? styles.containerBorderless
-          : styles.containerBorder
-      } ${styles.generalContainer} ${extraStyles}`}
+          : styles.containerBorder,
+        extraStyles
+      )}
     >
       <div>
         <span
