@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-
-interface SidebarItem {
-  title: string;
-  link: string;
-}
+import { SidebarItem } from "./SidebarWrapper";
 
 interface SidebarProps {
   items: SidebarItem[];
