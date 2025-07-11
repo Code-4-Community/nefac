@@ -1,8 +1,8 @@
 import { CoreBlocks } from "@faustwp/blocks";
-import { LeadershipPersonBlock } from "./LeadershipPersonCard/view";
+import { PersonListBlock } from "./PersonList/view";
  
 const blocks = {
-	'nefac/leadership-person-card': LeadershipPersonBlock,
+	'nefac/person-list': PersonListBlock,
 	...CoreBlocks,
 };
 

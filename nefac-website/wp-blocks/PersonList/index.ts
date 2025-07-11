@@ -3,7 +3,7 @@ import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
 
-registerBlockType('nefac/leadership-person-card', {
+registerBlockType('nefac/person-list', {
   ...(metadata as BlockConfiguration),
   edit: Edit,
   save: save
