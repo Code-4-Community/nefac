@@ -35,7 +35,7 @@ const GET_LEADERSHIP_PAGE = gql`
 // Custom component to render individual leadership cards
 const LeadershipCard: React.FC<Person> = ({ name, role }) => {
   return (
-    <div className="p-4 bg-gray-100 w-[260px] rounded-md">
+    <div className="p-4 bg-gray-100 w-[200px] md:w-[260px] rounded-md">
       <p className="flex flex-wrap font-bold">{name}</p>
       {role && <p className="text-md">{role}</p>}
     </div>
@@ -118,7 +118,7 @@ const LeadershipPage: React.FC = () => {
   }
 
   return (
-    <div className="flex p-8 gap-10">
+    <div className="flex p-4 gap-8 md:gap-10">
       <div className="sticky top-8 self-start flex flex-col space-y-2">
         {sections.map((section) => (
           <a
