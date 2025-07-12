@@ -13,27 +13,26 @@ type Props = {
 export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
   // button hover states
   const isWide = state.id === "FOIA";
-  const insetX = isHovered
-  ? isWide
-    ? "left-0 right-12"
-    : "left-0 right-12"
-  : isWide
-  ? "left-0 right-[1.6%]"
-  : "left-0 right-[3%]";
-
+  const scale = isHovered
+    ? isWide
+      ? "w-[93.5%]"
+      : "w-[86%]"
+    : isWide
+    ? "w-[98.4%]"
+    : "w-[97%]";
   const bg = isHovered ? "bg-nefacblue" : "bg-white";
   const arrowBg = isHovered ? "bg-black" : "bg-nefacblue";
   const arrowHover = isHovered ? "text-white right-[0.375rem]" : "text-black";
   const textColor = isHovered ? "text-white" : "text-black";
 
   return (
-    <Button
-      asChild
-      variant="outline"
-      onMouseEnter={() => setHoveredId(state.id ?? null)}
-      onMouseLeave={() => setHoveredId(null)}
-      className={`w-full my-4 relative overflow-hidden rounded-[10px]`}
-    >
+      <Button
+        asChild
+        variant="outline"
+        onMouseEnter={() => setHoveredId(state.id ?? null)}
+        onMouseLeave={() => setHoveredId(null)}
+        className="w-full my-4 relative overflow-hidden rounded-[10px] bg-white"
+      >
       <Link
         href={state.url}
         className="relative w-full h-full flex justify-between overflow-hidden px-4 items-start min-w-0"
@@ -47,8 +46,8 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
         </span>
         {/* Hover Fill Background */}
         <div
-          className={`absolute inset-0 h-full z-10 rounded-[10px] transition-all duration-300
-            ${bg} ${insetX}
+          className={`absolute h-full z-10 transition-all duration-300
+            ${bg} ${isHovered ? "right-6 left-0" : "right-[3%] left-0"}
           `}
         />
         {/* Arrow */}
