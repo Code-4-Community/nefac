@@ -13,13 +13,14 @@ type Props = {
 export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
   // button hover states
   const isWide = state.id === "FOIA";
-  const scale = isHovered
-    ? isWide
-      ? "w-[93.5%]"
-      : "w-[86%]"
-    : isWide
-    ? "w-[98.4%]"
-    : "w-[97%]";
+  const insetX = isHovered
+  ? isWide
+    ? "left-0 right-12"
+    : "left-0 right-12"
+  : isWide
+  ? "left-0 right-[1.6%]"
+  : "left-0 right-[3%]";
+
   const bg = isHovered ? "bg-nefacblue" : "bg-white";
   const arrowBg = isHovered ? "bg-black" : "bg-nefacblue";
   const arrowHover = isHovered ? "text-white right-[0.375rem]" : "text-black";
@@ -47,7 +48,7 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
         {/* Hover Fill Background */}
         <div
           className={`absolute inset-0 h-full z-10 rounded-[10px] transition-all duration-300
-            ${bg} ${scale}
+            ${bg} ${insetX}
           `}
         />
         {/* Arrow */}
