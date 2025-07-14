@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/wp-graphql.2.3.3.zip",
+    "wpengine/wp-graphql-content-blocks",
+    "https://downloads.wordpress.org/plugin/faustwp.1.8.0.zip"
+  ],
+  "config": {
+    "WP_DEBUG": true
+  },
+  "mappings": {
+    "wp-content/themes/twentytwenty/style.css": "./theme/style.css",
+    "imports": "./imports",
+    "wp-cli.yml": "./wp-cli.yml"
+  },
+  "lifecycleScripts": {
+    "afterStart": "wp-env run cli bash ./imports/env-setup.sh"
+  }
+}
+
