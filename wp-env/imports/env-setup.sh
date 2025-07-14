@@ -8,8 +8,9 @@ if [ ! -f /var/www/html/.initialized ]; then
   # import from version-controlled database copy
   wp db import ./imports/database.sql
 
-  # fix installation of wp-graphql-content-blocks
-  (cd wp-content/plugins/wp-graphql-content-blocks && composer install)
+  # fix installation of wp-graphql-content-blocks 
+  # (no longer needed)
+  # (cd wp-content/plugins/wp-graphql-content-blocks && composer install)
 
   # fix possibly broken permalink behavior
   wp rewrite flush --hard

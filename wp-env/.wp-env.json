@@ -1,7 +1,7 @@
 {
   "plugins": [
     "https://downloads.wordpress.org/plugin/wp-graphql.2.3.3.zip",
-    "wpengine/wp-graphql-content-blocks",
+    "https://github.com/wpengine/wp-graphql-content-blocks/releases/download/v4.8.4/wp-graphql-content-blocks.zip",
     "https://downloads.wordpress.org/plugin/faustwp.1.8.0.zip"
   ],
   "config": {
