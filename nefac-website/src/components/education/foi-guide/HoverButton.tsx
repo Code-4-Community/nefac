@@ -31,7 +31,7 @@ export default function HoverButton({ state, isHovered, setHoveredId }: Props) {
       variant="outline"
       onMouseEnter={() => setHoveredId(state.id ?? null)}
       onMouseLeave={() => setHoveredId(null)}
-      className={`w-full my-4 relative overflow-hidden rounded-[10px]`}
+      className={`w-full my-4 relative overflow-hidden rounded-[10px] ${isHovered? "bg-black" : "bg-white"} transition-all duration-300`}
     >
       <Link
         href={state.url}
