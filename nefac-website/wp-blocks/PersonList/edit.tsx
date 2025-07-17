@@ -1,30 +1,11 @@
-import React, { useState } from 'react';
-import { useBlockProps } from '@wordpress/block-editor';
-import { TextControl, Button, PanelBody, PanelRow } from '@wordpress/components';
+import React from 'react';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { TextControl } from '@wordpress/components';
 import { BlockEditProps } from '@wordpress/blocks';
-import PersonListAttributes, { Person } from './PersonListAttributes';
+import PersonListAttributes from './PersonListAttributes';
 
-function Edit(props: BlockEditProps<PersonListAttributes>) {
-  const { attributes, setAttributes } = props;
-  const { title = '', people = [] } = attributes;
-
-  const [newName, setNewName] = useState('');
-  const [newRole, setNewRole] = useState('');
-
-  const addPerson = () => {
-    if (!newName || !newRole) return;
-
-    const updatedPeople = [...people, { name: newName, role: newRole }];
-    setAttributes({ people: updatedPeople });
-
-    setNewName('');
-    setNewRole('');
-  };
-
-  const removePerson = (indexToRemove: number) => {
-    const updatedPeople = people.filter((_, i) => i !== indexToRemove);
-    setAttributes({ people: updatedPeople });
-  };
+function Edit({ attributes, setAttributes }: BlockEditProps<PersonListAttributes>) {
+  const { title = '' } = attributes;
 
   return (
     <div {...useBlockProps()}>
@@ -34,46 +15,12 @@ function Edit(props: BlockEditProps<PersonListAttributes>) {
         onChange={(value) => setAttributes({ title: value })}
       />
 
-      <div>
-        <strong>People List:</strong>
-        {people.length === 0 && <p>No people added yet.</p>}
-        {people.map((person, index) => (
-          <PanelBody
-            key={index}
-            title={`${person.name} ${person.role}`}
-            initialOpen={false}
-          >
-            <PanelRow>
-              <Button
-                variant="secondary"
-                onClick={() => removePerson(index)}
-              >
-                Remove
-              </Button>
-            </PanelRow>
-          </PanelBody>
-        ))}
-      </div>
-
-      <div style={{ marginTop: '8px', borderTop: '1px solid #ccc', paddingTop: '4px' }}>
-        <h4>Add a New Person</h4>
-        <TextControl
-          label="Name"
-          value={newName}
-          onChange={(value) => setNewName(value)}
+      <div style={{ marginTop: '16px', borderTop: '1px solid #ccc', paddingTop: '12px' }}>
+        <InnerBlocks
+          allowedBlocks={['nefac/person']}
+          orientation="vertical"
+          renderAppender={InnerBlocks.ButtonBlockAppender}
         />
-        <TextControl
-          label="Role"
-          value={newRole}
-          onChange={(value) => setNewRole(value)}
-        />
-        <Button
-          variant="primary"
-          onClick={addPerson}
-          style={{ marginTop: '2px' }}
-        >
-          Add Person
-        </Button>
       </div>
     </div>
   );

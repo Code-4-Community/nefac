@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +24,16 @@ const GET_LEADERSHIP_PAGE = gql`
         ... on NefacPersonList {
           attributes {
             title
-            people
+          }
+          innerBlocks {
+            __typename
+            name
+            ... on NefacPerson {
+              attributes {
+                name
+                role
+              }
+            }
           }
         }
       }
@@ -32,31 +41,32 @@ const GET_LEADERSHIP_PAGE = gql`
   }
 `;
 
-// Custom component to render individual leadership cards
-const LeadershipCard: React.FC<Person> = ({ name, role }) => {
-  return (
-    <div className="p-4 bg-gray-100 w-[200px] md:w-[260px] rounded-md">
-      <p className="flex flex-wrap font-bold">{name}</p>
-      {role && <p className="text-md">{role}</p>}
-    </div>
-  );
-};
+const LeadershipCard: React.FC<Person> = ({ name, role }) => (
+  <div className="p-4 bg-gray-100 w-[200px] md:w-[260px] rounded-md">
+    <p className="flex flex-wrap font-bold">{name}</p>
+    {role && <p className="text-md">{role}</p>}
+  </div>
+);
 
-
-const SectionCard: React.FC<{ title: string; people: Person[] }> = ({ title, people }) => {
+const SectionCard: React.FC<{ title: string; people: Person[] }> = ({
+  title,
+  people,
+}) => {
   const [expanded, setExpanded] = useState(false);
-  // How many members we want to display by default
   const maxVisible = 3;
   const visiblePeople = expanded ? people : people.slice(0, maxVisible);
 
   return (
-    <div id={title.replace(/\s+/g, "-").toLowerCase()} className="w-full mb-12 scroll-mt-8">
+    <div
+      id={title.replace(/\s+/g, "-").toLowerCase()}
+      className="w-full mb-12 scroll-mt-8"
+    >
       <h2 className="text-xl text-[#464758] font-bold mb-4">{title.toUpperCase()}</h2>
 
       <div className="w-full">
         <div className="flex gap-10 flex-wrap">
-          {visiblePeople.map((person, index) => (
-            <LeadershipCard key={index} name={person.name} role={person.role} />
+          {visiblePeople.map((person, i) => (
+            <LeadershipCard key={i} name={person.name} role={person.role} />
           ))}
         </div>
 
@@ -67,7 +77,10 @@ const SectionCard: React.FC<{ title: string; people: Person[] }> = ({ title, peo
               className="cursor-pointer flex items-center gap-2 text-black"
             >
               <span className="text-base">{expanded ? "View Less" : "View More"}</span>
-              <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} className="text-lg" />
+              <FontAwesomeIcon
+                icon={expanded ? faChevronUp : faChevronDown}
+                className="text-lg"
+              />
             </button>
           </div>
         )}
@@ -76,46 +89,46 @@ const SectionCard: React.FC<{ title: string; people: Person[] }> = ({ title, peo
   );
 };
 
-
 const LeadershipPage: React.FC = () => {
   const { data, loading, error } = useQuery(GET_LEADERSHIP_PAGE, {
     fetchPolicy: "no-cache",
   });
 
   const [activeTab, setActiveTab] = useState("");
+  const [sections, setSections] = useState<Section[]>([]);
 
   if (loading) return <div>Loading...</div>;
+  console.log(data);
   if (error || !data?.page) return <div>Error loading leadership data.</div>;
 
-  // Filter for your custom blocks
-  const leadershipBlocks = (data.page.editorBlocks || []).filter(
-    (block: any) => block.name === "nefac/person-list"
-  );
+  React.useEffect(() => {
+    if (data?.page?.editorBlocks) {
+      const leadershipBlocks = data.page.editorBlocks.filter(
+        (block: any) => block.name === "nefac/person-list"
+      );
 
-  // Parse the people in JSON format
-  const sections: Section[] = leadershipBlocks.map((block: any, index: number) => {
-    const rawPeople = block.attributes?.people || [];
-    const parsedPeople: Person[] = rawPeople
-      .map((p: string) => {
-        try {
-          return JSON.parse(p) as Person;
-        } catch {
-          return null;
-        }
-      })
-      .filter((p: any): p is Person => p !== null);
+      const sections: Section[] = leadershipBlocks.map((block: any, index: number) => {
+        const people: Person[] = (block.innerBlocks || [])
+          .filter((innerBlock: any) => innerBlock.name === "nefac/person")
+          .map((innerBlock: any) => ({
+            name: innerBlock.attributes.name,
+            role: innerBlock.attributes.role,
+          }));
 
-    return {
-      key: `section-${index}`,
-      title: block.attributes.title,
-      people: parsedPeople,
-    };
-  });
+        return {
+          key: `section-${index}`,
+          title: block.attributes.title,
+          people,
+        };
+      });
 
-  // Set default tab to first title
-  if (!activeTab && sections.length > 0) {
-    setActiveTab(sections[0].title);
-  }
+      setSections(sections);
+
+      if (sections.length > 0) {
+        setActiveTab(sections[0].title);
+      }
+    }
+  }, [data]);
 
   return (
     <div className="flex p-4 gap-8 md:gap-10">

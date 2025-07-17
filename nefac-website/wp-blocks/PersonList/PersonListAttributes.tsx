@@ -1,9 +1,6 @@
-export interface Person {
-  name: string
-  role: string
-}
+import { PersonAttributes } from "../Person/PersonAttributes"
 
 export default interface PersonListAttributes {
   title: string
-  people: Person[]
+  people: PersonAttributes[]
 }

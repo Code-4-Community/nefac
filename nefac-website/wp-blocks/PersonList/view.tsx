@@ -1,29 +1,26 @@
-import Person from "../../src/components/leadership-page/Person";
-
-interface Person {
-  name: string;
-  role: string;
-}
+import { InnerBlocks } from '@wordpress/block-editor';
 
 interface PersonListBlockProps {
   attributes: {
     title?: string;
-    people?: Person[];
   };
 }
 
-export const PersonListBlock = ({ attributes }: PersonListBlockProps) => {
-  const { title = '', people = [] } = attributes;
-
+const PersonListBlock = (props: any) => {
+  const { attributes } = props;
+  const { title = '' } = attributes || {};
   return (
     <div className="person-list-block">
-      {title && <h2 className="person-list-title">{title}</h2>}
-
-      <div className="person-list-person">
-        {people.map((person, index) => (
-          <Person key={index} name={person.name} role={person.role} />
-        ))}
+      {title && (
+        <h5 className="person-list-title" style={{ textAlign: 'center' }}>
+          <span style={{ backgroundColor: '#ffff00' }}>{title}</span>
+        </h5>
+      )}
+      <div className="person-list-people">
+        <InnerBlocks.Content />
       </div>
     </div>
   );
 };
+
+export default PersonListBlock;

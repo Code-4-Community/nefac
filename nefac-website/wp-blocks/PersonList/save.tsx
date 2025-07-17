@@ -1,21 +1,21 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import PersonListAttributes from './PersonListAttributes';
 
 export default function save({ attributes }: { attributes: PersonListAttributes }) {
-  const { title = '', people = [] } = attributes;
+  const { title = '' } = attributes;
 
   return (
     <div {...useBlockProps.save()}>
-      {people.map((person, index) => (
-        <div key={index} data-section={title}>
-          <p style={{ textAlign: 'center' }}>
-            <strong>{person.name}</strong>
-            <br />
-            {person.role}
-          </p>
-          <span style={{ display: 'none' }}>{title}</span>
-        </div>
-      ))}
+      {title &&         
+        <h5
+          className="person-list-title"
+          style={{ textAlign: 'center' }}
+        >
+          <span style= {{ backgroundColor: '#ffff00' }}>{title}</span>
+        </h5>}
+      <div className="person-list-people">
+        <InnerBlocks.Content />
+      </div>
     </div>
   );
 }

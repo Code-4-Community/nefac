@@ -11,22 +11,12 @@
     "title": {
       "type": "string",
       "default": ""
-    },
-    "people": {
-      "type": "array",
-      "default": [],
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          }
-        },
-        "required": ["name", "role"]
-      }
+    }
+  },
+  "supports": {
+    "html": false,
+    "innerBlocks": {
+      "allowedBlocks": ["nefac/person"]
     }
   },
   "textdomain": "nefac",
