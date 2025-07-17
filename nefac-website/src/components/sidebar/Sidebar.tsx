@@ -60,7 +60,7 @@ export default function Sidebar({ items }: SidebarProps) {
             );
           })}
         </div>
-        <div className="w-[3px] h-[300px] bg-gray-200" />
+        <div className="w-[5px] h-[350px] ml-2 bg-gray-200" />
       </div>
 
       {!visible && (
