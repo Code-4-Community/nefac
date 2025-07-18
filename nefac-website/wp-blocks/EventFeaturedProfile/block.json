@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "nefac/event-featured-profile",
+  "title": "Event Featured Profile",
+  "category": "common",
+  "icon": "person",
+  "description": "A block for displaying information about keynote speakers or award recipients at Negri Institute and NEFAC Award events.",
+  "keywords": ["event", "profile", "featured", "speaker", "award", "keynote", "recipient", "person"],
+  "attributes": {
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "subjectName": {
+      "type": "string",
+      "default": ""
+    },
+    "recognitionName": {
+      "type": "string",
+      "default": ""
+    },
+    "subjectShortDescription": {
+      "type": "string",
+      "default": ""
+    },
+    "subjectLongDescription": {
+      "type": "string",
+      "default": "" 
+    }
+  },
+  "textdomain": "nefac",
+  "editorScript": "file:./index.ts"
+}
