@@ -10,15 +10,19 @@ export default function save({ attributes }: { attributes: EventFeaturedProfileA
         style={{display: 'flex', flexDirection: 'column'}}
     >
         {recognitionName ? (
-            <h4>
-                {recognitionName} | {subjectName}
-                {subjectShortDescription && `, ${subjectShortDescription}`}
-            </h4>
+            <p>
+                <strong>
+                    <em>{recognitionName}</em> | {subjectName}
+                    {subjectShortDescription && `, ${subjectShortDescription}`}
+                </strong>
+            </p>
         ) : (
-            <h4>
-                {subjectName}
-                {subjectShortDescription && `, ${subjectShortDescription}`}
-            </h4>
+            <p>
+                <strong>
+                    {subjectName}
+                    {subjectShortDescription && `, ${subjectShortDescription}`}
+                </strong>
+            </p>
         )}
         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
             {subjectLongDescription && (
