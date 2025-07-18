@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "nefac/person-list",
+  "title": "Person List",
+  "category": "common",
+  "icon": "groups",
+  "description": "A block for displaying a list of people with names and roles, grouped under a title.",
+  "keywords": ["person", "list", "team", "group", "people"],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "innerBlocks": {
+      "allowedBlocks": ["nefac/person"]
+    }
+  },
+  "textdomain": "nefac",
+  "editorScript": "file:./index.ts"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "nefac/person",
+  "title": "Person",
+  "category": "common",
+  "icon": "businessperson",
+  "description": "A block for displaying a single person, who has a name and role",
+  "keywords": ["person"],
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "nefac",
+  "editorScript": "file:./index.ts"
+}
