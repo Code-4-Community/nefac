@@ -76,8 +76,7 @@ const EventProfilesTestPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-
+    <div>
       <div className="max-w-7xl mx-auto p-6">
         <div className="w-full">
           {allProfiles.length === 0 ? (
@@ -86,7 +85,7 @@ const EventProfilesTestPage: React.FC = () => {
               <h2 className="text-2xl font-semibold text-gray-900 mb-2">No profiles found</h2>
             </div>
           ) : (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               {allProfiles.map((profile, i) => (
                 <Profile 
                   key={i} 

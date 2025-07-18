@@ -16,7 +16,10 @@ const Profile: React.FC<ProfileProps> = ({
   subjectLongDescription
 }) => {
   return (
-    <div className="bg-white border border-gray-300 p-6 my-6">
+    <div className="p-6">
+        {recognitionName && (
+            <h1 className="text-3xl text-gray-600 mb-5">{recognitionName}</h1>
+        )}
         {imageUrl ? (
             <img 
             src={imageUrl} 
@@ -29,11 +32,7 @@ const Profile: React.FC<ProfileProps> = ({
         <div className="flex flex-row gap-2.5 mb-3">
             <div className="w-0.5 self-stretch bg-nefacblue"></div>
             <div className="flex flex-col">
-                {recognitionName ? (
-                    <h1 className="text-3xl font-bold">{subjectName}, {recognitionName}</h1>
-                ) : (
-                    <h1 className="text-3xl font-bold">{subjectName}</h1>
-                )}
+                <h1 className="text-3xl font-bold">{subjectName}</h1>
                 {subjectShortDescription && (
                     <p className="text-gray-600 text-base">
                         {subjectShortDescription}
