@@ -7,6 +7,7 @@ interface PersonBlockProps {
   };
 }
 
+// How it appears on the React frontend
 const PersonBlock = (props: any) => {
   const { attributes } = props;
   const { name = '', role = '' } = attributes || {};
