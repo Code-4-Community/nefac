@@ -1,7 +1,7 @@
 import { useBlockProps } from '@wordpress/block-editor';
 import { PersonAttributes } from './PersonAttributes';
 
-// How it appears in the actual website UI
+// How it appears on the WordPress post content
 export default function save({ attributes }: { attributes: PersonAttributes }) {
   const blockProps = useBlockProps.save()
   const { name, role } = attributes;

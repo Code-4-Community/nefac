@@ -4,6 +4,7 @@ import { TextControl } from '@wordpress/components';
 import { BlockEditProps } from '@wordpress/blocks';
 import { PersonAttributes } from './PersonAttributes';
 
+// UI in the Gutenberg block editor
 function Edit({ attributes, setAttributes }: BlockEditProps<PersonAttributes>) {
   const { name = '', role = '' } = attributes;
 

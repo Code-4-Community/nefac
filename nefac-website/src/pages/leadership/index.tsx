@@ -97,11 +97,7 @@ const LeadershipPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("");
   const [sections, setSections] = useState<Section[]>([]);
 
-  if (loading) return <div>Loading...</div>;
-  console.log(data);
-  if (error || !data?.page) return <div>Error loading leadership data.</div>;
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (data?.page?.editorBlocks) {
       const leadershipBlocks = data.page.editorBlocks.filter(
         (block: any) => block.name === "nefac/person-list"
@@ -129,6 +125,9 @@ const LeadershipPage: React.FC = () => {
       }
     }
   }, [data]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error || !data?.page) return <div>Error loading leadership data.</div>;
 
   return (
     <div className="flex p-4 gap-8 md:gap-10">
