@@ -77,28 +77,26 @@ const EventProfilesTestPage: React.FC = () => {
 
   return (
     <div>
-      <div className="max-w-7xl mx-auto p-6">
-        <div className="w-full">
-          {allProfiles.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="text-gray-400 text-6xl mb-4">🎭</div>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">No profiles found</h2>
-            </div>
-          ) : (
-            <div className="flex flex-col">
-              {allProfiles.map((profile, i) => (
-                <Profile 
-                  key={i} 
-                  imageUrl={profile.imageUrl}
-                  subjectName={profile.subjectName}
-                  recognitionName={profile.recognitionName}
-                  subjectShortDescription={profile.subjectShortDescription}
-                  subjectLongDescription={profile.subjectLongDescription}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+      <div className="md:mx-20 p-6">
+        {allProfiles.length === 0 ? (
+          <div className="text-center py-12">
+            <div className="text-gray-400 text-6xl mb-4">🎭</div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">No profiles found</h2>
+          </div>
+        ) : (
+          <div className="flex flex-col space-y-6 md:space-y-0">
+            {allProfiles.map((profile, i) => (
+              <Profile 
+                key={i} 
+                imageUrl={profile.imageUrl}
+                subjectName={profile.subjectName}
+                recognitionName={profile.recognitionName}
+                subjectShortDescription={profile.subjectShortDescription}
+                subjectLongDescription={profile.subjectLongDescription}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

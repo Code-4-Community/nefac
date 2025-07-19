@@ -1,4 +1,4 @@
-import { Profile } from "@/components/negri-institute/Profile";
+import Profile from "@/components/negri-institute/Profile";
 
 interface EventFeaturedProfileBlockProps {
     attributes: {
