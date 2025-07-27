@@ -4,7 +4,7 @@
   "name": "nefac/event-featured-profile",
   "title": "Event Featured Profile",
   "category": "common",
-  "icon": "person",
+  "icon": "awards",
   "description": "A block for displaying information about keynote speakers or award recipients at Negri Institute and NEFAC Award events.",
   "keywords": ["event", "profile", "featured", "speaker", "award", "keynote", "recipient", "person"],
   "attributes": {
