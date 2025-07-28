@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -52,8 +52,35 @@ const SectionCard: React.FC<{ title: string; people: Person[] }> = ({
   title,
   people,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
-  const maxVisible = 3;
+  const [maxVisible, setMaxVisible] = useState(4);
+
+  useEffect(() => {
+    // Function to calculate the number of cards per row (NOTE: CHANGE IF LeadershipCard COMPONENT HAS DIMENSIONS MODIFIED)
+    const calculateCardsPerRow = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+
+        // Estimate card width based on media query
+        const isMediumScreen = window.matchMedia("(min-width: 768px)").matches;
+        // Card width for dynamic calculations
+        const cardWidth = isMediumScreen ? 260 : 200;
+        const cardGap = 40; // Gap 10 in pixels (from SectionCard below)
+        const fullCardWidth = cardWidth + cardGap;
+
+        const cardsPerRow = Math.max(1, Math.floor(containerWidth / fullCardWidth));
+        // Show More for more than 2 rows worth of cards
+        setMaxVisible(2*cardsPerRow);
+      }
+    };
+
+    calculateCardsPerRow();
+    window.addEventListener("resize", calculateCardsPerRow);
+
+    return () => window.removeEventListener("resize", calculateCardsPerRow);
+  }, []);
+
   const visiblePeople = expanded ? people : people.slice(0, maxVisible);
 
   return (
@@ -63,7 +90,7 @@ const SectionCard: React.FC<{ title: string; people: Person[] }> = ({
     >
       <h2 className="text-xl text-[#464758] font-bold mb-4">{title.toUpperCase()}</h2>
 
-      <div className="w-full">
+      <div className="w-full" ref={containerRef}>
         <div className="flex gap-10 flex-wrap">
           {visiblePeople.map((person, i) => (
             <LeadershipCard key={i} name={person.name} role={person.role} />
