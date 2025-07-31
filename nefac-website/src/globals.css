@@ -162,6 +162,10 @@ body {
   text-decoration: underline;
 }
 
+.override-flex-col > div.w-full.flex.flex-row {
+  flex-direction: column !important;
+}
+
 @media (max-width: 767px) {
   .custom-html-content {
     max-width: 90%;

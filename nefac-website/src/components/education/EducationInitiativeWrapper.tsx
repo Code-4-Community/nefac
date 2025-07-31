@@ -9,8 +9,8 @@ export default function EducationInitiativeWrapper({ children }: EducationInitia
     <SidebarWrapper
       title="Education Initiatives"
       items={[
-        { title: "30 Minute Skills", link: "/education-initiative" },
-        { title: "First Amendment and the Free Press", link: "/education-initiative-abc" },
+        { title: "30 Minute Skills", link: "/education/thirty-minute-skills" },
+        { title: "First Amendment & Free Press", link: "/education-initiative-abc" },
         { title: "FOI Guide", link: "/education/foi-guide" },
         { title: "NEFAC Mentors", link: "/education/nefac-mentors" },
         { title: "Negri Institute", link: "/education-initiative-jkl" },

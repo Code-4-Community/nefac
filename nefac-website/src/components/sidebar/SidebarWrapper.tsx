@@ -19,10 +19,10 @@ export default function SidebarWrapper({
 }: SidebarWrapper) {
     return (
         <div className="min-h-screen">
-            <div className="text-nefacblue text-[36px] font-bold px-8">
+            <div className="text-nefacblue text-[36px] font-bold px-10 pt-10 pb-3 ">
                 {title}
             </div>
-            <div className="w-full flex flex-row px-8 md:gap-9 pt-4">
+            <div className="w-full flex flex-row px-8 md:gap-9 text-[20px]">
                 <Sidebar items={items} />
                 <div className="w-full flex flex-col">
                     {children}
