@@ -16,7 +16,7 @@ type Section = {
 
 const GET_LEADERSHIP_PAGE = gql`
   query GetLeadershipPage {
-    page(id: "/about/leadership-new-draft/", idType: URI) {
+    page(id: "/about/leadership-new-draft", idType: URI) {
       title
       editorBlocks {
         __typename
